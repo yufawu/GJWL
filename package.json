@@ -1,0 +1,22 @@
+{
+  "name": "gjwl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yufawu/GJWL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yufawu/GJWL/issues"
+  },
+  "homepage": "https://github.com/yufawu/GJWL#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.6.8"
+  }
+}
