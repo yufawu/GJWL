@@ -124,7 +124,7 @@ function request(url, data = {}, method = "GET") {
                 }
             },
             fail: function(err) {
-                reject("服务器连接异常，请检查网络再试")
+                reject(err, "11服务器连接异常，请检查网络再试", )
                 tryHideFullScreenLoading(); //关闭之前的提示框
                 wx.hideNavigationBarLoading(); //关闭顶部的加载按钮
                 wx.showToast({ //弹出请求失败，3秒后自动关闭

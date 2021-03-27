@@ -1,19 +1,26 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
+
+.swiper {
+    height: 320rpx;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.slide-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-.usermotto {
-  margin-top: 200px;
+.button-wrap {
+    display: flex;
+    justify-content: space-around;
+    margin: 20rpx auto;
+}
+
+.tab-box {
+    background: #fff;
+    padding: 20rpx;
+}
+
+.tab-box p {
+    display: block;
 }
