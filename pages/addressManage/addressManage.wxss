@@ -1,0 +1,6 @@
+/* pages/addressManage/addressManage.wxss */
+
+.address {
+    min-height: 300rpx;
+    margin-bottom: 30rpx;
+}
