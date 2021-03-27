@@ -23,7 +23,7 @@
     "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
-    "useApiHostProcess": false,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -41,7 +41,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.16.0",
-  "appid": "wx7434261ef1fe2b06",
+  "appid": "wx48ef68c5b00716b2",
   "projectname": "GJWL",
   "debugOptions": {
     "hidedInDevtools": []
@@ -49,23 +49,29 @@
   "scripts": {},
   "isGameTourist": false,
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
+    "plugin": {
       "list": []
     },
     "game": {
-      "list": []
-    },
-    "plugin": {
       "list": []
     },
     "gamePlugin": {
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/addressManage/addressManage",
+          "pathName": "pages/addressManage/addressManage",
+          "scene": null
+        }
+      ]
     }
   }
 }

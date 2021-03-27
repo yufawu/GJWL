@@ -1,10 +1,10 @@
 //请求地址
 // const ApiRootUrl = 'http://api-sys.xfx361.com/appMiniPro/v1'; // http
-const ApiRootUrl = 'https://api-sys.xfx361.com/appMiniPro/v1'; //https--线上
-// const ApiRootUrl = 'http://192.168.2.243/appMiniPro/v1'; //本地测试
+// const ApiRootUrl = 'https://api-sys.xfx361.com/appMiniPro/v1'; //https--线上
+const ApiRootUrl = 'http://192.168.2.237:8089/api/mini'; //本地测试
 
 module.exports = {
-    WechatLogin: ApiRootUrl + '/wechatLogin', //注册登录
+    WechatLogin: ApiRootUrl + '/login', //注册登录
     WechatRefreshLogin: ApiRootUrl + '/wechatRefreshLogin', //刷新登录状态
     FindBanner: ApiRootUrl + '/findBanner', //首页轮播
     CheckCode: ApiRootUrl + '/checkCode', //验证邀请码
