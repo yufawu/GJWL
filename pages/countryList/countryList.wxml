@@ -1,0 +1,21 @@
+<!--pages/countryList/countryList.wxml-->
+<view class="page-country-list">
+  <view class="search-container">
+    <view class="search">
+      <image class="icon-search" src="../../res/image/ic_input_search_grey.png"></image>
+      <input placeholder="搜索" class="dark-color" bindinput="inputKeyWord"></input>
+    </view>
+  </view>
+  <view class="title" wx:if="{{!isSearch}}">热门国家</view>
+  <view class="hot-city-list" wx:if='{{!isSearch}}'>
+    <text class="hot-city-item" wx:for="{{hotList}}" wx:key="index" data-country-code="{{item.CountryCode}}" data-country-all-name="{{item.CountryAllName}}" data-country-cn-name="{{item.CountryCnName}}" data-country-en-name="{{item.CountryEnName}}" bindtap='selectHotCountry'>
+      {{item.CountryCode + item.CountryCnName}}
+    </text>
+  </view>
+  <view class="title second">国家列表</view>
+  <view class="country-list">
+    <text class="item" wx:for="{{list}}" wx:key="index" bindtap="itemClick" data-country-code="{{item.CountryCode}}" data-country-all-name="{{item.CountryAllName}}" data-country-cn-name="{{item.CountryCnName}}" data-country-en-name="{{item.CountryEnName}}">
+      {{item.CountryAllName}}
+    </text>
+  </view>
+</view>
