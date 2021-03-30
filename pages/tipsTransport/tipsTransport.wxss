@@ -1,1 +1,23 @@
 /* pages/tipsTransport/tipsTransport.wxss */
+
+.tips-wrap {
+    background: #fff;
+    padding: 20px 15px;
+    color: #333;
+    font-size: 16px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.tips {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.attention {
+    margin: 30rpx;
+}

@@ -1,2 +1,42 @@
 <!--pages/tipsTransport/tipsTransport.wxml-->
-<text>pages/tipsTransport/tipsTransport.wxml</text>
+<view class="pages">
+    <view class="tips-wrap">
+        <view class="title">集运流程</view>
+        <view class="content">
+            共分为5步，如上图所示(建议寄送前做好国际运费的评估。全程免费合箱打包，我们会尽力帮您节省空间，减轻重量。)
+        </view>
+        <view class="title">服务范围</view>
+        <view class="content">
+            一般情况下，我们只对集运订单做违禁品检查和包裹数目的核对，不提供具体盘点及专业质量检查服务
+        </view>  
+        <view class="title">物流风险</view>
+        <view class="content">
+            包裹由第三方物流承运，受海关政策限制且可能存在物流风险，需要按照实际情况选择是否保价。
+        </view>
+        <view class="tips">
+            我们作为服务平台，集成众多第三方国际物流商为您提供包裹合箱，转运服务，可能会遇到由于海关政策和跨境物流中不可控因素造成的风险，如罚没、丢件、高峰期寄送延迟等。
+        </view>
+        <view class="tips">
+            对于丢件我们会提供最高60元人民币/KG的赔偿；
+        </view>
+        <view class="tips">
+            对于海关罚没，我们不会赔偿，会提供相关证明
+        </view>
+        <view class="tips">
+            对于不可抗力造成的延迟，不做赔偿。不可抗力除了自然灾害之外还包括物流拥堵，国际通关环境等方面。对于仓库人为出库缓慢造成的延迟，会做相应赔偿。
+        </view>
+        
+    </view>
+     <view class="tips attention">
+         请注意：寄至仓库的物品密度如果过小，会导致同等重量下体积过大，按照体积重量收费的情况，比如各类盒子，锅，鞋子等有空腔的物品，以及棉被，海绵制品等本身密度较小的物品
+     </view>
+     <view>
+         <van-radio-group value="{{ radio }}" bind:change="onChange">
+  <van-radio name="1">我确认已经详细阅读以上集运须知及声明，完全清楚也同意其中内容并受其规范</van-radio>
+ 
+</van-radio-group>
+     </view>
+     <view class="click-button">
+  <van-button round type="info" block bindtap="agree">同意并继续</van-button>
+  </view>
+</view>
