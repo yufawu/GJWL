@@ -69,6 +69,42 @@
         {
           "name": "pages/addressManage/addressManage",
           "pathName": "pages/addressManage/addressManage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/addressAdd/addressAdd",
+          "pathName": "pages/addressAdd/addressAdd",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/bindMailbox/bindMailbox",
+          "pathName": "pages/bindMailbox/bindMailbox",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/bindPhone/bindPhone",
+          "pathName": "pages/bindPhone/bindPhone",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/suggestions/suggestions",
+          "pathName": "pages/suggestions/suggestions",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/packForecastManage/packForecastManage",
+          "pathName": "pages/packForecastManage/packForecastManage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/packForecast/packForecast",
+          "pathName": "pages/packForecast/packForecast",
           "scene": null
         }
       ]

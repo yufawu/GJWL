@@ -34,6 +34,13 @@ Page({
     onCancel() {
         console.log('取消搜索', e)
     },
+    addressAdd() { //增加地址
+        console.log('增加地址')
+        wx.navigateTo({
+            url: '../addressAdd/addressAdd'
+        })
+    },
+
 
     /**
      * 生命周期函数--监听页面隐藏

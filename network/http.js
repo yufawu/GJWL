@@ -59,6 +59,7 @@ function request(url, data = {}, method = "GET") {
     wx.showNavigationBarLoading();
     showFullScreenLoading();
     return new Promise(function(resolve, reject) {
+        console.log('请求信息', url, data, method)
         wx.request({
             url: url,
             data: data,

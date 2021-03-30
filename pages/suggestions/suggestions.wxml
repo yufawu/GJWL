@@ -27,5 +27,5 @@
     </van-cell-group>
 </view>
   <view class="click-button">
-    <van-button round type="info" block bindtap="addressAdd">提交</van-button>
+    <van-button round type="info" block bindtap="submit">提交</van-button>
     </view>

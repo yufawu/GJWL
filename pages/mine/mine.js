@@ -28,10 +28,64 @@ Page({
     onShow: function() {
 
     },
+    myCode() { //我的二维码
+        console.log('我的二维码')
+        wx.navigateTo({
+            url: '../myCode/myCode'
+        })
+    },
+    myShareList() { //我的分享列表
+        console.log('我的分享列表')
+        wx.navigateTo({
+            url: '../myShareList/myShareList'
+        })
+    },
+    packForecastManage() { //包裹预报管理列表
+        console.log('包裹预报管理列表')
+        wx.navigateTo({
+            url: '../packForecastManage/packForecastManage'
+        })
+    },
+    problemCommon() { //常见问题
+        console.log('常见问题')
+        wx.navigateTo({
+            url: '../problemCommon/problemCommon'
+        })
+    },
+    suggestions() { //投诉建议
+        console.log('投诉建议')
+            // wx.navigateTo({
+            //     url: '../suggestions/suggestions'
+            // })
+    },
+    informationNotice() { //通知资讯
+        console.log('通知资讯')
+        wx.navigateTo({
+            url: '../informationNotice/informationNotice'
+        })
+    },
     addressManage() { //地址管理
         console.log('地址管理')
         wx.navigateTo({
             url: '../addressManage/addressManage'
+        })
+    },
+    bindPhone() { //更改手机
+        console.log('更改手机')
+            // wx.navigateTo({
+            //     url: '../bindPhone/bindPhone'
+            // })
+    },
+    bindMailbox() { //绑定邮箱
+        console.log('绑定邮箱')
+            // wx.navigateTo({
+            //     url: '../bindMailbox/bindMailbox'
+            // })
+    },
+    about() { //关于我们
+        console.log('关于我们')
+        wx.navigateTo({
+            url: '../about/about'
         })
     },
 

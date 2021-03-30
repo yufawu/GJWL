@@ -9,10 +9,10 @@
 <view class="pages">
 
   <view class="button-wrap">
-  <van-button color="#1c1b1f" round  type="info">
+  <van-button color="#1c1b1f" round  type="info" bindtap="neesAttention">
   注意事项
 </van-button>
-  <van-button color="#ec0b2b" round  type="info">
+  <van-button color="#ec0b2b" round  type="info" bindtap="transport">
   开始集运
 </van-button>
   </view>

@@ -21,7 +21,7 @@
     <view class="panel">
         <view class="panel-title">我的包裹</view>
         <view class="panel-box">
-            <van-grid square>
+            <van-grid square border="{{false}}">
                 <van-grid-item icon="clear" text="未入库"></van-grid-item>
                 <van-grid-item icon="checked" text="已入库"></van-grid-item>
                 <van-grid-item icon="clock" text="待处理"></van-grid-item>
@@ -31,7 +31,7 @@
     <view class="panel">
         <view class="panel-title">我的订单</view>
         <view class="panel-box">
-            <van-grid square>
+            <van-grid square border="{{false}}">
                 <van-grid-item icon="cash-back-record" text="待支付"></van-grid-item>
                 <van-grid-item icon="close" text="待发货"></van-grid-item>
                 <van-grid-item icon="passed" text="已发货"></van-grid-item>
@@ -42,14 +42,20 @@
     <view class="panel">
         <view class="panel-title">工具与服务</view>
         <view class="panel-box">
-            <van-grid square>
+            <van-grid square border="{{false}}">
+                  <van-grid-item icon="qr" bindtap="myCode" text="我的二维码"></van-grid-item>
+                  <van-grid-item icon="friends-o" bindtap="myShareList" text="我的分享"></van-grid-item>
+                  <van-grid-item icon="gift-card-o" bindtap="packForecastManage" text="包裹预报"></van-grid-item>
+                  <van-grid-item icon="question-o" bindtap="problemCommon" text="常见问题"></van-grid-item>
+                  <van-grid-item icon="records" bindtap="suggestions" text="投诉建议"></van-grid-item>
+                  <van-grid-item icon="other-pay" bindtap="informationNotice" text="通知资讯"></van-grid-item>
                 <van-grid-item icon="question-o" text="异常件领取"></van-grid-item>
                 <van-grid-item icon="after-sale" text="交易记录"></van-grid-item>
                 <van-grid-item icon="scan" text="一键预报"></van-grid-item>
                 <van-grid-item bindtap='addressManage' icon="location-o" text="我的地址"></van-grid-item>
-                <van-grid-item icon="phone-o" text="更改手机"></van-grid-item>
-                <van-grid-item icon="comment-o" text="绑定邮箱"></van-grid-item>
-                <van-grid-item icon="contact" text="关于我们"></van-grid-item>
+                <van-grid-item bindtap='bindPhone' icon="phone-o" text="更改手机"></van-grid-item>
+                <van-grid-item bindtap='bindMailbox' icon="comment-o" text="绑定邮箱"></van-grid-item>
+                <van-grid-item bindtap='about' icon="contact" text="关于我们"></van-grid-item>
                 <van-grid-item icon="replay" text="退出登录"></van-grid-item>
             </van-grid>
         </view>

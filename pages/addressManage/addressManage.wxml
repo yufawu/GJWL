@@ -1,16 +1,15 @@
 <!--pages/addressManage/addressManage.wxml-->
 
- <van-search
+ <!-- <van-search
     value="{{search}}"
     show-action
     placeholder="请输入搜索关键词"
     :change="onSearch"
     :search="onCancel"
-  />
-<view class="pages">
-    <view class="address">
-
+  /> -->
+ 
+    <view class="click-button">
+    <van-button round type="info" block bindtap="addressAdd">添加</van-button>
     </view>
-<van-button round type="info" block>添加</van-button>
 
-</view>
+

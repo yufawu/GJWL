@@ -5,8 +5,8 @@ const ApiRootUrl = 'http://192.168.2.237:8089/api/mini'; //本地测试
 
 module.exports = {
     WechatLogin: ApiRootUrl + '/login', //注册登录
-    WechatRefreshLogin: ApiRootUrl + '/wechatRefreshLogin', //刷新登录状态
-    FindBanner: ApiRootUrl + '/findBanner', //首页轮播
+    GetExpress: ApiRootUrl + '/setgoods/getCouriers', //获取快递公司列表
+    GetGoodsType: ApiRootUrl + '/setgoods/getGoodsType', //获取物品属性
     CheckCode: ApiRootUrl + '/checkCode', //验证邀请码
     GetVerifyCode: ApiRootUrl + '/getVerifyCode', //获取验证码
     BindPhone: ApiRootUrl + '/bindPhone', //验证验证码

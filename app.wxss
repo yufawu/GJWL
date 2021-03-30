@@ -5,3 +5,8 @@
     background: #eee;
     padding: 15rpx;
 }
+
+.click-button {
+    margin-top: 50rpx;
+    padding: 0 30rpx;
+}

@@ -60,7 +60,16 @@ Page({
                 })
             }
         });
-    }
+    },
+    needAttention() {
+        console.log('点击注意事项')
+    },
+    transport() {
+        console.log('点击开始集运')
+        wx.navigateTo({
+            url: '../tipsTransport/tipsTransport'
+        })
+    },
 
 
 
