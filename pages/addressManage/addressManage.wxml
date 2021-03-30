@@ -7,7 +7,12 @@
     :change="onSearch"
     :search="onCancel"
   /> -->
- 
+    <van-cell-group>
+      <view wx:for="{{addressList}}" wx:key="index">
+<van-cell title="{{item.countryName}}" value="{{item.name}}" label="{{item.cityName}},{{item.address}},{{item.tel}} " title-width="60%"/>
+      </view>
+   
+    </van-cell-group>
     <view class="click-button">
     <van-button round type="info" block bindtap="addressAdd">添加</van-button>
     </view>

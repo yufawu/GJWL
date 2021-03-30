@@ -1,11 +1,16 @@
 // pages/addressManage/addressManage.js
+const app = getApp()
+const api = require('../../network/api');
+const http = require('../../network/http.js');
+const utils = require('../../utils/util.js');
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        search: ""
+        search: "",
+        addressList: [] //
     },
 
     /**
@@ -19,7 +24,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-
+        this.getReceiver();
     },
 
     /**
@@ -41,7 +46,21 @@ Page({
         })
     },
 
-
+    getReceiver() {
+        let that = this
+        let params = {
+            "userId": wx.getStorageSync('userId')
+        }
+        console.log(params, 'params')
+        http.get(api.GetReceiver, params).then((res) => {
+            console.log("请求结果", res.data.data)
+            that.setData({
+                addressList: res.data.data
+            })
+            wx.setStorageSync('addressList', res.data.data)
+            console.log('地址列表', that.data.addressList)
+        })
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */
