@@ -1,0 +1,31 @@
+<!-- pages/suggestions/suggestions.wxml -->
+<van-cell-group>
+    <van-field value="{{ username }}" required clearable label="标题" placeholder="" />
+    <!-- <van-field
+    value="{{ suggestion }}"
+    required
+    clearable
+    title-width="30.2em"
+    label="意见/建议"
+    placeholder=" "
+  />
+  <van-field class="message"
+    value="{{ suggestions }}"
+
+    clearable
+    label=""
+    type="textarea"
+    autosize
+    placeholder=" "
+  /> -->
+    <van-field value="{{ message }}" required label="建议" type="textarea" placeholder="请输入建议" autosize=" {maxHeight: 100px, minHeight: 50px }" clearable maxlength="300" show-word-limit="{{true}}" />
+</van-cell-group>
+<view class="upload-img">
+    <van-cell-group>
+        <view>上传图片</view>
+        <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+    </van-cell-group>
+</view>
+  <view class="click-button">
+    <van-button round type="info" block bindtap="addressAdd">提交</van-button>
+    </view>

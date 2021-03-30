@@ -1,0 +1,9 @@
+/* pages/suggestions/suggestions.wxss */
+
+.message {
+    height: 200rpx;
+}
+
+.upload-img {
+    margin: 20rpx;
+}
