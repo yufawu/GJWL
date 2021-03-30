@@ -1,2 +1,95 @@
 <!--pages/addressAdd/addressAdd.wxml-->
-<text>pages/addressAdd/addressAdd.wxml</text>
+<van-cell-group>
+  <!-- <van-field
+    value="{{ test }}"
+    required
+    clearable
+    title-width="6.2rem"
+    input-align="right"
+    label="events事件测试内容"
+    placeholder="如张三：San Zhang"
+    bind:click-icon="onClickIcon"
+    bind:input="onInput"
+    bind:change="onChange"
+    bind:focus="onFocus"
+  /> -->
+  <van-field
+    value="{{ username }}"
+    required
+    clearable
+    title-width="6.2rem"
+    input-align="right"
+    label="收件人（拼音）"
+    placeholder="如张三：San Zhang"
+  />
+  <van-field
+    value="{{ password }}"
+    clearable
+    title-width="7rem"
+    input-align="right"
+    label="地址附加（选填）"
+    placeholder="请输入附加地址"
+  />
+    <van-field
+    value="{{ menpai }}"
+    required
+    clearable
+    title-width="6.2rem"
+    input-align="right"
+    label="街道名+门牌号"
+    placeholder="请输入街道名称和门牌号码"
+  />
+   <van-field
+    value="{{ youbian }}"
+    required
+    clearable
+     title-width="6.2rem"
+    input-align="right"
+    label="邮编"
+    placeholder="请输入邮编"
+  />
+     <van-field
+    value="{{ city }}"
+    required
+    clearable
+     title-width="6.2rem"
+    input-align="right"
+    label="城市"
+    placeholder="请输入城市"
+  />
+       <van-field
+    value="{{ country }}"
+    required
+    clearable
+    disabled
+     title-width="6.2rem"
+    input-align="right"
+    is-link="true"
+    label="国家/地区"
+    placeholder="请选择国家/地区"
+    bind:click-input="onCountry"
+  />
+     <van-field
+    value="{{ youbian }}"
+    required
+    clearable
+     title-width="6.2rem"
+    input-align="right"
+    label="联系电话"
+    placeholder="请输入收件人电话"
+  />
+     <van-field
+    value="{{ youbian }}"
+    required
+    clearable
+     title-width="6.2rem"
+    input-align="right"
+    label="微信号"
+    placeholder="请输入自己的微信号"
+  />
+  
+  <view class="click-button">
+  <van-button round type="info" block bindtap="addressSave">保存</van-button>
+  </view>
+   
+</van-cell-group>
