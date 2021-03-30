@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "包裹预报列表",
+    "usingComponents": {
+        "van-button": "@vant/weapp/button/index"
+    }
+}

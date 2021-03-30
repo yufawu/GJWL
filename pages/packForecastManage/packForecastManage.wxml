@@ -1,0 +1,4 @@
+<!--pages/packForecastManage/packForecastManage.wxml-->
+   <view class="click-button">
+    <van-button round type="info" block bindtap="packForecast">添加包裹</van-button>
+    </view>
