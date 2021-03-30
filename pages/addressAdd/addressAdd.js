@@ -1,18 +1,39 @@
 // pages/addressAdd/addressAdd.js
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
+
+const app = getApp()
+const api = require('../../network/api');
+const http = require('../../network/http.js');
+const utils = require('../../utils/util.js');
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        receive: {
+            name: null, //收件人
+            address: null, //详细地址
+            postCode: null, //邮政编码
+            cityName: null, //城市
+            // countryName: null, //国家
+            countryCode: null, //国家code
+            tel: null, //电话
+            wxUserId: '' //微信号
+        },
+        countryName: '' //国家名称
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        // this.addReceiver() //添加收货地址
+        // this.getReceiver() //获取收货地址
+        // this.submitForecast() //提交预报
+        // this.noInWare()
+        // this.inWare()
+        // this.Abnormal()
     },
 
     /**
@@ -20,6 +41,41 @@ Page({
      */
     onReady: function() {
 
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function() {
+        if (app.globalData.countryMsg) {
+            console.log('地址-国家信息', app.globalData.countryMsg)
+                // this.data.receive.countryName = app.globalData.countryMsg.countryName,
+                //     this.data.receive.countryCode = app.globalData.countryMsg.countryCode
+
+        }
+    },
+
+    nameChange(e) { //
+        this.data.receive.name = e.detail
+    },
+    addressChange(e) { //
+        this.data.receive.address = e.detail
+    },
+    postCodeChange(e) { //邮编
+        this.data.receive.postCode = e.detail
+    },
+    cityNameChange(e) { //城市
+        this.data.receive.cityName = e.detail
+
+    },
+    countryeChange(e) { //国家地区
+        this.data.countryName = e.detail
+    },
+    telChange(e) { //电话
+        this.data.receive.tel = e.detail
+    },
+    wxUserIdChange(e) { //
+        this.data.receive.wxUserId = e.detail
     },
 
     onInput(event) {
@@ -38,17 +94,118 @@ Page({
         })
     },
     addressSave() { //保存地址
-        console.log('保存地址')
+        console.log('保存地址', this.data.receive)
         wx.navigateTo({
             url: '../addressManage/addressManage'
         })
     },
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
+    addReceiver() {
+        // let params = {
+        //     "countryName": "美国",
+        //     "countryCode": "US",
+        //     "cityName": "纽约",
+        //     "name": "小巫一号",
+        //     "address": "怀德翠岗三区10栋",
+        //     "tel": "13763048401",
+        //     "postCode": "525321",
+        //     "wxUserId": '',
+        //     "userId": wx.getStorageSync('userId')
+        // }
+        let countryCnName
+        let countryCode
+        if (app.globalData.countryMsg) {
+            countryCnName = app.globalData.countryMsg.countryCnName
+            countryCode = app.globalData.countryMsg.countryCode
+        } else {
+            countryCnName = ''
+            countryCode = ''
+        }
+        let params = {
+            "countryName": countryCnName,
+            "countryCode": countryCode,
+            "cityName": this.data.receive.cityName,
+            "name": this.data.receive.name,
+            "address": this.data.receive.address,
+            "tel": this.data.receive.tel,
+            "postCode": this.data.receive.postCode,
+            "wxUserId": this.data.receive.wxUserId,
+            "userId": wx.getStorageSync('userId')
+        }
+
+        console.log(params, 'params')
+        if (params.countryName && params.countryCode && params.cityName && params.name && params.postCode) {
+            http.post(api.AddReceiver, params).then((res) => {
+                console.log(res, '信息')
+                if (res.data.msg == '操作成功') {
+                    Toast('添加成功')
+                    wx.navigateTo({
+                        url: '../addressManage/addressManage'
+                    })
+                } else {
+                    Toast(res.data.msg)
+                }
+
+            })
+        } else {
+            console.log('信息不完整')
+            Toast('信息不完整，带*的都是必填内容')
+        }
 
     },
+
+    submitForecast() { //提交预报 028DADD3991041E4B1168A2EA1D58CDE-小巫一号  08F91BA8DFA748E9A9FDCA13D99775A5
+        let params = {
+            "costomerId": wx.getStorageSync('userId'),
+            "receiversendId": "028DADD3991041E4B1168A2EA1D58CDE",
+            "preAwb": [{
+                "hawbNo": "2021213213123123112",
+                "pcs": 3,
+                "expressCompany": "顺丰快递",
+                "productName": "测试222",
+                "svalue": 12500.05,
+                "remark": "注意轻放",
+                "goodsType": "普货",
+                "brand": "Apple"
+            }]
+
+        }
+        console.log(params, 'params')
+        http.post(api.SubmitForecast, params).then((res) => {
+            // console.log("请求结果", res, data.data)
+
+        })
+    },
+    noInWare() { //未入库订单
+        let params = {
+            "userId": wx.getStorageSync('userId')
+        }
+        console.log(params, 'params')
+        http.get(api.NoInWare, params).then((res) => {
+            console.log("请求结果", res, data.data)
+
+        })
+    },
+    inWare() { //已入库订单
+        let params = {
+            "userId": wx.getStorageSync('userId')
+        }
+        console.log(params, 'params')
+        http.get(api.InWare, params).then((res) => {
+            console.log("请求结果", res, data.data)
+
+        })
+    },
+    Abnormal() { //异常的订单
+        let params = {
+            "userId": wx.getStorageSync('userId')
+        }
+        console.log(params, 'params')
+        http.get(api.Abnormal, params).then((res) => {
+            console.log("请求结果", res, data.data)
+
+        })
+    },
+
 
     /**
      * 生命周期函数--监听页面隐藏
