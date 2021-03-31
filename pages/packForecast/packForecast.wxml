@@ -13,7 +13,7 @@
     label="快递名称"
     placeholder="请选择快递名称"
          bindtap="onExpressClick"
-         bind:change="onChange"
+         bind:change="expressCompanyChange"
          data-prop="expressCompany"
           data-index="{{index}}"
      
@@ -29,7 +29,7 @@
      icon="scan"
      bind:click-icon="saoma"
     placeholder="请输入快递单号"
-      bind:change="onChange"
+      bind:change="hawbNoChange"
      data-prop="hawbNo"
       data-index="{{index}}"
   />
@@ -41,9 +41,9 @@
     input-align="right"
     label="物品名称"
     placeholder="请输入物品名称"
-     bind:change="onChange"
+     bind:change="productNameChange"
      data-prop="productName"
-     
+      data-index="{{index}}"
   />
      <!-- <van-field
     value="{{ productName  }}"
@@ -64,8 +64,9 @@
     input-align="right"
     label="物品价值（¥）"
     placeholder="请输入物品价值"
-      bind:change="onChange"
+      bind:change="svalueChange"
      data-prop="svalue"
+      data-index="{{index}}"
   />
  
        <van-field
@@ -79,8 +80,9 @@
     label="物品属性"
     placeholder="请选择物品属性"
     bindtap="onGoodsClick"
-      bind:change="onChange"
+      bind:change="goodsTypeChange"
      data-prop="goodsType"
+      data-index="{{index}}"
   />
      <van-field
     value="{{ remark }}"
@@ -90,10 +92,12 @@
     input-align="right"
     label="商品备注"
     placeholder="您可以在这里告诉我们商品的颜色尺码等信息"
-      bind:change="onChange"
+      bind:change="remarkChange"
      data-prop="remark"
+      data-index="{{index}}"
   />
    </van-cell-group>
+   <view  data-index="{{index}}" bindtap="delete">删除</view>
 </view>
 </view>
 

@@ -27,7 +27,7 @@ Page({
 
     onLoad() {
         if (wx.getStorageSync('openId')) { //判断用户是否登录
-
+            app.globalData.userId = wx.getStorageSync('userId')
         } else {
             this.weChatLogin()
         }
@@ -57,6 +57,8 @@ Page({
                 http.post(api.WechatLogin, loginParams).then((resMsg) => {
                     console.log('用户登录', resMsg)
                     wx.setStorageSync('openId', resMsg.data.data.openId)
+                    wx.setStorageSync('userId', resMsg.data.data.id)
+                    app.globalData.userId = resMsg.data.data.id
                 })
             }
         });

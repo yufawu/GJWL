@@ -60,8 +60,9 @@ Page({
         if (pages.length > 1) {
             var prevPage = pages[pages.length - 2];
             // prevPage.changeData();
+            app.globalData.countryMsg = e.currentTarget.dataset
             prevPage.setData({
-                selectedCountry: e.currentTarget.dataset
+                countryName: e.currentTarget.dataset.countryCnName
             });
         }
 
@@ -76,8 +77,9 @@ Page({
         if (pages.length > 1) {
             var prevPage = pages[pages.length - 2];
             // prevPage.changeData();
+            app.globalData.countryMsg = e.currentTarget.dataset
             prevPage.setData({
-                selectedCountry: e.currentTarget.dataset
+                countryName: e.currentTarget.dataset.countryCnName
             });
         }
         wx.navigateBack({})

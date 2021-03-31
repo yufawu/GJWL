@@ -7,12 +7,12 @@ module.exports = {
     WechatLogin: ApiRootUrl + '/login', //注册登录
     GetExpress: ApiRootUrl + '/setgoods/getCouriers', //获取快递公司列表
     GetGoodsType: ApiRootUrl + '/setgoods/getGoodsType', //获取物品属性
-    CheckCode: ApiRootUrl + '/checkCode', //验证邀请码
-    GetVerifyCode: ApiRootUrl + '/getVerifyCode', //获取验证码
-    BindPhone: ApiRootUrl + '/bindPhone', //验证验证码
-    SearchQuotation: ApiRootUrl + '/search/quotation', //报价查询
-    SearchTrack: ApiRootUrl + '/search/track', //轨迹查询
-    GPSTrack: ApiRootUrl + '/search/GPSTrack', // GPS轨迹 
+    SubmitForecast: ApiRootUrl + '/setgoods/placeSetGoods', //提交预报单
+    NoInWare: ApiRootUrl + '/setgoods/noInWareGoods', //查询未入库订单
+    InWare: ApiRootUrl + '/setgoods/inWareGoods', //查询已入库订单
+    Abnormal: ApiRootUrl + '/setgoods/anomalyGoods', //查询异常的订单
+    AddReceiver: ApiRootUrl + '/Receiversend/addUserReceiversend', //添加常用收件人
+    GetReceiver: ApiRootUrl + '/Receiversend/getUserReceiversend', // 查询常用收件人 
     SearchContent: ApiRootUrl + '/search/content', //渠道详情
     GetSgin: ApiRootUrl + '/getSgin', //获取二维码scene数据
     Getwxacodeunlimit: ApiRootUrl + '/getwxacodeunlimit', //获取带scene的二维码

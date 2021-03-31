@@ -42,8 +42,8 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        // this.getExpress()
-        // this.getGoodsType()
+        this.getExpress()
+        this.getGoodsType()
         console.log('内容', this.data.forecastList)
 
     },
@@ -59,13 +59,33 @@ Page({
         console.log('选择框列表', this.expressList, this.goodsList)
 
     },
-    onChange(e) { //数据双向绑定
-        console.log(e, '数据双向绑定', e.detail)
-
-        this.setData({
-            [e.currentTarget.dataset.prop]: e.detail
-        })
+    expressCompanyChange(e) { //选择的快递公司名称
+        console.log('快递公司名称', e)
+        const idx = e.currentTarget.dataset.index
+        this.data.forecastList[idx].expressCompany = e.detail
     },
+    hawbNoChange(e) { //快递单号
+        const idx = e.currentTarget.dataset.index
+        console.log(idx, 'danho')
+        this.data.forecastList[idx].hawbNo = e.detail
+    },
+    productNameChange(e) { //物品名称
+        const idx = e.currentTarget.dataset.index
+        this.data.forecastList[idx].productName = e.detail
+    },
+    svalueChange(e) { //物品价值
+        const idx = e.currentTarget.dataset.index
+        this.data.forecastList[idx].svalue = e.detail
+    },
+    goodsTypeChange(e) { //物品属性
+        const idx = e.currentTarget.dataset.index
+        this.data.forecastList[idx].goodsType = e.detail
+    },
+    remarkChange(e) { //商品备注
+        const idx = e.currentTarget.dataset.index
+        this.data.forecastList[idx].remark = e.detail
+    },
+
     forecastAdd() { //添加一个包裹
         var lists = this.data.forecastList
         var newData = {
@@ -87,7 +107,8 @@ Page({
         console.log(this.data.forecastList, '预报信息')
 
     },
-    onExpressClick() {
+    onExpressClick(e) {
+        console.log('选择快递下标', e.currentTarget.dataset.index)
         this.setData({ showExpress: true });
     },
     onExpressClose() {
@@ -95,7 +116,7 @@ Page({
         this.setData({ showExpress: false });
     },
     onExpressSelect(event) {
-        console.log('选择快递', event.detail)
+        console.log('选择快递', event, event.detail)
         this.express = event.detail.name
         this.setData({
             express: this.express
@@ -109,7 +130,7 @@ Page({
         this.setData({ showGoods: false });
     },
     onGoodsSelect(event) {
-        console.log('选择货物属性', event.detail)
+        console.log('选择货物属性', event, event.detail)
         this.goods = event.detail.name
         this.setData({
             goods: this.goods
