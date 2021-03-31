@@ -3,6 +3,8 @@ const app = getApp()
 const api = require('../../network/api');
 const http = require('../../network/http.js');
 const utils = require('../../utils/util.js');
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
 Page({
 
     /**
@@ -11,13 +13,15 @@ Page({
     data: {
         // forecastList: [{}, {}],
         forecastList: [{
-            "hawbNo": "",
-            "pcs": null,
-            "expressCompany": "",
-            "productName": "",
+            "hawbNo": null,
+            "pcs": 1, //商品数量
+            "expressCompany": null,
+            "productName": null,
             "svalue": null,
-            "remark": "",
-            "goodsType": ""
+            "remark": null,
+            "goodsType": null,
+            "brand": null, //品牌
+            "isUnpack": 0, //是否拆包
         }],
         expressList: [ //快递列表
             { name: "中通快递" },
@@ -29,6 +33,9 @@ Page({
         ],
         showExpress: false, //快递选择面板
         showGoods: false, //物品属性选择面板
+        indexExpress: null, //当前选择的快递下标
+        indexGoodsType: null, //当前选择的物品属性下标
+        radio: '0',
     },
 
     /**
@@ -42,8 +49,8 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        this.getExpress()
-        this.getGoodsType()
+        // this.getExpress()
+        // this.getGoodsType()
         console.log('内容', this.data.forecastList)
 
     },
@@ -58,6 +65,17 @@ Page({
         })
         console.log('选择框列表', this.expressList, this.goodsList)
 
+    },
+    onRidioClick(event) { //是否拆包
+        console.log(event, '是否拆包')
+        this.setData({
+
+        })
+
+    },
+    pcsChange(e) { //商品数量
+        const idx = e.currentTarget.dataset.index
+        this.data.forecastList[idx].pcs = e.detail
     },
     expressCompanyChange(e) { //选择的快递公司名称
         console.log('快递公司名称', e)
@@ -89,13 +107,15 @@ Page({
     forecastAdd() { //添加一个包裹
         var lists = this.data.forecastList
         var newData = {
-            "hawbNo": "",
+            "hawbNo": null,
             "pcs": null,
-            "expressCompany": "",
-            "productName": " ",
+            "expressCompany": null,
+            "productName": null,
             "svalue": null,
-            "remark": "",
-            "goodsType": ""
+            "remark": null,
+            "goodsType": null,
+            "brand": null, //品牌
+            "isUnpack": 0, //是否拆包
         }
         lists.push(newData)
         console.log("列表内容", lists)
@@ -109,31 +129,40 @@ Page({
     },
     onExpressClick(e) {
         console.log('选择快递下标', e.currentTarget.dataset.index)
-        this.setData({ showExpress: true });
+        this.setData({
+            showExpress: true,
+            indexExpress: e.currentTarget.dataset.index
+        });
     },
     onExpressClose() {
         console.log('关闭快递选择')
         this.setData({ showExpress: false });
     },
     onExpressSelect(event) {
-        console.log('选择快递', event, event.detail)
-        this.express = event.detail.name
+        let idx = this.data.indexExpress
+        console.log('选择快递' + idx, event, event.detail)
+
+        this.data.forecastList[idx].expressCompany = event.detail.name
         this.setData({
-            express: this.express
+            forecastList: this.data.forecastList
         })
     },
-    onGoodsClick() {
-        this.setData({ showGoods: true });
+    onGoodsClick(e) {
+        this.setData({
+            showGoods: true,
+            indexGoodsType: e.currentTarget.dataset.index
+        });
     },
     onGoodsClose() {
         console.log('关闭货物属性选择')
         this.setData({ showGoods: false });
     },
     onGoodsSelect(event) {
+        let idx = this.data.indexGoodsType
         console.log('选择货物属性', event, event.detail)
-        this.goods = event.detail.name
+        this.data.forecastList[idx].goodsType = event.detail.name
         this.setData({
-            goods: this.goods
+            forecastList: this.data.forecastList
         })
     },
     getExpress() { //获取快递公司列表
@@ -169,6 +198,32 @@ Page({
                 console.log(res, '扫码的值')
             }
         })
+
+    },
+    packDelete(e) { //删除包裹
+        Dialog.confirm({
+                title: "删除该包裹",
+                message: "确认删除该包裹",
+                confirmButtonText: "删除",
+            })
+            .then(() => {
+                // on confirm
+                let idx = e.currentTarget.dataset.index
+                if (idx > -1) {
+                    this.data.forecastList.splice(idx, 1)
+                }
+                let deleteList = this.data.forecastList
+                console.log('确认删除，删除后的数据', deleteList)
+                this.setData({
+                    forecastList: deleteList
+                })
+
+            })
+            .catch(() => {
+                // on cancel
+                console.log('取消删除')
+            });
+
 
     },
     /**

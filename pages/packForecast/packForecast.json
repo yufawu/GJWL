@@ -1,9 +1,15 @@
 {
     "navigationBarTitleText": "新增包裹预报",
     "usingComponents": {
+        "van-cell": "@vant/weapp/cell/index",
         "van-cell-group": "@vant/weapp/cell-group/index",
         "van-field": "@vant/weapp/field/index",
         "van-button": "@vant/weapp/button/index",
-        "van-action-sheet": "@vant/weapp/action-sheet/index"
+        "van-action-sheet": "@vant/weapp/action-sheet/index",
+        "van-toast": "@vant/weapp/toast/index",
+        "van-dialog": "@vant/weapp/dialog/index",
+        "van-stepper": "@vant/weapp/stepper/index",
+        "van-radio": "@vant/weapp/radio/index",
+        "van-radio-group": "@vant/weapp/radio-group/index"
     }
 }

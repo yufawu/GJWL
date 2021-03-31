@@ -1,10 +1,10 @@
 <!--pages/packForecast/packForecast.wxml-->
 <view class="pages">
 <view class="box" wx:for="{{forecastList}}" wx:key="{{index}}" >
-<van-cell-group >
+
 
   <van-field
-    value="{{ expressCompany }}"
+    value="{{ item.expressCompany }}"
     required
     clearable
      is-link="true"
@@ -20,7 +20,7 @@
   />
 
   <van-field
-    value="{{ hawbNo }}"
+    value="{{ item.hawbNo }}"
     clearable
     required
     title-width="7rem"
@@ -34,7 +34,7 @@
       data-index="{{index}}"
   />
     <van-field
-    value="{{ productName  }}"
+    value="{{ item.productName  }}"
     required
     clearable
     title-width="6.2rem"
@@ -57,7 +57,7 @@
      data-prop="productName"
   /> -->
    <van-field
-    value="{{ svalue }}"
+    value="{{ item.svalue }}"
     required
     clearable
      title-width="6.2rem"
@@ -70,10 +70,9 @@
   />
  
        <van-field
-    value="{{ goodsType  }}"
+    value="{{ item.goodsType  }}"
     required
     clearable
-    disabled
      title-width="6.2rem"
     input-align="right"
     is-link="true"
@@ -84,8 +83,24 @@
      data-prop="goodsType"
       data-index="{{index}}"
   />
+  <van-cell-group>
+  <van-cell title='商品数量'>
+      <view slot="">
+  <van-stepper  value="{{ item.pcs }}" bind:change="pcsChange" data-index="{{index}}"/>
+      </view>
+  </van-cell>
+</van-cell-group>
+<van-radio-group  value="{{ isUnpack }}" bind:change="onChange" data-index="{{index}}">
+  <van-cell-group>
+    <van-cell title="是否拆包" clickable data-name="0" bind:click="onRidioClick">
+      <van-radio slot="right-icon" name="0" />
+        <!-- <van-radio name="1">是</van-radio> -->
+       <!-- <van-radio name="2">否</van-radio> -->
+    </van-cell>
+  </van-cell-group>
+</van-radio-group>
      <van-field
-    value="{{ remark }}"
+    value="{{ item.remark }}"
  
     clearable
      title-width="6.2rem"
@@ -96,8 +111,8 @@
      data-prop="remark"
       data-index="{{index}}"
   />
-   </van-cell-group>
-   <view  data-index="{{index}}" bindtap="delete">删除</view>
+ 
+   <view class="delete-button" wx:if="{{forecastList.length >1}}"  data-index="{{index}}" bindtap="packDelete">删除</view>
 </view>
 </view>
 
@@ -124,9 +139,11 @@
 
     <van-action-sheet
   show="{{ showGoods }}"
-  title="标题"
+  title="请选择快递公司"
   actions="{{ goodsList }}"
-  cancel-text="取消"
   bind:close="onGoodsClose"
   bind:select="onGoodsSelect"
 />
+
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />

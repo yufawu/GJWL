@@ -10,3 +10,9 @@
     margin-bottom: 50rpx;
     background: #fff;
 }
+
+.delete-button {
+    text-align: center;
+    color: red;
+    padding: 10rpx;
+}
