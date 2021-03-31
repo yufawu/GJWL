@@ -45,17 +45,18 @@
      data-prop="productName"
       data-index="{{index}}"
   />
-     <!-- <van-field
-    value="{{ productName  }}"
+     <van-field
+    value="{{ item.brand  }}"
     required
     clearable
     title-width="6.2rem"
     input-align="right"
     label="物品品牌"
     placeholder="没有请填无"
-      bind:change="onChange"
+      bind:change="brandChange"
      data-prop="productName"
-  /> -->
+     data-index="{{index}}"
+  />
    <van-field
     value="{{ item.svalue }}"
     required
@@ -114,22 +115,40 @@
  
    <view class="delete-button" wx:if="{{forecastList.length >1}}"  data-index="{{index}}" bindtap="packDelete">删除</view>
 </view>
+<view>
+    <van-cell-group>
+   <van-button icon="add"  type="info" plain  block bindtap="forecastAdd">添加一个包裹</van-button>
+    </van-cell-group>
+ 
 </view>
-
-
-
-    <view class="click-button">
-  <van-button round type="info" block bindtap="forecastAdd">添加一个包裹</van-button>
-  </view>
-  <view class="click-button">
+<view class="address">
+    <van-cell-group>
+       <van-field
+    value="{{ addressSelected.name }}{{addressSelected.tel}}{{addressSelected.address}}"
+    required
+    clearable
+     is-link="true"
+    title-width="6.2rem"
+    input-align="right"
+    label="收货地址"
+    placeholder="请选择收货地址"
+         bindtap="onAddressClick"
+    
+     
+  />
+    </van-cell-group>
+</view>
+ <view class="click-button">
   <van-button round type="info" block bindtap="submitForecast">提交预报</van-button>
   </view>
+</view>
+
    
 
 
     <van-action-sheet
   show="{{ showExpress }}"
-  title="标题"
+  title="请选择快递公司"
   actions="{{ expressList }}"
   cancel-text="取消"
   bind:close="onExpressClose"
@@ -139,10 +158,17 @@
 
     <van-action-sheet
   show="{{ showGoods }}"
-  title="请选择快递公司"
+  title="请选择物品属性"
   actions="{{ goodsList }}"
   bind:close="onGoodsClose"
   bind:select="onGoodsSelect"
+/>
+    <van-action-sheet
+  show="{{ showAddress }}"
+  title="请选择收货地址"
+  actions="{{ addressList }}"
+  bind:close="onAddressClose"
+  bind:select="onAddressSelect"
 />
 
 <van-toast id="van-toast" />

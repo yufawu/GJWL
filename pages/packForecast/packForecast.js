@@ -31,11 +31,17 @@ Page({
             { name: "普货" },
             { name: "一般货物" }
         ],
+        addressList: [
+            { name: "小巫一号" },
+            { name: "小巫二号" }
+        ], //收货地址选择面板
         showExpress: false, //快递选择面板
         showGoods: false, //物品属性选择面板
+        showAddress: false, //收货地址选择面板
         indexExpress: null, //当前选择的快递下标
         indexGoodsType: null, //当前选择的物品属性下标
         radio: '0',
+        addressSelected: null, //已选择的收货地址信息
     },
 
     /**
@@ -49,8 +55,9 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        // this.getExpress()
-        // this.getGoodsType()
+        this.getExpress()
+        this.getGoodsType()
+            // this.getAuthorize() //预报下单
         console.log('内容', this.data.forecastList)
 
     },
@@ -73,10 +80,8 @@ Page({
         })
 
     },
-    pcsChange(e) { //商品数量
-        const idx = e.currentTarget.dataset.index
-        this.data.forecastList[idx].pcs = e.detail
-    },
+
+
     expressCompanyChange(e) { //选择的快递公司名称
         console.log('快递公司名称', e)
         const idx = e.currentTarget.dataset.index
@@ -91,6 +96,10 @@ Page({
         const idx = e.currentTarget.dataset.index
         this.data.forecastList[idx].productName = e.detail
     },
+    brandChange(e) { //物品品牌
+        const idx = e.currentTarget.dataset.index
+        this.data.forecastList[idx].brand = e.detail
+    },
     svalueChange(e) { //物品价值
         const idx = e.currentTarget.dataset.index
         this.data.forecastList[idx].svalue = e.detail
@@ -99,34 +108,15 @@ Page({
         const idx = e.currentTarget.dataset.index
         this.data.forecastList[idx].goodsType = e.detail
     },
+    pcsChange(e) { //商品数量
+        const idx = e.currentTarget.dataset.index
+        this.data.forecastList[idx].pcs = e.detail
+    },
     remarkChange(e) { //商品备注
         const idx = e.currentTarget.dataset.index
         this.data.forecastList[idx].remark = e.detail
     },
 
-    forecastAdd() { //添加一个包裹
-        var lists = this.data.forecastList
-        var newData = {
-            "hawbNo": null,
-            "pcs": null,
-            "expressCompany": null,
-            "productName": null,
-            "svalue": null,
-            "remark": null,
-            "goodsType": null,
-            "brand": null, //品牌
-            "isUnpack": 0, //是否拆包
-        }
-        lists.push(newData)
-        console.log("列表内容", lists)
-        this.setData({
-            forecastList: lists
-        })
-    },
-    submitForecast() { //提交预报
-        console.log(this.data.forecastList, '预报信息')
-
-    },
     onExpressClick(e) {
         console.log('选择快递下标', e.currentTarget.dataset.index)
         this.setData({
@@ -163,6 +153,44 @@ Page({
         this.data.forecastList[idx].goodsType = event.detail.name
         this.setData({
             forecastList: this.data.forecastList
+        })
+    },
+    onAddressClick(e) {
+        if (wx.getStorageSync('addressList')) {
+            this.setData({
+                addressList: wx.getStorageSync('addressList'),
+                showAddress: true,
+            });
+
+        } else {
+            Dialog.confirm({
+                    title: "你当前暂无收货地址",
+                    // message: "删除后需重新录入",
+                    confirmButtonText: "去填写",
+                })
+                .then(() => {
+                    // on confirm
+                    console.log('去填写收货地址')
+                    wx.navigateTo({
+                        url: '../addressAdd/addressAdd'
+                    })
+                })
+                .catch(() => {
+                    // on cancel
+                    console.log('取消删除')
+                });
+        }
+
+    },
+    onAddressClose() {
+        console.log('关闭收货选择')
+        this.setData({ showAddress: false });
+    },
+    onAddressSelect(event) {
+        console.log('选择收货地址', event, event.detail)
+            // this.data.forecastList[idx].goodsType = event.detail.name
+        this.setData({
+            addressSelected: event.detail
         })
     },
     getExpress() { //获取快递公司列表
@@ -202,8 +230,8 @@ Page({
     },
     packDelete(e) { //删除包裹
         Dialog.confirm({
-                title: "删除该包裹",
-                message: "确认删除该包裹",
+                title: "确认删除该包裹信息",
+                message: "删除后需重新录入",
                 confirmButtonText: "删除",
             })
             .then(() => {
@@ -224,6 +252,73 @@ Page({
                 console.log('取消删除')
             });
 
+
+    },
+    forecastAdd() { //添加一个包裹
+        var lists = this.data.forecastList
+        var newData = {
+            "hawbNo": null,
+            "pcs": 1,
+            "expressCompany": null,
+            "productName": null,
+            "svalue": null,
+            "remark": null,
+            "goodsType": null,
+            "brand": null, //品牌
+            "isUnpack": 0, //是否拆包
+        }
+        lists.push(newData)
+        console.log("列表内容", lists)
+        this.setData({
+            forecastList: lists
+        })
+    },
+    // submitForecast() { //提交预报
+    //     // this.getAuthorize()
+    //     console.log(this.data.forecastList, '预报信息')
+
+    // },
+    submitForecast() { //提交预报 028DADD3991041E4B1168A2EA1D58CDE-小巫一号  08F91BA8DFA748E9A9FDCA13D99775A5
+        let params = {
+            "costomerId": wx.getStorageSync('userId'),
+            "receiversendId": this.data.addressSelected.id,
+            "preAwb": this.data.forecastList
+        }
+        console.log(params, 'params')
+            // http.post(api.SubmitForecast, params).then((res) => {
+            //     console.log("请求结果", res.data)
+            //     if (res.data.msg === "操作成功") {
+            //         Dialog.confirm({
+            //                 title: "添加成功",
+            //                 // message: "删除后需重新录入",
+            //                 confirmButtonText: "继续录入",
+            //                 cancelButtonText: "回到首页"
+            //             })
+            //             .then(() => {
+            //                 // on confirm
+            //                 console.log('去填写收货地址')
+
+        //             })
+        //             .catch(() => {
+        //                 // on cancel
+        //                 console.log('取消删除')
+        //                 wx.relaunch({
+        //                     url: '../index/index'
+        //                 })
+        //             });
+        //     }
+
+        // })
+    },
+    getAuthorize() {
+        console.log('获取授权信息')
+        wx.requestSubscribeMessage({ //报名授权
+            tmplIds: ['c6cwVkNBvHds03OORv8lpGdOyJu3B-jAwmxkJwEZT0w'],
+            success(res) {
+                console.log(res, '物流状态通知res')
+
+            }
+        })
 
     },
     /**

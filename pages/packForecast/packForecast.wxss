@@ -7,7 +7,7 @@
 }
 
 .box {
-    margin-bottom: 50rpx;
+    margin-bottom: 30rpx;
     background: #fff;
 }
 
@@ -15,4 +15,8 @@
     text-align: center;
     color: red;
     padding: 10rpx;
+}
+
+.address {
+    margin: 30rpx 0;
 }
