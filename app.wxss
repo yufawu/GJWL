@@ -1,10 +1,17 @@
 /**app.wxss**/
 
 @import '/miniprogram_npm/@vant/weapp/common/index.wxss';
-.pages {
+page {
+    background: #eee;
+    padding: 20rpx 2%;
+    box-sizing: border-box;
+}
+
+
+/* .pages {
     background: #eee;
     padding: 15rpx;
-}
+} */
 
 .click-button {
     margin-top: 50rpx;
