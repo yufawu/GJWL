@@ -21,7 +21,7 @@ Page({
             "remark": null,
             "goodsType": null,
             "brand": null, //品牌
-            "isUnpack": 0, //是否拆包
+            "isUnpack": "0", //是否拆包
         }],
         expressList: [ //快递列表
             { name: "中通快递" },
@@ -40,7 +40,7 @@ Page({
         showAddress: false, //收货地址选择面板
         indexExpress: null, //当前选择的快递下标
         indexGoodsType: null, //当前选择的物品属性下标
-        radio: '0',
+        isUnpack: '0',
         addressSelected: null, //已选择的收货地址信息
     },
 
@@ -73,10 +73,13 @@ Page({
         console.log('选择框列表', this.expressList, this.goodsList)
 
     },
-    onRidioClick(event) { //是否拆包
-        console.log(event, '是否拆包')
+    onRidioClick(e) { //是否拆包
+        const idx = e.currentTarget.dataset.index
+        let name = e.currentTarget.dataset.name
+        this.data.forecastList[idx].isUnpack = name
+        console.log(name, e.currentTarget, '是否拆包' + idx, this.data.forecastList)
         this.setData({
-
+            forecastList: this.data.forecastList
         })
 
     },
@@ -265,7 +268,7 @@ Page({
             "remark": null,
             "goodsType": null,
             "brand": null, //品牌
-            "isUnpack": 0, //是否拆包
+            "isUnpack": "0", //是否拆包
         }
         lists.push(newData)
         console.log("列表内容", lists)
@@ -285,30 +288,30 @@ Page({
             "preAwb": this.data.forecastList
         }
         console.log(params, 'params')
-            // http.post(api.SubmitForecast, params).then((res) => {
-            //     console.log("请求结果", res.data)
-            //     if (res.data.msg === "操作成功") {
-            //         Dialog.confirm({
-            //                 title: "添加成功",
-            //                 // message: "删除后需重新录入",
-            //                 confirmButtonText: "继续录入",
-            //                 cancelButtonText: "回到首页"
-            //             })
-            //             .then(() => {
-            //                 // on confirm
-            //                 console.log('去填写收货地址')
+        http.post(api.SubmitForecast, params).then((res) => {
+            console.log("请求结果", res.data)
+            if (res.data.msg === "操作成功") {
+                Dialog.confirm({
+                        title: "添加成功",
+                        // message: "删除后需重新录入",
+                        confirmButtonText: "继续录入",
+                        cancelButtonText: "回到首页"
+                    })
+                    .then(() => {
+                        // on confirm
+                        console.log('去填写收货地址')
 
-        //             })
-        //             .catch(() => {
-        //                 // on cancel
-        //                 console.log('取消删除')
-        //                 wx.relaunch({
-        //                     url: '../index/index'
-        //                 })
-        //             });
-        //     }
+                    })
+                    .catch(() => {
+                        // on cancel
+                        console.log('取消删除')
+                        wx.relaunch({
+                            url: '../index/index'
+                        })
+                    });
+            }
 
-        // })
+        })
     },
     getAuthorize() {
         console.log('获取授权信息')
