@@ -7,6 +7,7 @@
     value="{{ item.expressCompany }}"
     required
     clearable
+    disabled
      is-link="true"
     title-width="6.2rem"
     input-align="right"
@@ -35,7 +36,7 @@
   />
     <van-field
     value="{{ item.productName  }}"
-    required
+
     clearable
     title-width="6.2rem"
     input-align="right"
@@ -47,7 +48,7 @@
   />
      <van-field
     value="{{ item.brand  }}"
-    required
+ 
     clearable
     title-width="6.2rem"
     input-align="right"
@@ -74,6 +75,7 @@
     value="{{ item.goodsType  }}"
     required
     clearable
+    disabled
      title-width="6.2rem"
     input-align="right"
     is-link="true"
@@ -130,6 +132,7 @@
     value="{{ addressSelected.name }}{{addressSelected.tel}}{{addressSelected.address}}"
     required
     clearable
+    disabled
      is-link="true"
     title-width="6.2rem"
     input-align="right"

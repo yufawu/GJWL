@@ -5,6 +5,10 @@ page {
     background: #eee;
     padding: 20rpx 2%;
     box-sizing: border-box;
+    /* --button-border-radius: 30px;
+    --button-info-color: #f2f3f5;
+    --toast-max-width: 100px;
+    --toast-background-color: pink;  */
 }
 
 

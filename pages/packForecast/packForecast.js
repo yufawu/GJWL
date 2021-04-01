@@ -282,36 +282,57 @@ Page({
 
     // },
     submitForecast() { //提交预报 028DADD3991041E4B1168A2EA1D58CDE-小巫一号  08F91BA8DFA748E9A9FDCA13D99775A5
-        let params = {
-            "costomerId": wx.getStorageSync('userId'),
-            "receiversendId": this.data.addressSelected.id,
-            "preAwb": this.data.forecastList
-        }
-        console.log(params, 'params')
-        http.post(api.SubmitForecast, params).then((res) => {
-            console.log("请求结果", res.data)
-            if (res.data.msg === "操作成功") {
-                Dialog.confirm({
-                        title: "添加成功",
-                        // message: "删除后需重新录入",
-                        confirmButtonText: "继续录入",
-                        cancelButtonText: "回到首页"
-                    })
-                    .then(() => {
-                        // on confirm
-                        console.log('去填写收货地址')
-
-                    })
-                    .catch(() => {
-                        // on cancel
-                        console.log('取消删除')
-                        wx.relaunch({
-                            url: '../index/index'
-                        })
-                    });
+        let that = this
+        if (this.data.addressSelected && this.data.forecastList) {
+            let params = {
+                "costomerId": wx.getStorageSync('userId'),
+                "receiversendId": this.data.addressSelected.id,
+                "preAwb": this.data.forecastList
             }
+            console.log(params, 'params')
+            http.post(api.SubmitForecast, params).then((res) => {
+                console.log("请求结果", res.data)
+                if (res.data.msg === "操作成功") {
+                    Dialog.confirm({
+                            title: "添加成功",
+                            // message: "删除后需重新录入",
+                            confirmButtonText: "继续录入",
+                            cancelButtonText: "回到首页"
+                        })
+                        .then(() => {
+                            // on confirm
+                            console.log('去填写收货地址')
+                            let resetForecastList = [{
+                                "hawbNo": null,
+                                "pcs": 1, //商品数量
+                                "expressCompany": null,
+                                "productName": null,
+                                "svalue": null,
+                                "remark": null,
+                                "goodsType": null,
+                                "brand": null, //品牌
+                                "isUnpack": "0", //是否拆包
+                            }]
+                            that.setData({ //清空之填写的信息
+                                forecastList: resetForecastList
+                            })
 
-        })
+                        })
+                        .catch(() => {
+                            // on cancel
+                            console.log('取消删除')
+                            wx.relaunch({
+                                url: '../index/index'
+                            })
+                        });
+                }
+
+            })
+
+        } else {
+            Toast('信息不完整，带*的都是必填内容')
+        }
+
     },
     getAuthorize() {
         console.log('获取授权信息')

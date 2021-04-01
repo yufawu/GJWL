@@ -31,16 +31,16 @@ Page({
         // this.addReceiver() //添加收货地址
         // this.getReceiver() //获取收货地址
         // this.submitForecast() //提交预报
-        // this.noInWare()
-        // this.inWare()
-        // this.Abnormal()
+        this.noInWare()
+        this.inWare()
+        this.abnormal()
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-
+        // this.getAuthorize()
     },
 
     /**
@@ -153,28 +153,7 @@ Page({
 
     },
 
-    submitForecast() { //提交预报 028DADD3991041E4B1168A2EA1D58CDE-小巫一号  08F91BA8DFA748E9A9FDCA13D99775A5
-        let params = {
-            "costomerId": wx.getStorageSync('userId'),
-            "receiversendId": "028DADD3991041E4B1168A2EA1D58CDE",
-            "preAwb": [{
-                "hawbNo": "2021213213123123112",
-                "pcs": 3,
-                "expressCompany": "顺丰快递",
-                "productName": "测试222",
-                "svalue": 12500.05,
-                "remark": "注意轻放",
-                "goodsType": "普货",
-                "brand": "Apple"
-            }]
 
-        }
-        console.log(params, 'params')
-        http.post(api.SubmitForecast, params).then((res) => {
-            // console.log("请求结果", res, data.data)
-
-        })
-    },
     noInWare() { //未入库订单
         let params = {
             "userId": wx.getStorageSync('userId')
@@ -195,7 +174,7 @@ Page({
 
         })
     },
-    Abnormal() { //异常的订单
+    abnormal() { //异常的订单
         let params = {
             "userId": wx.getStorageSync('userId')
         }
