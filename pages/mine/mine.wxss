@@ -24,3 +24,15 @@
 .massage .text view {
     margin: 10rpx auto;
 }
+
+.avatar {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 90rpx;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.name {
+    margin-bottom: 20rpx;
+}
