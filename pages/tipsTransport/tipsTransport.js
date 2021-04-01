@@ -38,14 +38,23 @@ Page({
     },
     agree() { //同意
         console.log("点击了同意按钮", this.radio)
+        if (wx.getStorageSync('openId')) { //判断用户是否登录
+            console.log('用户已经登录--注意事项')
+            if (this.radio == 1) {
+                wx.navigateTo({
+                    url: '../packForecast/packForecast'
+                })
+            } else {
+                console.log('请先确认')
+            }
 
-        if (this.radio == 1) {
-            wx.navigateTo({
-                url: '../packForecast/packForecast'
-            })
         } else {
-            console.log('请先确认')
+            console.log('用户没有登录--注意事项')
+            wx.navigateTo({
+                url: '../login/login'
+            })
         }
+
     },
 
     /**

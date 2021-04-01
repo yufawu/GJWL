@@ -1,6 +1,8 @@
 // pages/login/login.js
 const app = getApp()
-
+const api = require('../../network/api');
+const http = require('../../network/http.js');
+const utils = require('../../utils/util.js');
 Page({
 
     /**
@@ -27,9 +29,11 @@ Page({
                             // 根据自己的需求有其他操作再补充
                             // 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
                             console.log("用户已经授权过")
-                            wx.reLaunch({
-                                url: '../index/index'
-                            })
+                            that.weChatLogin()
+
+                            // wx.reLaunch({
+                            //     url: '../index/index'
+                            // })
                         }
                     });
                 } else {
@@ -54,10 +58,12 @@ Page({
             var that = this;
             // 获取到用户的信息了，打印到控制台上看下
             console.log('获取的用户信息', e.detail.userInfo);
+            this.weChatLogin()
             wx.setStorageSync('userInfo', e.detail.userInfo)
-            wx.reLaunch({ //跳转页面
-                    url: '../index/index'
-                })
+                // wx.reLaunch({ //跳转页面
+                //         url: '../index/index'
+                //     })
+                // wx.navigateBack() //返回上一页
                 //授权成功后,通过改变 isHide 的值，让实现页面显示出来，把授权页面隐藏起来
             that.setData({
                 isHide: false
@@ -79,6 +85,27 @@ Page({
         }
 
 
+    },
+    weChatLogin() { //用户登录
+        wx.login({
+            success: res => {
+                // 获取到用户的 code 之后：res.code
+                let userInfo = wx.getStorageSync('userInfo')
+                let loginParams = {
+                    "code": res.code,
+                    "avatarUrl": userInfo.avatarUrl,
+                    "nickName": userInfo.nickName
+                }
+                console.log(loginParams, '请求参数')
+                http.post(api.WechatLogin, loginParams).then((resMsg) => {
+                    console.log('用户登录', resMsg)
+                    wx.setStorageSync('openId', resMsg.data.data.openId)
+                    wx.setStorageSync('userId', resMsg.data.data.id)
+                    app.globalData.userId = resMsg.data.data.id
+                })
+            }
+        });
+        wx.navigateBack() //返回上一页
     },
 
     /**

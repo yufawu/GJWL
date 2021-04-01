@@ -26,11 +26,11 @@ Page({
     },
 
     onLoad() {
-        if (wx.getStorageSync('openId')) { //判断用户是否登录
-            app.globalData.userId = wx.getStorageSync('userId')
-        } else {
-            this.weChatLogin()
-        }
+        // if (wx.getStorageSync('openId')) { //判断用户是否登录
+        //     app.globalData.userId = wx.getStorageSync('userId')
+        // } else {
+        //     this.weChatLogin()
+        // }
 
     },
     viewImage(e) {
@@ -43,26 +43,7 @@ Page({
         })
 
     },
-    weChatLogin() { //用户登录
-        wx.login({
-            success: res => {
-                // 获取到用户的 code 之后：res.code
-                let userInfo = wx.getStorageSync('userInfo')
-                let loginParams = {
-                    "code": res.code,
-                    "avatarUrl": userInfo.avatarUrl,
-                    "nickName": userInfo.nickName
-                }
-                console.log(loginParams, '请求参数')
-                http.post(api.WechatLogin, loginParams).then((resMsg) => {
-                    console.log('用户登录', resMsg)
-                    wx.setStorageSync('openId', resMsg.data.data.openId)
-                    wx.setStorageSync('userId', resMsg.data.data.id)
-                    app.globalData.userId = resMsg.data.data.id
-                })
-            }
-        });
-    },
+
     needAttention() {
         console.log('点击注意事项')
     },
