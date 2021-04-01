@@ -4,7 +4,12 @@ const app = getApp()
 const api = require('../../network/api');
 const http = require('../../network/http.js');
 const utils = require('../../utils/util.js');
+
 Page({
+
+    /**
+     * 页面的初始数据
+     */
     data: {
         tabs: [
             { title: '标签10', content: '内容10' },
@@ -19,18 +24,35 @@ Page({
             { title: '标签19', content: '内容19' },
         ],
         bannerList: [
-            { fid: '1', imgurl: 'https://api-sys.xfx361.com/img//static/login/images/2020062603060365945.jpg' },
-            { fid: '2', imgurl: 'https://api-sys.xfx361.com/img//static/login/images/2020062603062632068.jpg' },
-            { fid: '3', imgurl: 'https://api-sys.xfx361.com/img//static/login/images/2020070310422690166.png' }
-        ]
+            { fid: '1', configValue: 'https://api-sys.xfx361.com/img//static/login/images/2020062603060365945.jpg' },
+            { fid: '2', configValue: 'https://api-sys.xfx361.com/img//static/login/images/2020062603062632068.jpg' },
+            { fid: '3', configValue: 'https://api-sys.xfx361.com/img//static/login/images/2020070310422690166.png' }
+        ],
+        warehouseList: null,
+        waysList: null
     },
 
-    onLoad() {
-        // if (wx.getStorageSync('openId')) { //判断用户是否登录
-        //     app.globalData.userId = wx.getStorageSync('userId')
-        // } else {
-        //     this.weChatLogin()
-        // }
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+
+
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function() {
+        // this.getBanner()
+        this.getWarehouse()
+        this.getWays()
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function() {
 
     },
     viewImage(e) {
@@ -43,6 +65,49 @@ Page({
         })
 
     },
+    getBanner() {
+        let that = this
+        let params = {
+            "version": '1.0.0'
+        }
+        console.log(params, '获取轮播图')
+        http.get(api.GetBanner, params).then((res) => {
+
+            this.setData({
+                bannerList: res.data.data.carousels
+            })
+            console.log(that.data.bannerList, '信息')
+        })
+    },
+    getWarehouse() {
+        let that = this
+        let params = {
+            "key": 'sysTestData1'
+        }
+        console.log(params, '获取仓库信息')
+        http.get(api.GetWarehouse, params).then((res) => {
+
+            this.setData({
+                warehouseList: res.data.data.datas
+            })
+            console.log(that.data.warehouseList, '仓库信息')
+        })
+    },
+    getWays() {
+        let that = this
+        let params = {
+            "key": 'sysTestData2'
+        }
+        console.log(params, '获取路线信息')
+        http.get(api.GetWarehouse, params).then((res) => {
+            console.log(res.data.data, 'res')
+
+            this.setData({
+                waysList: res.data.data.datas
+            })
+            console.log(that.data.waysList, '获取路线信息')
+        })
+    },
 
     needAttention() {
         console.log('点击注意事项')
@@ -53,7 +118,38 @@ Page({
             url: '../tipsTransport/tipsTransport'
         })
     },
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function() {
 
+    },
 
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function() {
 
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function() {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function() {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function() {
+
+    }
 })

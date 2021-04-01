@@ -2,7 +2,7 @@
    <swiper class="swiper" autoplay="true" interval="4000" circular='true' wx:if='{{bannerList.length > 0}}' catchtap="imagesMethod">
     <block wx:for="{{bannerList}}" wx:key="index">
       <swiper-item>
-        <image mode="aspectFill" src="{{item.imgurl}}" class="slide-image" bindtap="viewImage" data-previewurl="{{bannerList}}" data-currenturl="{{index}}" data-index="{{index}}"></image>
+        <image mode="aspectFill" src="{{item.configValue}}" class="slide-image" bindtap="viewImage" data-previewurl="{{bannerList}}" data-currenturl="{{index}}" data-index="{{index}}"></image>
       </swiper-item>
     </block>
   </swiper>
@@ -17,46 +17,27 @@
 </van-button>
   </view>
 
-  <van-tabs>
+  <van-tabs ellipsis="{{false}}" >
  
-    <van-tab title="欧洲仓">
+    <van-tab title="欧洲仓"  wx:for="{{warehouseList}}" title="{{item.warehouse_name}}">
       <view class="tab-box">
-        <p>收件人：小巫一号（123456）</p>
-        <p>手机号码：13763048401</p>
-        <p>收货地址：广东省深圳市宝安区福永翠岗三区10栋</p>
-        <p>邮编：523000</p>
+        <p>收件人：{{item.receiver_name}}</p>
+        <p>手机号码：{{item.phone}}</p>
+        <p>收货地址：{{item.address}}</p>
+        <p>邮编：{{item.postcode}}</p>
       </view>
     </van-tab>
-    <van-tab title="美国仓">
-       <view class="tab-box">
-        <p>收件人：张三（123456）</p>
-        <p>手机号码：13763048401</p>
-        <p>收货地址：广东省深圳市宝安区福永翠岗三区10栋</p>
-        <p>邮编：523000</p>
-      </view></van-tab>
-    <van-tab title="墨西哥仓">
-       <view class="tab-box">
-        <p>收件人：李四（123456）</p>
-        <p>手机号码：13763048401</p>
-        <p>收货地址：广东省深圳市宝安区福永翠岗三区10栋</p>
-        <p>邮编：523000</p>
-      </view></van-tab>
-    <van-tab title="马来西亚仓">
-       <view class="tab-box">
-        <p>收件人：小巫二号号（123456）</p>
-        <p>手机号码：13763048401</p>
-        <p>收货地址：广东省深圳市宝安区福永翠岗三区10栋</p>
-        <p>邮编：523000</p>
-      </view></van-tab>
-    <van-tab title="德国仓">
-       <view class="tab-box">
-        <p>收件人：小巫三号（123456）</p>
-        <p>手机号码：13763048401</p>
-        <p>收货地址：广东省深圳市宝安区福永翠岗三区10栋</p>
-        <p>邮编：523000</p>
-      </view></van-tab>
   </van-tabs>
-  <!-- <van-tabs >
-     <van-tab wx:for="{{tabs}}" title="{{item.title}}" >内容+{{item.content}}</van-tab>
-     </van-tabs> -->
+
+</view>
+
+<view class="way-wrap">超值路线</view>
+<view class="way" wx:for="{{waysList}}">
+    <view class="way-title">
+       <van-cell border="{{false}}" title="{{item.cn_name}}" value="（{{item.reference_time}}）" />
+       </view>
+    <view class="way-detail"> 
+      <van-cell border="{{false}}" title="{{item.cn_name}}" value="¥{{item.money}}" /> 
+    </view>
+   
 </view>

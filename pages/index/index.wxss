@@ -19,8 +19,50 @@
 .tab-box {
     background: #fff;
     padding: 20rpx;
+    font-size: 16px;
 }
 
 .tab-box p {
     display: block;
+}
+
+.way-wrap {
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.way {
+    margin-bottom: 10px;
+    padding: 20px;
+    background: #fff;
+}
+
+.way .van-cell {
+    padding: 0;
+}
+
+.way-title .van-cell__title {
+    color: #333;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.way-title .van-cell__value {
+    color: #333;
+    font-size: 14px;
+}
+
+.way-detail .van-cell__title {
+    color: #333;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.way-detail .van-cell__value {
+    color: red;
+    font-size: 14px;
 }
