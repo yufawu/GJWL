@@ -57,7 +57,8 @@ Page({
     onReady: function() {
         this.getExpress()
         this.getGoodsType()
-            // this.getAuthorize() //预报下单
+
+        // this.getAuthorize() //预报下单
         console.log('内容', this.data.forecastList)
 
     },
@@ -66,12 +67,48 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
+        this.getReceiver()
         this.setData({
 
 
         })
         console.log('选择框列表', this.expressList, this.goodsList)
 
+    },
+    getReceiver() {
+        let that = this
+        let params = {
+            "userId": wx.getStorageSync('userId')
+        }
+        console.log(params, 'params')
+        http.get(api.GetReceiver, params).then((res) => {
+            console.log("请求结果", res.data.data)
+            if (res.data.data) {
+                that.setData({
+                    addressList: res.data.data
+                })
+                wx.setStorageSync('addressList', res.data.data)
+                console.log('地址列表', that.data.addressList)
+            } else {
+                Dialog.confirm({
+                        title: "你当前暂无收货地址",
+                        // message: "删除后需重新录入",
+                        confirmButtonText: "去填写",
+                    })
+                    .then(() => {
+                        // on confirm
+                        console.log('去填写收货地址')
+                        wx.navigateTo({
+                            url: '../addressAdd/addressAdd'
+                        })
+                    })
+                    .catch(() => {
+                        // on cancel
+                        console.log('取消删除')
+                    });
+            }
+
+        })
     },
     onRidioClick(e) { //是否拆包
         const idx = e.currentTarget.dataset.index
@@ -188,6 +225,13 @@ Page({
     onAddressClose() {
         console.log('关闭收货选择')
         this.setData({ showAddress: false });
+
+    },
+    onAddressCancel() { //去增加地址
+        console.log('去增加地址')
+        wx.navigateTo({
+            url: '../addressAdd/addressAdd'
+        })
     },
     onAddressSelect(event) {
         console.log('选择收货地址', event, event.detail)
@@ -325,6 +369,8 @@ Page({
                                 url: '../index/index'
                             })
                         });
+                } else {
+                    Toast('信息不完整，带*的都是必填内容')
                 }
 
             })
@@ -337,7 +383,7 @@ Page({
     getAuthorize() {
         console.log('获取授权信息')
         wx.requestSubscribeMessage({ //报名授权
-            tmplIds: ['c6cwVkNBvHds03OORv8lpGdOyJu3B-jAwmxkJwEZT0w'],
+            tmplIds: ['c6cwVkNBvHds03OORv8lpAGtX2jHMTad8pis4uGOAQg'],
             success(res) {
                 console.log(res, '物流状态通知res')
 

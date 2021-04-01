@@ -17,7 +17,7 @@
     value="{{ receive.name }}"
     required
     clearable
-    title-width="6.2rem"
+    title-width="8.2rem"
     input-align="right"
     label="收件人（拼音）"
     placeholder="如张三：San Zhang"
@@ -36,7 +36,7 @@
     value="{{ receive.address }}"
     required
     clearable
-    title-width="6.2rem"
+    title-width="8.2rem"
     input-align="right"
     label="街道名+门牌号"
     placeholder="请输入街道名称和门牌号码"
@@ -44,7 +44,6 @@
   />
    <van-field
     value="{{ receive.postCode }}"
-    required
     clearable
      title-width="6.2rem"
     input-align="right"
@@ -88,7 +87,7 @@
      <van-field
     value="{{ receive.wxUserId }}"
     clearable
-     title-width="6.2rem"
+     title-width="7.2rem"
     input-align="right"
     label="微信号(选填)"
     placeholder="请输入自己的微信号"

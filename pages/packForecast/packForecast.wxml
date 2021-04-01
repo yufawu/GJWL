@@ -62,10 +62,11 @@
     value="{{ item.svalue }}"
     required
     clearable
-     title-width="6.2rem"
+     title-width="8.2rem"
     input-align="right"
+    type="number"
     label="物品价值（¥）"
-    placeholder="请输入物品价值"
+    placeholder="请输入物品价值（数字）"
       bind:change="svalueChange"
      data-prop="svalue"
       data-index="{{index}}"
@@ -101,13 +102,13 @@
      title-width="6.2rem"
     input-align="right"
     label="商品备注"
-    placeholder="您可以在这里告诉我们商品的颜色尺码等信息"
+    placeholder="商品的颜色尺码等信息"
       bind:change="remarkChange"
      data-prop="remark"
       data-index="{{index}}"
   />
   <van-radio-group  value="{{ item.isUnpack }}" bind:change="onChange" data-index="{{index}}"  direction="horizontal">
-    <van-cell title="是否拆包" title-width="10em" border="{{false}}"></van-cell>
+    <van-cell title="是否拆包" title-width="6em" border="{{false}}"></van-cell>
 
     <van-cell  data-name="0" data-index="{{index}}" title="" bind:click="onRidioClick" direction="horizontal" border="{{false}}">
              <van-radio name="0">是</van-radio>
@@ -175,6 +176,8 @@
   actions="{{ addressList }}"
   bind:close="onAddressClose"
   bind:select="onAddressSelect"
+  cancel-text="增加地址"
+  bind:cancel="onAddressCancel"
 />
 
 <van-toast id="van-toast" />

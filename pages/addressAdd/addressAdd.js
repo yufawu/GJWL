@@ -31,9 +31,7 @@ Page({
         // this.addReceiver() //添加收货地址
         // this.getReceiver() //获取收货地址
         // this.submitForecast() //提交预报
-        this.noInWare()
-        this.inWare()
-        this.abnormal()
+
     },
 
     /**
@@ -95,9 +93,10 @@ Page({
     },
     addressSave() { //保存地址
         console.log('保存地址', this.data.receive)
-        wx.navigateTo({
-            url: '../addressManage/addressManage'
-        })
+        wx.navigateBack()
+            // wx.navigateTo({
+            //     url: '../addressManage/addressManage'
+            // })
     },
     addReceiver() {
         // let params = {
@@ -133,14 +132,15 @@ Page({
         }
 
         console.log(params, 'params')
-        if (params.countryName && params.countryCode && params.cityName && params.name && params.postCode) {
+        if (params.countryName && params.countryCode && params.cityName && params.name && params.tel && params.address) {
             http.post(api.AddReceiver, params).then((res) => {
                 console.log(res, '信息')
                 if (res.data.msg == '操作成功') {
                     Toast('添加成功')
-                    wx.navigateTo({
-                        url: '../addressManage/addressManage'
-                    })
+                    wx.navigateBack()
+                        // wx.navigateTo({
+                        //     url: '../addressManage/addressManage'
+                        // })
                 } else {
                     Toast(res.data.msg)
                 }
@@ -154,36 +154,8 @@ Page({
     },
 
 
-    noInWare() { //未入库订单
-        let params = {
-            "userId": wx.getStorageSync('userId')
-        }
-        console.log(params, 'params')
-        http.get(api.NoInWare, params).then((res) => {
-            console.log("请求结果", res, data.data)
 
-        })
-    },
-    inWare() { //已入库订单
-        let params = {
-            "userId": wx.getStorageSync('userId')
-        }
-        console.log(params, 'params')
-        http.get(api.InWare, params).then((res) => {
-            console.log("请求结果", res, data.data)
 
-        })
-    },
-    abnormal() { //异常的订单
-        let params = {
-            "userId": wx.getStorageSync('userId')
-        }
-        console.log(params, 'params')
-        http.get(api.Abnormal, params).then((res) => {
-            console.log("请求结果", res, data.data)
-
-        })
-    },
 
 
     /**
