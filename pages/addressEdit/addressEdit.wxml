@@ -1,0 +1,104 @@
+<!--pages/addressEdit/addressEdit.wxml-->
+<van-cell-group>
+  <!-- <van-field
+    value="{{ test }}"
+    required
+    clearable
+    title-width="6.2rem"
+    input-align="right"
+    label="events事件测试内容"
+    placeholder="如张三：San Zhang"
+    bind:click-icon="onClickIcon"
+    bind:input="onInput"
+    bind:change="onChange"
+    bind:focus="onFocus"
+  /> -->
+  <van-field
+    value="{{ receive.name }}"
+    required
+    clearable
+    title-width="8.2rem"
+    input-align="right"
+    label="收件人（拼音）"
+    placeholder="如张三：San Zhang"
+    bind:change="nameChange"
+  />
+  <!-- <van-field
+    value="{{ password }}"
+    clearable
+    title-width="7rem"
+    input-align="right"
+    label="地址附加（选填）"
+    placeholder="请输入附加地址"
+    bind:change="goodsTypeChange"
+  /> -->
+    <van-field
+    value="{{ receive.address }}"
+    required
+    clearable
+    title-width="8.2rem"
+    input-align="right"
+    label="街道名+门牌号"
+    placeholder="请输入街道名称和门牌号码"
+    bind:change="addressChange"
+  />
+   <van-field
+    value="{{ receive.postCode }}"
+    clearable
+     title-width="6.2rem"
+    input-align="right"
+    label="邮编"
+    placeholder="请输入邮编"
+    bind:change="postCodeChange"
+  />
+     <van-field
+    value="{{ receive.cityName }}"
+    required
+    clearable
+     title-width="6.2rem"
+    input-align="right"
+    label="城市"
+    placeholder="请输入城市"
+    bind:change="cityNameChange"
+  />
+       <van-field
+    value="{{ countryName }}"
+    required
+    clearable
+    disabled
+     title-width="6.2rem"
+    input-align="right"
+    is-link="true"
+    label="国家/地区"
+    placeholder="请选择国家/地区"
+    bind:click-input="onCountry"
+    bind:change="countryeChange"
+  />
+     <van-field
+    value="{{ receive.tel }}"
+    required
+    clearable
+     title-width="6.2rem"
+    input-align="right"
+    label="联系电话"
+    placeholder="请输入收件人电话"
+    bind:change="telChange"
+  />
+     <van-field
+    value="{{ receive.wxUserId }}"
+    clearable
+     title-width="7.2rem"
+    input-align="right"
+    label="微信号(选填)"
+    placeholder="请输入自己的微信号"
+    bind:change="wxUserIdChange"
+  />
+  
+  <view class="click-button">
+  <van-button round type="info" block bindtap="addReceiver">保存</van-button>
+  </view>
+   
+</van-cell-group>
+
+<van-toast id="van-toast" />
+
