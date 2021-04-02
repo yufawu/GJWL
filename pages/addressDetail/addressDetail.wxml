@@ -1,0 +1,9 @@
+<!--pages/addressDetail/addressDetail.wxml-->
+    <van-cell-group>
+ <van-cell title="收件人" value="{{addressDetail.name }}" />
+  <van-cell title="详细地址" value="{{addressDetail.address}}" />
+   <van-cell title="邮编" value="{{addressDetail.postCode}}" />
+    <van-cell title="城市" value="{{addressDetail.cityName}}" />
+     <van-cell title="国际/地区" value="{{addressDetail.countryName}}" />
+      <van-cell title="联系电话" value="{{addressDetail.tel}}" />
+    </van-cell-group>
