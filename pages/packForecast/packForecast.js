@@ -23,18 +23,9 @@ Page({
             "brand": null, //品牌
             "isUnpack": "0", //是否拆包
         }],
-        expressList: [ //快递列表
-            { name: "中通快递" },
-            { name: "百世快递" }
-        ],
-        goodsList: [ //物品属性列表
-            { name: "普货" },
-            { name: "一般货物" }
-        ],
-        addressList: [
-            { name: "小巫一号" },
-            { name: "小巫二号" }
-        ], //收货地址选择面板
+        expressList: null, //快递列表
+        goodsList: null, //物品属性列表
+        addressList: null, //收货地址列表
         showExpress: false, //快递选择面板
         showGoods: false, //物品属性选择面板
         showAddress: false, //收货地址选择面板
@@ -55,11 +46,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        this.getExpress()
-        this.getGoodsType()
 
-        // this.getAuthorize() //预报下单
-        console.log('内容', this.data.forecastList)
 
     },
 
@@ -67,12 +54,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        this.getReceiver()
-        this.setData({
+        // this.getReceiver()
 
-
-        })
-        console.log('选择框列表', this.expressList, this.goodsList)
 
     },
     getReceiver() {
@@ -158,6 +141,9 @@ Page({
     },
 
     onExpressClick(e) {
+        if (this.data.expressList == null) {
+            this.getExpress()
+        }
         console.log('选择快递下标', e.currentTarget.dataset.index)
         this.setData({
             showExpress: true,
@@ -178,6 +164,9 @@ Page({
         })
     },
     onGoodsClick(e) {
+        if (this.data.goodsList == null) {
+            this.getGoodsType()
+        }
         this.setData({
             showGoods: true,
             indexGoodsType: e.currentTarget.dataset.index
@@ -196,13 +185,10 @@ Page({
         })
     },
     onAddressClick(e) {
-        if (wx.getStorageSync('addressList')) {
-            this.setData({
-                addressList: wx.getStorageSync('addressList'),
-                showAddress: true,
-            });
+        if (this.data.addressList == null) {
+            this.getReceiver()
 
-        } else {
+        } else if (this.data.addressList && this.data.addressList.lenght == 0) {
             Dialog.confirm({
                     title: "你当前暂无收货地址",
                     // message: "删除后需重新录入",
@@ -220,6 +206,9 @@ Page({
                     console.log('取消删除')
                 });
         }
+        this.setData({
+            showAddress: true
+        })
 
     },
     onAddressClose() {

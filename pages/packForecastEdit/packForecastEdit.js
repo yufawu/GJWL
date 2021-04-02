@@ -136,7 +136,10 @@ Page({
     },
 
     onExpressClick(e) {
-        this.getExpress()
+        if (this.data.expressList == null) {
+            this.getExpress()
+        }
+
         this.setData({
             showExpress: true,
             indexExpress: e.currentTarget.dataset.index
@@ -155,7 +158,11 @@ Page({
         })
     },
     onGoodsClick(e) {
-        this.getGoodsType() //获取属性列表
+        if (this.data.goodsList == null) {
+            this.getGoodsType() //获取属性列表
+
+        }
+
         this.setData({
             showGoods: true,
             indexGoodsType: e.currentTarget.dataset.index
@@ -276,7 +283,10 @@ Page({
                 if (res.data.msg === "操作成功") {
                     console.log("修改成功", res.data)
                     Toast('修改成功')
-                    wx.navigateBack()
+                        // wx.navigateBack()
+                    wx.navigateTo({
+                        url: '../packNoInWare/packNoInWare'
+                    })
 
                 } else {
                     Toast('信息不完整，带*的都是必填内容')
