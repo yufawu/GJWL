@@ -1,1 +1,61 @@
 /* pages/packNoInWare/packNoInWare.wxss */
+
+.tips {
+    color: red;
+    margin-bottom: 10px;
+}
+
+
+/* .van-swipe-cell__left,
+.van-swipe-cell__right {
+    display: inline-block;
+    width: 65px;
+    height: 65px;
+    font-size: 15px;
+    line-height: 65px;
+    color: #fff;
+    text-align: center;
+    background-color: rgb(37, 180, 144);
+} */
+
+
+/* .van-swipe-cell__right {
+    background-color: red;
+} */
+
+
+/* .van-swipe-cell__right {
+    display: inline-block;
+    width: 65px;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    background-color: blue;
+    margin: auto;
+    position: relative;
+    right: -50%;
+    top: -50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+} */
+
+.van-swipe-cell__right {
+    width: 100%;
+    height: 100%;
+}
+
+.van-swipe-cell__right .van-button--info {
+    height: 100%;
+}
+
+.van-swipe-cell__right .van-button--danger {
+    height: 100%;
+}
+
+.time {
+    font-size: 16px;
+    /* padding-top: 20px; */
+    position: absolute;
+    bottom: 8px;
+    right: 5px;
+}

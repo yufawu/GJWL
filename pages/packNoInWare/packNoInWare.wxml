@@ -1,6 +1,27 @@
 <!--pages/packNoInWare/packNoInWare.wxml-->
-<van-cell-group>
+<view class="tips">*左滑可进行编辑删除操作</view>
+
       <view wx:for="{{packList}}" wx:key="index">
-<van-cell  title="{{item.hawbNo}}" value="{{item.createTime}}" label="{{item.goodsType}} " title-width="60%" data-id="{{item.id}}" bindtap="viewDetail"/>
+ <van-swipe-cell right-width="{{ 130 }}"name="预报操作" bind:open="onOpen" bind:click="onCiick" bind:close="onClose" >
+  <van-cell-group>
+  <van-cell  title="{{item.hawbNo}}" value="" label="{{item.goodsType}} " title-width="60%" data-id="{{item.id}}" bindtap="viewDetail">
+        <view slot="">
+              <view></view>
+               <view class="time">{{item.createTime}}</view>
+              <!-- <view>删除 编辑</view> -->
+   
+        </view>
+  </van-cell>
+  </van-cell-group>
+    <view slot="right" class="van-swipe-cell__right">
+          
+        <van-button data-id="{{item.id}}" type="info" bindtap="packEdit">编辑</van-button>
+        <van-button data-id="{{item.id}}" data-index="{{index}}" type="danger" bindtap="packDelete">删除</van-button>
+    </view>
+     
+</van-swipe-cell>
+
       </view>
-    </van-cell-group>
+
+    <van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
