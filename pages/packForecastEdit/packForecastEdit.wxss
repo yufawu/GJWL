@@ -1,0 +1,22 @@
+/* pages/packForecastEdit/packForecastEdit.wxss */
+
+.right-icon-class {
+    font-size: 20rpx;
+    font-weight: bold;
+    color: red;
+}
+
+.box {
+    margin-bottom: 30rpx;
+    background: #fff;
+}
+
+.delete-button {
+    text-align: center;
+    color: red;
+    padding: 10rpx;
+}
+
+.address {
+    margin: 30rpx 0;
+}
