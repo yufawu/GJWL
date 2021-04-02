@@ -1,15 +1,20 @@
-<!--pages/addressManage/addressManage.wxml-->
-
- <!-- <van-search
-    value="{{search}}"
-    show-action
-    placeholder="请输入搜索关键词"
-    :change="onSearch"
-    :search="onCancel"
-  /> -->
+<view class="tips">*左滑可进行编辑删除操作</view>
     <van-cell-group>
       <view wx:for="{{addressList}}" wx:key="index">
-<van-cell title="{{item.countryName}}" value="{{item.name}}" label="{{item.cityName}},{{item.address}},{{item.tel}} " title-width="60%"/>
+         <van-swipe-cell right-width="{{ 130 }}"name="地址操作" bind:open="onOpen" bind:click="onCiick" bind:close="onClose" >
+  <van-cell-group>
+  <van-cell title="{{item.countryName}}" value="{{item.name}}" label="{{item.cityName}},{{item.address}},{{item.tel}} " title-width="60%">
+     
+    </van-cell>
+  </van-cell-group>
+    <view slot="right" class="van-swipe-cell__right">
+          
+        <van-button data-id="{{item.id}}" type="info" bindtap="addressEdit">编辑</van-button>
+        <van-button data-id="{{item.id}}" data-index="{{index}}" type="danger" bindtap="addressDelete">删除</van-button>
+    </view>
+     
+</van-swipe-cell>
+
       </view>
    
     </van-cell-group>
@@ -18,3 +23,5 @@
     </view>
 
 
+   <van-toast id="van-toast" />
+<van-dialog id="van-dialog" />

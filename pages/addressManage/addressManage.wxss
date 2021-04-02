@@ -4,3 +4,21 @@
     min-height: 300rpx;
     margin-bottom: 30rpx;
 }
+
+.tips {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.van-swipe-cell__right {
+    width: 100%;
+    height: 100%;
+}
+
+.van-swipe-cell__right .van-button--info {
+    height: 100%;
+}
+
+.van-swipe-cell__right .van-button--danger {
+    height: 100%;
+}

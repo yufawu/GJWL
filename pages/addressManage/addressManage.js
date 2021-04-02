@@ -1,4 +1,6 @@
 // pages/addressManage/addressManage.js
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
 const app = getApp()
 const api = require('../../network/api');
 const http = require('../../network/http.js');
@@ -60,6 +62,60 @@ Page({
             wx.setStorageSync('addressList', res.data.data)
             console.log('地址列表', that.data.addressList)
         })
+    },
+
+    onOpen(e) {
+        console.log(e, '打开地址管理操作')
+    },
+    onCiick(e) {
+        console.log(e, '点击地址管理操作')
+    },
+    onClose(e) {
+        console.log(e, '关闭地址管理操作')
+    },
+    addressEdit(e) {
+        console.log('编辑该文件')
+        app.globalData.addressId = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '../addressEdit/addressEdit'
+        })
+    },
+    addressDelete(e) {
+        let that = this
+        let addressId = e.currentTarget.dataset.id
+        let idx = e.currentTarget.dataset.index
+        console.log('删除该文件', addressId, idx)
+        let params = {
+            "id": addressId
+        }
+        Dialog.confirm({
+                title: "确认删除该联系人信息",
+                // message: "删除后需重新录入",
+                confirmButtonText: "删除",
+            })
+            .then(() => {
+                // on confirm
+                http.get(api.DeleteReceiver, params).then((res) => {
+                    console.log('删除操作', res)
+                    if (res.data.data) {
+                        if (idx > -1) {
+                            that.data.addressList.splice(idx, 1)
+                        }
+                        let deleteAddressList = that.data.addressList
+                        console.log("删除后的数据", deleteAddressList)
+                        that.setData({
+                            addressList: deleteAddressList
+                        })
+                    }
+                })
+            })
+            .catch(() => {
+                // on cancel
+                console.log('取消删除')
+            });
+
+
+
     },
     /**
      * 生命周期函数--监听页面隐藏
