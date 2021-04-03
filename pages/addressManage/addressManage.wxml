@@ -3,7 +3,7 @@
       <view wx:for="{{addressList}}" wx:key="index">
          <van-swipe-cell right-width="{{ 130 }}"name="地址操作" bind:open="onOpen" bind:click="onCiick" bind:close="onClose" >
   <van-cell-group>
-  <van-cell title="{{item.countryName}}" value="{{item.name}}" label="{{item.cityName}},{{item.address}},{{item.tel}} " title-width="60%">
+  <van-cell title="{{item.countryName}}" value="{{item.name}}" label="{{item.cityName}},{{item.address}},{{item.tel}} " title-width="60%" data-id="{{item.id}}" bindtap="viewDetail">
      
     </van-cell>
   </van-cell-group>

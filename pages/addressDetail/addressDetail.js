@@ -37,7 +37,7 @@ Page({
         let params = {
             "id": app.globalData.addressId
         }
-        http.get(api.GetReceiver, params).then((res) => {
+        http.get(api.GetReceiverDetail, params).then((res) => {
             console.log("请求结果", res.data.data)
             that.setData({
                 addressDetail: res.data.data

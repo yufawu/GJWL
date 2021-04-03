@@ -63,6 +63,13 @@ Page({
             console.log('地址列表', that.data.addressList)
         })
     },
+    viewDetail(e) { //查看详情
+        console.log(e, '详细信息')
+        app.globalData.addressId = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '../addressDetail/addressDetail'
+        })
+    },
 
     onOpen(e) {
         console.log(e, '打开地址管理操作')

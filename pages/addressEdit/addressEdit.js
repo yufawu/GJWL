@@ -31,6 +31,7 @@ Page({
         // this.addReceiver() //添加收货地址
         // this.getReceiver() //获取收货地址
         // this.submitForecast() //提交预报
+        this.getAddressDetail()
 
     },
 
@@ -98,7 +99,7 @@ Page({
             //     url: '../addressManage/addressManage'
             // })
     },
-    addReceiver() {
+    editReceiver() {
         // let params = {
         //     "countryName": "美国",
         //     "countryCode": "US",
@@ -116,10 +117,11 @@ Page({
             countryCnName = app.globalData.countryMsg.countryCnName
             countryCode = app.globalData.countryMsg.countryCode
         } else {
-            countryCnName = ''
-            countryCode = ''
+            countryCnName = this.data.receive.countryName
+            countryCode = this.data.receive.countryCode
         }
         let params = {
+            "id": app.globalData.addressId,
             "countryName": countryCnName,
             "countryCode": countryCode,
             "cityName": this.data.receive.cityName,
@@ -132,15 +134,15 @@ Page({
         }
 
         console.log(params, 'params')
-        if (params.countryName && params.countryCode && params.cityName && params.name && params.tel && params.address) {
-            http.post(api.AddReceiver, params).then((res) => {
+        if (params.countryName && params.cityName && params.name && params.tel && params.address) {
+            http.post(api.EditReceiver, params).then((res) => {
                 console.log(res, '信息')
                 if (res.data.msg == '操作成功') {
                     Toast('添加成功')
-                    wx.navigateBack()
-                        // wx.navigateTo({
-                        //     url: '../addressManage/addressManage'
-                        // })
+                        // wx.navigateBack()
+                    wx.navigateTo({
+                        url: '../addressManage/addressManage'
+                    })
                 } else {
                     Toast(res.data.msg)
                 }
@@ -153,7 +155,18 @@ Page({
 
     },
     getAddressDetail() { //获取地址详细信息
-
+        let that = this
+        let params = {
+            "id": app.globalData.addressId
+        }
+        http.get(api.GetReceiverDetail, params).then((res) => {
+            console.log(res.data.data, '详细地址信息')
+            that.setData({
+                receive: res.data.data,
+                countryName: res.data.data.countryName
+            })
+        })
+        console.log("地址详情", this.data.receive)
     },
 
 

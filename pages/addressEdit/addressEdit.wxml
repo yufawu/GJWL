@@ -1,18 +1,5 @@
 <!--pages/addressEdit/addressEdit.wxml-->
 <van-cell-group>
-  <!-- <van-field
-    value="{{ test }}"
-    required
-    clearable
-    title-width="6.2rem"
-    input-align="right"
-    label="events事件测试内容"
-    placeholder="如张三：San Zhang"
-    bind:click-icon="onClickIcon"
-    bind:input="onInput"
-    bind:change="onChange"
-    bind:focus="onFocus"
-  /> -->
   <van-field
     value="{{ receive.name }}"
     required
@@ -95,7 +82,7 @@
   />
   
   <view class="click-button">
-  <van-button round type="info" block bindtap="addReceiver">保存</van-button>
+  <van-button round type="info" block bindtap="editReceiver">修改地址</van-button>
   </view>
    
 </van-cell-group>
