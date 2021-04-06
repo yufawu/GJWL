@@ -1,55 +1,57 @@
 {
-    "pages": [
-        "pages/login/login",
-        "pages/index/index",
-        "pages/logs/logs",
-        "pages/mine/mine",
-        "pages/countFreight/countFreight",
-        "pages/tipsTransport/tipsTransport",
-        "pages/forecast/forecast",
-        "pages/addressManage/addressManage",
-        "pages/addressAdd/addressAdd",
-        "pages/countryList/countryList",
-        "pages/bindPhone/bindPhone",
-        "pages/bindMailbox/bindMailbox",
-        "pages/about/about",
-        "pages/packForecast/packForecast",
-        "pages/packForecastManage/packForecastManage",
-        "pages/problemCommon/problemCommon",
-        "pages/suggestions/suggestions",
-        "pages/informationNotice/informationNotice",
-        "pages/myShareList/myShareList",
-        "pages/myCode/myCode"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "Weixin",
-        "navigationBarTextStyle": "black"
-    },
-    "tabBar": {
-        "backgroundColor": "#ffffff",
-        "color": "#A5AEBE",
-        "selectedColor": "#1F99F8",
-        "list": [{
-                "pagePath": "pages/index/index",
-                "text": "首页",
-                "iconPath": "res/image/ic_toolbar_search_n.png",
-                "selectedIconPath": "res/image/ic_toolbar_search_p.png"
-            },
-            {
-                "pagePath": "pages/countFreight/countFreight",
-                "text": "运费估算",
-                "iconPath": "res/image/ic_toolbar_search_entry_n.png",
-                "selectedIconPath": "res/image/ic_toolbar_search_entry_p.png"
-            },
-            {
-                "pagePath": "pages/mine/mine",
-                "text": "我的",
-                "iconPath": "res/image/ic_tooibar_account_n.png",
-                "selectedIconPath": "res/image/ic_tooibar_account_p.png"
-            }
-        ]
-    },
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/logs/logs",
+    "pages/mine/mine",
+    "pages/countFreight/countFreight",
+    "pages/tipsTransport/tipsTransport",
+    "pages/forecast/forecast",
+    "pages/addressManage/addressManage",
+    "pages/addressAdd/addressAdd",
+    "pages/countryList/countryList",
+    "pages/bindPhone/bindPhone",
+    "pages/bindMailbox/bindMailbox",
+    "pages/about/about",
+    "pages/packForecast/packForecast",
+    "pages/packForecastManage/packForecastManage",
+    "pages/problemCommon/problemCommon",
+    "pages/suggestions/suggestions",
+    "pages/informationNotice/informationNotice",
+    "pages/myShareList/myShareList",
+    "pages/myCode/myCode",
+    "pages/packNoInWare/packNoInWare",
+    "pages/packInWare/packInWare",
+    "pages/packAbnormal/packAbnormal",
+    "pages/packForecastDetail/packForecastDetail",
+    "pages/packForecastEdit/packForecastEdit",
+    "pages/addressEdit/addressEdit",
+    "pages/addressDetail/addressDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#A5AEBE",
+    "selectedColor": "#1F99F8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "res/image/ic_toolbar_search_n.png",
+        "selectedIconPath": "res/image/ic_toolbar_search_p.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "res/image/ic_tooibar_account_n.png",
+        "selectedIconPath": "res/image/ic_tooibar_account_p.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }

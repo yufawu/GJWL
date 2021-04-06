@@ -9,6 +9,22 @@ page {
     --button-info-color: #f2f3f5;
     --toast-max-width: 100px;
     --toast-background-color: pink;  */
+    --cell-text-color: #333;
+    --cell-label-font-size: 16px;
+    --cell-large-value-font-size: 16px;
+    --cell-value-color: #333;
+    --field-disabled-text-color: #333;
+    /* --cell-label-color: #333; */
+    --cell-large-title-font-size: 16px;
+    --cell-large-label-font-size: 16px;
+    --cell-font-size: 18px;
+    --cell-icon-size: 20px;
+    --cell-line-height: 24px;
+    --button-normal-font-size: 18px;
+    --grid-item-icon-size: 34px;
+    --grid-item-text-font-size: 16px;
+    --tab-font-size: 18px;
+    --field-label-color: #333;
 }
 
 
