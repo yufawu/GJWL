@@ -1,2 +1,17 @@
 <!--pages/myShareList/myShareList.wxml-->
-<text>pages/myShareList/myShareList.wxml</text>
+<view class="totalShare">
+  <text>总分享用户：{{userList.length}}人</text>
+</view>
+<view class="page-user-list">
+  <view class="card-container">
+    <view class="user-list">
+      <view class="item" wx:for="{{userList}}" wx:key="index">
+        <image class="icon-avatar" src="{{item.avatarUrl}}"></image>
+        <view class="right">
+          <text class="nickname">{{item.userName}}</text>
+          <text class="date">绑定时间: {{item.createTime}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

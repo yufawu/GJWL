@@ -1,1 +1,58 @@
 /* pages/myShareList/myShareList.wxss */
+
+.page-user-list {
+    /* padding: 40rpx; */
+    background: #fff;
+}
+
+.card-container {
+    padding: 0;
+}
+
+.totalShare {
+    text-align: center;
+    background-color: #fff;
+    padding: 20rpx 0;
+    margin-bottom: 10px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 36rpx;
+    border-bottom: 2rpx solid #ececec;
+}
+
+.right {
+    flex-grow: 1;
+    margin-left: 36rpx;
+}
+
+.icon-avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 60rpx;
+    overflow: hidden;
+    display: block;
+    flex-shrink: 0;
+}
+
+.nickname {
+    display: block;
+    font-size: 32rpx;
+    color: #4C5567;
+}
+
+.date {
+    font-size: 24rpx;
+    color: #A5AEBE;
+    margin-top: 8rpx;
+}
+
+.divider {
+    display: block;
+    height: 2rpx;
+    width: 100%;
+    background: #ECECEC;
+    margin-top: 36rpx;
+}
