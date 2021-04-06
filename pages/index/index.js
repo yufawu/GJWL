@@ -35,8 +35,16 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
-
+    onLoad: function(res) {
+        console.log('页面参数', res)
+        if (res.promoterOpenId) {
+            app.globalData.promoterOpenId = res.promoterOpenId //通过分享按钮进入
+            console.log('首页分享进入', app.globalData.promoterOpenId)
+        }
+        if (res.scene) { // 如果是通过扫码进入，可以获取scene获取分享者id
+            app.globalData.promoterOpenId = res.scene
+                // this.getScene(res.scene) //获取二维码scene数据
+        }
 
     },
 
@@ -44,7 +52,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        // this.getBanner()
+        this.getBanner()
         this.getWarehouse()
         this.getWays()
     },
@@ -54,6 +62,16 @@ Page({
      */
     onShow: function() {
 
+    },
+    getScene(scene) { //获取scene的值,用户id,姓名等信息
+        let objScene = {
+            "openId": scene
+        }
+        http.get(api.GetSecneValue, objScene).then(res => {
+            app.globalData.promoterOpenId = res.data.data.id //获取分享者的user
+            console.log('扫码进入', res.data)
+                // console.log('扫码信息', res.data.data)
+        })
     },
     viewImage(e) {
         let currentUrl = e.currentTarget.dataset.currenturl.imgurl //当前图片

@@ -1,2 +1,7 @@
 <!--pages/myCode/myCode.wxml-->
-<text>pages/myCode/myCode.wxml</text>
+<view class="page-qrcode">
+  <view class="card-container">
+    <image class="icon-qrcode" src="{{codeUrl}}" bindtap='previewCodeImage' binderror='codeImageError'></image>
+    <text class="hint">点击图片，分享到朋友圈</text>
+  </view>
+</view>

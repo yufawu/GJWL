@@ -1,1 +1,19 @@
 /* pages/myCode/myCode.wxss */
+
+.page-qrcode {
+    padding: 40rpx;
+}
+
+.icon-qrcode {
+    width: 600rpx;
+    height: 600rpx;
+    display: block;
+    margin: 10rpx auto;
+}
+
+.hint {
+    display: block;
+    text-align: center;
+    font-size: 32rpx;
+    color: #4C5567;
+}

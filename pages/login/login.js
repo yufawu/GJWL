@@ -94,7 +94,8 @@ Page({
                 let loginParams = {
                     "code": res.code,
                     "avatarUrl": userInfo.avatarUrl,
-                    "nickName": userInfo.nickName
+                    "nickName": userInfo.nickName,
+                    "parentOpenId": app.globalData.promoterOpenId
                 }
                 console.log(loginParams, '请求参数')
                 http.post(api.WechatLogin, loginParams).then((resMsg) => {
