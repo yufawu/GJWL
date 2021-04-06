@@ -54,7 +54,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        // this.getReceiver()
+        this.getReceiver() //需要每次进入页面都更新个人地址
 
 
     },
@@ -66,7 +66,7 @@ Page({
         console.log(params, 'params')
         http.get(api.GetReceiver, params).then((res) => {
             console.log("请求结果", res.data.data)
-            if (res.data.data) {
+            if (res.data.data && res.data.data.length !== 0) { //数据不为空时保存
                 that.setData({
                     addressList: res.data.data
                 })
@@ -174,6 +174,7 @@ Page({
     },
     onGoodsClose() {
         console.log('关闭货物属性选择')
+
         this.setData({ showGoods: false });
     },
     onGoodsSelect(event) {
@@ -185,27 +186,6 @@ Page({
         })
     },
     onAddressClick(e) {
-        if (this.data.addressList == null) {
-            this.getReceiver()
-
-        } else if (this.data.addressList && this.data.addressList.lenght == 0) {
-            Dialog.confirm({
-                    title: "你当前暂无收货地址",
-                    // message: "删除后需重新录入",
-                    confirmButtonText: "去填写",
-                })
-                .then(() => {
-                    // on confirm
-                    console.log('去填写收货地址')
-                    wx.navigateTo({
-                        url: '../addressAdd/addressAdd'
-                    })
-                })
-                .catch(() => {
-                    // on cancel
-                    console.log('取消删除')
-                });
-        }
         this.setData({
             showAddress: true
         })
