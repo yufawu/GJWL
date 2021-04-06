@@ -168,6 +168,15 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function() {
-
+        return {
+            title: '欧集商',
+            path: '/pages/index/index?promoterOpenId=' + wx.getStorageSync('openId'),
+            success() {
+                console.log("转发成功" + res)
+            },
+            fail() {
+                console.log("转发失败" + res)
+            }
+        }
     }
 })
