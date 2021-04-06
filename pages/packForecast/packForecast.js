@@ -232,12 +232,14 @@ Page({
 
         })
     },
-    saoma: function(event) { // 允许从相机和相册扫码
-        console.log(event, 'saoma')
+    saoma: function(e) { // 允许从相机和相册扫码
+        let idx = e.currentTarget.dataset.index
+        console.log(e, 'saoma')
         wx.scanCode({
             success: (res) => {
+                this.data.forecastList[idx].hawbNo = res.result
                 this.setData({
-                    inputValue: res.result
+                    forecastList: this.data.forecastList
                 });
                 console.log(res, '扫码的值')
             }
