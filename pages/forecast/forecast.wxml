@@ -1,2 +1,20 @@
 <!--pages/forecast/forecast.wxml-->
-<text>pages/forecast/forecast.wxml</text>
+<view>
+    接口测试
+</view>
+<view>
+    <van-button type="primary" bindtap="getCode">获取个人二维码</van-button>
+</view>
+<view><van-button type="info">编辑收件人信息</van-button></view>
+<view><van-button type="danger">删除收件人信息</van-button></view>
+<view><van-button type="info">编辑预报单</van-button></view>
+<view><van-button type="danger">删除预报单</van-button></view>
+<view><van-button type="info">信息按钮</van-button></view>
+<view><van-button type="warning">警告按钮</van-button></view>
+<view><van-button type="danger">危险按钮</van-button></view>
+
+
+
+
+
+

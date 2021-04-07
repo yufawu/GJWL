@@ -1,4 +1,6 @@
 {
     "navigationBarTitleText": "预报",
-    "usingComponents": {}
+    "usingComponents": {
+        "van-button": "@vant/weapp/button/index"
+    }
 }
