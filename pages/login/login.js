@@ -53,56 +53,16 @@ Page({
     },
 
     getUserProfile: function(e) {
-        console.log('getUserProfile', e)
 
-        // if (e.detail.userInfo) {
-        //     wx.getUserProfile({
-        //         desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-        //         success: (res) => {
-        //             console.log('用户信息getUserProfile', res)
-        //             wx.setStorageSync('userInfo', res.userInfo)
-        //             this.setData({
-        //                 userInfo: res.userInfo,
-        //                 hasUserInfo: true
-        //             })
-        //         }
-        //     })
+        wx.getUserProfile({
+            desc: '用于完善个人资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+            success: (res) => {
+                console.log('用户信息getUserProfile', res)
+                wx.setStorageSync('userInfo', res.userInfo)
+                this.weChatLogin()
+            }
+        })
 
-
-
-
-
-        if (e.detail.userInfo) {
-            //用户按了允许授权按钮
-            var that = this;
-            // 获取到用户的信息了，打印到控制台上看下
-            console.log('获取的用户信息', e.detail.userInfo);
-            wx.setStorageSync('userInfo', e.detail.userInfo)
-            this.weChatLogin()
-
-            // wx.reLaunch({ //跳转页面
-            //         url: '../index/index'
-            //     })
-            // wx.navigateBack() //返回上一页
-            //授权成功后,通过改变 isHide 的值，让实现页面显示出来，把授权页面隐藏起来
-            that.setData({
-                isHide: false
-            });
-        } else {
-            //用户按了拒绝按钮
-            wx.showModal({
-                title: '警告',
-                content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
-                showCancel: false,
-                confirmText: '返回授权',
-                success: function(res) {
-                    // 用户没有授权成功，不需要改变 isHide 的值
-                    if (res.confirm) {
-                        console.log('用户点击了“返回授权”');
-                    }
-                }
-            });
-        }
 
 
     },
