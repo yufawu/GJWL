@@ -21,15 +21,6 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        if (wx.getStorageSync('openId')) { //判断用户是否登录
-            console.log('用户已经登录--我的页面')
-
-        } else {
-            console.log('用户没有登录--我的页面')
-            wx.navigateTo({
-                url: '../login/login'
-            })
-        }
 
     },
 
@@ -37,6 +28,16 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
+        if (!wx.getStorageSync('openId')) { //判断用户是否登录
+            console.log('用户没有登录--我的页面')
+            wx.navigateTo({
+                url: '../login/login'
+            })
+
+
+        } else {
+            console.log('用户已经登录--我的页面')
+        }
         if (wx.getStorageSync('userInfo')) {
             this.setData({
                 userInfo: wx.getStorageSync('userInfo')
@@ -71,16 +72,16 @@ Page({
     myCode() { //我的二维码
         console.log('我的二维码')
         Toast("该功能正在开发中")
-            // wx.navigateTo({
-            //     url: '../myCode/myCode'
-            // })
+        wx.navigateTo({
+            url: '../myCode/myCode'
+        })
     },
     myShareList() { //我的分享列表
         console.log('我的分享列表')
         Toast("该功能正在开发中")
-            // wx.navigateTo({
-            //     url: '../myShareList/myShareList'
-            // })
+        wx.navigateTo({
+            url: '../myShareList/myShareList'
+        })
     },
     packForecastManage() { //包裹预报管理列表
         console.log('包裹预报管理列表')
@@ -125,9 +126,9 @@ Page({
     bindPhone() { //更改手机
         console.log('更改手机')
         Toast("该功能正在开发中")
-            // wx.navigateTo({
-            //     url: '../bindPhone/bindPhone'
-            // })
+        wx.navigateTo({
+            url: '../bindPhone/bindPhone'
+        })
     },
     bindMailbox() { //绑定邮箱
         console.log('绑定邮箱')
