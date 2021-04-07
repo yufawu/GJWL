@@ -7,6 +7,7 @@
      <van-cell title="物品价值" value="{{packDetail.svalue}}" />
       <van-cell title="物品属性" value="{{packDetail.goodsType}}" />
        <van-cell title="商品数量" value="{{packDetail.pcs}}" />
+         <van-cell title="商品重量" value="{{packDetail.cwt}}" />
         <van-cell title="商品备注" value="{{packDetail.remark}}" />
         <van-cell wx:if="{{packDetail.isUnpack == 0}}" title="是否拆包" value="是" />
         <van-cell wx:if="{{packDetail.isUnpack == 1}}" title="是否拆包" value="否" />

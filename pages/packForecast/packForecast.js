@@ -15,6 +15,7 @@ Page({
         forecastList: [{
             "hawbNo": null,
             "pcs": 1, //商品数量
+            "cwt": 1, //商品重量
             "expressCompany": null,
             "productName": null,
             "svalue": null,
@@ -134,6 +135,10 @@ Page({
     pcsChange(e) { //商品数量
         const idx = e.currentTarget.dataset.index
         this.data.forecastList[idx].pcs = e.detail
+    },
+    cwtChange(e) { //商品重量
+        const idx = e.currentTarget.dataset.index
+        this.data.forecastList[idx].cwt = e.detail
     },
     remarkChange(e) { //商品备注
         const idx = e.currentTarget.dataset.index
@@ -259,7 +264,8 @@ Page({
                     this.data.forecastList.splice(idx, 1)
                 }
                 let deleteList = this.data.forecastList
-                console.log('确认删除，删除后的数据', deleteList)
+                console.log(this.data.forecastList, '确认删除，删除后的数据', deleteList)
+
                 this.setData({
                     forecastList: deleteList
                 })
@@ -277,6 +283,7 @@ Page({
         var newData = {
             "hawbNo": null,
             "pcs": 1,
+            "cwt": 1,
             "expressCompany": null,
             "productName": null,
             "svalue": null,
@@ -320,6 +327,7 @@ Page({
                             let resetForecastList = [{
                                 "hawbNo": null,
                                 "pcs": 1, //商品数量
+                                "cwt": 1, //商品重量
                                 "expressCompany": null,
                                 "productName": null,
                                 "svalue": null,

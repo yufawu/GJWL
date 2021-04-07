@@ -93,6 +93,11 @@
   <van-stepper  value="{{ item.pcs }}" bind:change="pcsChange" data-index="{{index}}"/>
       </view>
   </van-cell>
+  <van-cell title='商品重量'>
+      <view slot="">
+  <van-stepper  value="{{ item.cwt }}" bind:change="cwtChange" data-index="{{index}}"/>
+      </view>
+  </van-cell>
 </van-cell-group>
 
      <van-field
