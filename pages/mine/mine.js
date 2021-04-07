@@ -132,10 +132,10 @@ Page({
     },
     bindMailbox() { //绑定邮箱
         console.log('绑定邮箱')
-        Toast("该功能正在开发中")
-            // wx.navigateTo({
-            //     url: '../bindMailbox/bindMailbox'
-            // })
+            // Toast("该功能正在开发中")
+        wx.navigateTo({
+            url: '../bindMailbox/bindMailbox'
+        })
     },
     about() { //关于我们
         console.log('关于我们')

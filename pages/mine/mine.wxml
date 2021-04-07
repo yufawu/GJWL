@@ -7,9 +7,16 @@
                 <open-data type='userAvatarUrl'></open-data>
             </view>
             <view class="text">
+            <view class="name">  <open-data type='userNickName' lang="zh_CN"></open-data></view>
+            <view>   
+             <open-data type='userProvince' lang="zh_CN"></open-data>  
+            <open-data type='userCity' lang="zh_CN"></open-data>
+             </view>
+            </view>
+            <!-- <view class="text">
                 <view class="name">昵称：{{userInfo.nickName}}</view>
                 <view>地区：{{userInfo.province}}{{userInfo.city}}</view>
-            </view>
+            </view> -->
             <!-- <view class="text">
                 <view>我的余额</view>
                 <view>0.00</view>

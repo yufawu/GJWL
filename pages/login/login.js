@@ -52,7 +52,26 @@ Page({
 
     },
 
-    bindGetUserInfo: function(e) {
+    getUserProfile: function(e) {
+        console.log('getUserProfile', e)
+
+        // if (e.detail.userInfo) {
+        //     wx.getUserProfile({
+        //         desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        //         success: (res) => {
+        //             console.log('用户信息getUserProfile', res)
+        //             wx.setStorageSync('userInfo', res.userInfo)
+        //             this.setData({
+        //                 userInfo: res.userInfo,
+        //                 hasUserInfo: true
+        //             })
+        //         }
+        //     })
+
+
+
+
+
         if (e.detail.userInfo) {
             //用户按了允许授权按钮
             var that = this;
