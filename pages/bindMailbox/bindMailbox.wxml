@@ -5,31 +5,35 @@
     disabled
     label="旧邮箱"
     placeholder=""
+    title-width="4em"
   />
     <van-field
     value="{{ mailbox }}"
     required
     clearable
     label="新邮箱"
-    placeholder="请输入邮箱号"
+    placeholder="请输入邮箱"
+     title-width="4em"
+     bind:change="mailboxChange"
   />
    <van-field
-    value="{{ sms }}"
+    value="{{ verifyCode }}"
     center
     required
     clearable
     label="验证码"
     placeholder="请输入验证码"
+     title-width="4em"
+     bind:change="verifyCodeChange"
     border="{{ false }}"
     use-button-slot
   >
-    <van-button slot="button" size="small" type="primary">
-      获取验证码
-    </van-button>
+ <van-button wx:if="{{showCountdown === true}}" ref="getCode"  slot="button" size="small" type="info"><van-count-down time="{{time}}"  bind:finish='countDownFinish' format=" ss 秒后重试" /></van-button>
+    <van-button wx:if="{{showCountdown === false}}"  bindtap="getCode"  slot="button" size="small" type="info">获取验证码</van-button>
   </van-field>
 
 </van-cell-group>
 <!-- <view>确认更换后，旧邮箱作废~</view> -->
   <view class="click-button">
-  <van-button round type="info" block bindtap="saveMailbox">确定</van-button>
+  <van-button round type="info" block bindtap="submit">确定</van-button>
   </view>

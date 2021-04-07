@@ -104,6 +104,7 @@ Page({
                     wx.setStorageSync('openId', resMsg.data.data.openId)
                     wx.setStorageSync('userId', resMsg.data.data.id)
                     wx.setStorageSync('tel', resMsg.data.data.tel)
+                    wx.setStorageSync('mailbox', resMsg.data.data.email)
                     app.globalData.userId = resMsg.data.data.id
                     wx.navigateBack() //返回上一页
                 })
