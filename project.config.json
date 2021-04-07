@@ -105,6 +105,36 @@
         {
           "name": "pages/packForecast/packForecast",
           "pathName": "pages/packForecast/packForecast",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/packNoInWare/packNoInWare",
+          "pathName": "pages/packNoInWare/packNoInWare",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "接口测试pages/forecast/forecast",
+          "pathName": "pages/forecast/forecast",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/addressEdit/addressEdit",
+          "pathName": "pages/addressEdit/addressEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/addressDetail/addressDetail",
+          "pathName": "pages/addressDetail/addressDetail",
           "scene": null
         }
       ]

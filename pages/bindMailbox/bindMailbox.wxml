@@ -33,7 +33,7 @@
   </van-field>
 
 </van-cell-group>
-<!-- <view>确认更换后，旧邮箱作废~</view> -->
+<view class="tips">绑定的邮箱用于接收货物的状态提醒（入仓，出仓，签收，轨迹）</view>
   <view class="click-button">
   <van-button round type="info" block bindtap="submit">确定</van-button>
   </view>

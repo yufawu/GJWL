@@ -2,8 +2,8 @@
 // const ApiRootUrl = 'http://api-sys.xfx361.com/appMiniPro/v1'; // http
 // const ApiRootUrl = 'https://api-sys.xfx361.com/appMiniPro/v1'; //https--线上
 // const ApiRootUrl = 'https://api-sys.xfx361.com/setgoods/api/mini';
-const ApiRootUrl = 'http://192.168.2.237:8089/api/mini'; //本地测试
-// const ApiRootUrl = 'https://zschinese.com/api/mini'; //测试服务器
+// const ApiRootUrl = 'http://192.168.2.237:8089/api/mini'; //本地测试
+const ApiRootUrl = 'https://zschinese.com/api/mini'; //测试服务器
 
 module.exports = {
     GetBanner: ApiRootUrl + '/config/carousels', //首页轮播图
@@ -26,7 +26,9 @@ module.exports = {
     GetWays: ApiRootUrl + '/config/getValueByKey', //获取路线信息
     GetSecneValue: ApiRootUrl + '/getUserByOpenId', //获取二维码scene数据
     GetQrCode: ApiRootUrl + '/qrCode', //获取带scene的二维码
-    BindInviteCode: ApiRootUrl + '/bindInviteCode', //绑定邀请码
+    BindPhone: ApiRootUrl + '/resetTel', //绑定手机号
+    BindEmail: ApiRootUrl + '/setEmail', //绑定邮箱
+    GetEmailCode: ApiRootUrl + '/sendCodeToEmail', //获取邮箱验证码
     GetCompanyPreface: ApiRootUrl + '/getCompanyPreface', //查看公司介绍
     GetContactaddre: ApiRootUrl + '/getContactaddre', //查看公司联系地址
     GetMyShare: ApiRootUrl + '/getMyShareUser', //分享用户的列表

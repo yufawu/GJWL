@@ -7,8 +7,8 @@
                 <open-data type='userAvatarUrl'></open-data>
             </view>
             <view class="text">
-            <view class="name">  <open-data type='userNickName' lang="zh_CN"></open-data></view>
-            <view>   
+            <view class="name"> 昵称： <open-data type='userNickName' lang="zh_CN"></open-data></view>
+            <view> 地区：  
              <open-data type='userProvince' lang="zh_CN"></open-data>  
             <open-data type='userCity' lang="zh_CN"></open-data>
              </view>

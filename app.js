@@ -14,6 +14,7 @@ App({
         })
     },
     globalData: {
+        token: '4B50D444145CC6BE877C7DEE377DC5A39BBE4D93', //公司token值
         userInfo: null, //用户的微信信息
         userId: null, //用户id
         countryMsg: null, //选择的国家信息

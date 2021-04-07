@@ -5,6 +5,7 @@
     disabled
     label="旧手机号"
     placeholder=""
+    title-width="5em"
   />
     <van-field
     value="{{ phone }}"
@@ -12,6 +13,7 @@
     clearable
     label="新手机号"
     placeholder="请输入手机号"
+    title-width="5em"
      bind:change="phoneChange"
   />
    <van-field
@@ -21,6 +23,7 @@
     clearable
     label="验证码"
     placeholder="请输入验证码"
+    title-width="5em"
      bind:change="verifyCodeChange"
     border="{{ false }}"
     use-button-slot

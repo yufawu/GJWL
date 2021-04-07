@@ -1,1 +1,7 @@
 /* pages/bindMailbox/bindMailbox.wxss */
+
+.tips {
+    color: red;
+    font-size: 16px;
+    padding-top: 10px;
+}
