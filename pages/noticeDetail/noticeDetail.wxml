@@ -1,0 +1,18 @@
+<!--pages/noticeDetail/noticeDetail.wxml-->
+<import src='../../wxParse/wxParse.wxml' />
+<view class="wrap">
+    <view class='item-title'>{{newsDetails.title}}</view>
+    <view class='item-time'>{{newsDetails.createTime}}</view>
+  <view class='detail' wx:if="{{detailContent !==''}}">
+    <template is="wxParse" data="{{wxParseData:detailContent.nodes}}" />
+  </view>
+ <image bindtap='goHome' class="go-home" src="../../res/image/btn_home.png" alt=""></image>
+ <!-- 增加水印 -->
+  <view class='water-mark-mask'>
+    <view class='row' wx:for="{{rows}}" wx:key="index">
+      <view class='col' wx:for="{{cols}}" wx:key="index">
+        <image src="../../res/image/logo.png" alt=""></image>
+      </view>
+    </view>
+  </view>
+</view>
