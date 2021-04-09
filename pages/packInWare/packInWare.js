@@ -8,7 +8,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        packList: null
+        packList: null,
+        emptyShow: false, //是否显示空状态
     },
 
     /**
@@ -37,11 +38,17 @@ Page({
             "userId": wx.getStorageSync('userId')
         }
         http.get(api.InWare, params).then((res) => {
-            console.log("请求结果", res.data.data)
-            that.setData({
-                packList: res.data.data
-            })
-            console.log(this.data.packList, '已入库的订单')
+            if (res.data.data.length == 0) { //空数组
+                that.setData({
+                    emptyShow: true
+                })
+            } else {
+                that.setData({
+                    emptyShow: false,
+                    packList: res.data.data
+                })
+            }
+
 
         })
     },

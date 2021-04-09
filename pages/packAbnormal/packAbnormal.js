@@ -9,7 +9,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        packList: null
+        packList: null,
+        emptyShow: false, //是否显示空状态
 
     },
 
@@ -40,9 +41,17 @@ Page({
         }
         console.log(params, 'params')
         http.get(api.Abnormal, params).then((res) => {
-            that.setData({
-                packList: res.data.data
-            })
+            if (res.data.data.length == 0) { //空数组
+                that.setData({
+                    emptyShow: true
+                })
+            } else {
+                that.setData({
+                    emptyShow: false,
+                    packList: res.data.data
+                })
+            }
+
 
         })
     },

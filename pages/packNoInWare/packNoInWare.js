@@ -11,7 +11,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        packList: null
+        packList: null,
+        emptyShow: false, //是否显示空状态
     },
 
     /**
@@ -41,10 +42,16 @@ Page({
         }
         console.log(params, 'params')
         http.get(api.NoInWare, params).then((res) => {
-            console.log("请求结果", res.data.data)
-            that.setData({
-                packList: res.data.data
-            })
+            if (res.data.data.length == 0) { //空数组
+                that.setData({
+                    emptyShow: true
+                })
+            } else {
+                that.setData({
+                    emptyShow: false,
+                    packList: res.data.data
+                })
+            }
 
         })
         console.log("未入库信息", this.data.packList)

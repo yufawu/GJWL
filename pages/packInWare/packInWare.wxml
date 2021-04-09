@@ -1,6 +1,14 @@
 <!--pages/packInWare/packInWare.wxml-->
-<van-cell-group>
+<van-cell-group wx:if="{{!emptyShow}}">
       <view wx:for="{{packList}}" wx:key="index">
 <van-cell  title="{{item.hawbNo}}" value="{{item.createTime}}" label="{{item.goodsType}} " title-width="60%" data-id="{{item.id}}" bindtap="viewDetail"/>
       </view>
     </van-cell-group>
+
+  <view class="wrap" wx:if="{{emptyShow}}">
+      <van-empty
+  class="custom-image"
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="没有内容哦"
+/>
+</view>
