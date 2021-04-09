@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        radio: ''
+        checked: false
 
     },
 
@@ -31,21 +31,23 @@ Page({
     },
     onChange(event) {
         console.log('是否勾选了确认按钮', event.detail)
-        this.radio = event.detail
         this.setData({
-            radio: event.detail,
-        });
+            checked: event.detail
+        })
+
     },
     agree() { //同意
-        console.log("点击了同意按钮", this.radio)
         if (wx.getStorageSync('openId')) { //判断用户是否登录
             console.log('用户已经登录--注意事项')
-            if (this.radio == 1) {
+            if (this.data.checked) {
                 wx.navigateTo({
                     url: '../packForecast/packForecast'
                 })
             } else {
-                console.log('请先确认')
+                wx.showToast({
+                    title: '请先确认同意',
+                    icon: 'none'
+                })
             }
 
         } else {

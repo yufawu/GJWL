@@ -31,10 +31,10 @@
          请注意：寄至仓库的物品密度如果过小，会导致同等重量下体积过大，按照体积重量收费的情况，比如各类盒子，锅，鞋子等有空腔的物品，以及棉被，海绵制品等本身密度较小的物品
      </view>
      <view>
-         <van-radio-group value="{{ radio }}" bind:change="onChange">
-  <van-radio name="1">我确认已经详细阅读以上集运须知及声明，完全清楚也同意其中内容并受其规范</van-radio>
  
-</van-radio-group>
+  <van-checkbox value="{{ checked }}" bind:change="onChange">我确认已经详细阅读以上集运须知及声明，完全清楚也同意其中内容并受其规范</van-checkbox>
+
+
      </view>
      <view class="click-button">
   <van-button round type="info" block bindtap="agree">同意并继续</van-button>
