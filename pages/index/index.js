@@ -127,8 +127,11 @@ Page({
         })
     },
 
-    needAttention() {
+    needsAttention() {
         console.log('点击注意事项')
+        wx.navigateTo({
+            url: '../problemCommon/problemCommon'
+        })
     },
     transport() {
         console.log('点击开始集运')

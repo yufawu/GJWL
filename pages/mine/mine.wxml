@@ -48,10 +48,10 @@
         <view class="panel-title">我的订单</view>
         <view class="panel-box">
             <van-grid square border="{{false}}">
-                <van-grid-item icon="cash-back-record" text="待支付" bindtap="inDevelop"></van-grid-item>
-                <van-grid-item icon="close" text="待发货" bindtap="inDevelop"></van-grid-item>
-                <van-grid-item icon="passed" text="已发货" bindtap="inDevelop"></van-grid-item>
-                <van-grid-item icon="completed" text="已签收" bindtap="inDevelop"></van-grid-item>
+                <van-grid-item icon="cash-back-record" text="待支付" bindtap="orderUnpaid"></van-grid-item>
+                <van-grid-item icon="close" text="待发货" bindtap="orderUndeliver"></van-grid-item>
+                <van-grid-item icon="passed" text="已发货" bindtap="orderDeliver"></van-grid-item>
+                <van-grid-item icon="completed" text="已签收" bindtap="orderSign"></van-grid-item>
             </van-grid>
         </view>
     </view>
@@ -64,9 +64,9 @@
                   <!-- <van-grid-item icon="gift-card-o" bindtap="packForecastManage" text="包裹预报"></van-grid-item> -->
                   <van-grid-item icon="question-o" bindtap="problemCommon" text="常见问题"></van-grid-item>
                   <van-grid-item icon="records" bindtap="suggestions" text="投诉建议"></van-grid-item>
-                  <van-grid-item icon="other-pay" bindtap="informationNotice" text="通知资讯"></van-grid-item>
+                  <van-grid-item icon="other-pay" bindtap="informationNotice" text="通知公告"></van-grid-item>
                 <van-grid-item icon="question-o" bindtap="inDevelop" text="异常件"></van-grid-item>
-                <van-grid-item icon="after-sale" bindtap="inDevelop" text="交易记录"></van-grid-item>
+                <van-grid-item icon="after-sale" bindtap="orderRecord" text="交易记录"></van-grid-item>
                 <van-grid-item icon="scan" bindtap="packForecast" text="一键预报"></van-grid-item>
                 <van-grid-item bindtap='addressManage' icon="location-o" text="我的地址"></van-grid-item>
                 <van-grid-item bindtap='bindPhone' icon="phone-o" text="更改手机"></van-grid-item>

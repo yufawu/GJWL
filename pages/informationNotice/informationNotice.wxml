@@ -14,23 +14,4 @@
 <view  wx:for="{{noticeList}}" wx:key="index">
 <van-cell title="{{item.title}}" label="{{item.createTime}}" data-id="{{item.id}}" bindtap="viewDetail"/>
 </view>
-<!-- <view  wx:for="{{noticeList}}" wx:key="index">
-<van-cell title="{{item.title}}" label="{{item.createTime}}" data-id="{{item.id}}" bindtap="viewDetail"/>
-</view>
-<view  wx:for="{{noticeList}}" wx:key="index">
-<van-cell title="{{item.title}}" label="{{item.createTime}}" data-id="{{item.id}}" bindtap="viewDetail"/>
-</view>
-<view  wx:for="{{noticeList}}" wx:key="index">
-<van-cell title="{{item.title}}" label="{{item.createTime}}" data-id="{{item.id}}" bindtap="viewDetail"/>
-</view>
-<view  wx:for="{{noticeList}}" wx:key="index">
-<van-cell title="{{item.title}}" label="{{item.createTime}}" data-id="{{item.id}}" bindtap="viewDetail"/>
-</view>
-<view  wx:for="{{noticeList}}" wx:key="index">
-<van-cell title="{{item.title}}" label="{{item.createTime}}" data-id="{{item.id}}" bindtap="viewDetail"/>
-</view>
-<view  wx:for="{{noticeList}}" wx:key="index">
-<van-cell title="{{item.title}}" label="{{item.createTime}}" data-id="{{item.id}}" bindtap="viewDetail"/>
-</view> -->
-
 </view>

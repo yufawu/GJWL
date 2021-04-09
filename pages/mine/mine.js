@@ -62,6 +62,33 @@ Page({
             url: '../packAbnormal/packAbnormal'
         })
     },
+    orderUnpaid() { //未支付
+        console.log('未支付')
+        wx.navigateTo({
+            url: '../orderUnpaid/orderUnpaid'
+        })
+    },
+    orderUndeliver() { //待发货
+        console.log('待发货')
+        wx.navigateTo({
+            url: '../orderUndeliver/orderUndeliver'
+        })
+    },
+    orderDeliver() { //已发货
+        console.log('已发货')
+        wx.navigateTo({
+            url: '../orderDeliver/orderDeliver'
+        })
+    },
+    orderSign() { //已签收
+        console.log('已签收')
+        wx.navigateTo({
+            url: '../orderSign/orderSign'
+        })
+    },
+
+
+
     inDevelop() { //该功能正在开发中
         Toast("该功能正在开发中")
     },
@@ -71,14 +98,12 @@ Page({
 
     myCode() { //我的二维码
         console.log('我的二维码')
-        Toast("该功能正在开发中")
         wx.navigateTo({
             url: '../myCode/myCode'
         })
     },
     myShareList() { //我的分享列表
         console.log('我的分享列表')
-        Toast("该功能正在开发中")
         wx.navigateTo({
             url: '../myShareList/myShareList'
         })
@@ -92,24 +117,30 @@ Page({
     },
     problemCommon() { //常见问题
         console.log('常见问题')
-        Toast("该功能正在开发中")
-            // wx.navigateTo({
-            //     url: '../problemCommon/problemCommon'
-            // })
+            // Toast("该功能正在开发中")
+        wx.navigateTo({
+            url: '../problemCommon/problemCommon'
+        })
     },
     suggestions() { //投诉建议
         console.log('投诉建议')
-        Toast("该功能正在开发中")
-            // wx.navigateTo({
-            //     url: '../suggestions/suggestions'
-            // })
+            // Toast("该功能正在开发中")
+        wx.navigateTo({
+            url: '../suggestions/suggestions'
+        })
     },
     informationNotice() { //通知资讯
         console.log('通知资讯')
-        Toast("该功能正在开发中")
-            // wx.navigateTo({
-            //     url: '../informationNotice/informationNotice'
-            // })
+            // Toast("该功能正在开发中")
+        wx.navigateTo({
+            url: '../informationNotice/informationNotice'
+        })
+    },
+    orderRecord() { //交易记录
+        console.log('交易记录')
+        wx.navigateTo({
+            url: '../orderRecord/orderRecord'
+        })
     },
     packForecast() { //一键预报
         console.log('一键预报')
@@ -125,24 +156,22 @@ Page({
     },
     bindPhone() { //更改手机
         console.log('更改手机')
-        Toast("该功能正在开发中")
         wx.navigateTo({
             url: '../bindPhone/bindPhone'
         })
     },
     bindMailbox() { //绑定邮箱
         console.log('绑定邮箱')
-            // Toast("该功能正在开发中")
         wx.navigateTo({
             url: '../bindMailbox/bindMailbox'
         })
     },
     about() { //关于我们
         console.log('关于我们')
-        Toast("该功能正在开发中")
-            // wx.navigateTo({
-            //     url: '../about/about'
-            // })
+            // Toast("该功能正在开发中")
+        wx.navigateTo({
+            url: '../about/about'
+        })
     },
 
     /**
