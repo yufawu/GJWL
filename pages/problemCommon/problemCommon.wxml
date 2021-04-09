@@ -1,2 +1,18 @@
 <!--pages/problemCommon/problemCommon.wxml-->
-<text>pages/problemCommon/problemCommon.wxml</text>
+<view class="search">
+  <van-search
+  value="{{ searchValue }}"
+  placeholder="请输入搜索关键词"
+  use-action-slot
+  bind:change="onValueChange"
+  bind:search="onSearch"
+>
+ <view slot="action" bind:tap="onSearchClick">搜索</view>
+</van-search>
+</view>
+<view class="search-content">
+<view  wx:for="{{noticeList}}" wx:key="index">
+<van-cell title="{{item.title}}" label="{{item.createTime}}" data-id="{{item.id}}" bindtap="viewDetail"/>
+</view>
+</view>
+
