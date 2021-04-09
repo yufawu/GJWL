@@ -20,3 +20,42 @@
 .address {
     margin: 30rpx 0;
 }
+
+.agreement {
+    display: flex;
+}
+
+.tips {
+    color: orange;
+}
+
+
+/* 弹窗 */
+
+.popup-wrap {
+    width: 75%;
+    height: 80%;
+}
+
+.popup {
+    padding: 10px;
+    color: #000
+}
+
+.popup-title {
+    font-size: 20px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.popup-content {
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.popup-content-title {
+    font-weight: bold;
+    margin: 20px 0;
+}
