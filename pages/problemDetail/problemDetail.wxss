@@ -1,0 +1,74 @@
+/* pages/problemDetail/problemDetail.wxss */
+
+.wrap {
+    width: 98%;
+    padding: 0 1%;
+    background: #fff;
+}
+
+.item-title {
+    font-size: 32rpx;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.item-time {
+    margin-left: 30rpx;
+    margin-bottom: 10rpx;
+}
+
+
+/* 回到首页 */
+
+.go-home {
+    width: 100rpx;
+    height: 100rpx;
+    position: fixed;
+    right: 0;
+    top: 46%;
+    background: #fff;
+    opacity: .8;
+}
+
+
+/* 富文本样式 */
+
+.detail image {
+    width: 100%!important;
+}
+
+
+/* 水印 */
+
+.water-mark-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    pointer-events: none;
+    flex: 1;
+    overflow: hidden;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+}
+
+.col {
+    transform: rotate(-45deg);
+    height: 200rpx;
+}
+
+.col image {
+    width: 100rpx;
+    height: 100rpx;
+    opacity: .1;
+}
