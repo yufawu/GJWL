@@ -1,0 +1,9 @@
+<!--pages/orderUnpaid/orderUnpaid.wxml-->
+<view wx:for="{{unpaidList}}" wx:key="index">
+<van-cell title="{{item.hawbno}}" label="计费重：{{item.pcs}}KG" data-id="{{item.id}}" catchtap="viewDetail">
+<view slot="" class="box">
+ <view class="box-price">{{item.payFee}}元</view>
+ <van-button data-id="{{item.id}}" type="primary" size="small" catchtap="payment">支付</van-button>
+</view>
+</van-cell>
+</view>

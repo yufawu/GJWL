@@ -1,0 +1,12 @@
+/* pages/orderUnpaid/orderUnpaid.wxss */
+
+.box {
+    margin-top: 7px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.box-price {
+    margin-right: 10px;
+}
