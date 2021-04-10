@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "待发货",
+    "usingComponents": {
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-empty": "@vant/weapp/empty/index"
+    }
+}

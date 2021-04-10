@@ -1,0 +1,14 @@
+<!--pages/orderUndeliver/orderUndeliver.wxml-->
+<view wx:for="{{undeliverList}}" wx:key="index">
+    <view class="box-wrap">
+<van-cell title="{{item.hawbno}}" label="计费重：{{item.pcs}}KG"  data-id="{{item.id}}" catchtap="viewDetail">
+<view slot="" class="box">
+ <!-- <view class="box-price">{{item.payFee}}元</view> -->
+ <view class="box-time">{{item.creatTime}}</view>
+ <view class="box-status" wx:if="{{item.payStatus == 'Y'}}">已支付</view>
+ <view class="box-status" wx:if="{{item.payStatus == 'N'}}">未支付</view>
+</view>
+</van-cell>
+    </view>
+
+</view>
