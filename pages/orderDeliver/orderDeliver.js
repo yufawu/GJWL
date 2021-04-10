@@ -9,7 +9,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        deliverList: null
+        deliverList: null,
+        emptyShow: false, //是否显示空状态
     },
 
     /**
@@ -38,9 +39,17 @@ Page({
             "userId": wx.getStorageSync('userId')
         }
         http.get(api.OrderDeliver, params).then((res) => {
-            that.setData({
-                deliverList: res.data.data
-            })
+            if (res.data.data.length == 0) { //空数组
+                that.setData({
+                    emptyShow: true
+                })
+            } else {
+                that.setData({
+                    emptyShow: false,
+                    deliverList: res.data.data
+                })
+            }
+
         })
     },
     viewDetail(e) {

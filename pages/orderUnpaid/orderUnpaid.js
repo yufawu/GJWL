@@ -9,23 +9,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        unpaidList: [{
-                title: "11111111",
-                price: 0.1,
-                cwt: 1
-            },
-            {
-                title: "2222222",
-                price: 0.2,
-                cwt: 2
-            },
-            {
-                title: "3333333",
-                price: 0.3,
-                cwt: 3
-            }
-        ],
+        unpaidList: null,
         goodsId: null, //支付订单的id
+        emptyShow: false, //是否显示空状态
     },
 
     /**
@@ -54,10 +40,17 @@ Page({
             "userId": wx.getStorageSync('userId')
         }
         http.get(api.OrderUnpaid, params).then((res) => {
-            console.log('未支付订单列表', res.data.data)
-            that.setData({
-                unpaidList: res.data.data
-            })
+            if (res.data.data.length == 0) { //空数组
+                that.setData({
+                    emptyShow: true
+                })
+            } else {
+                that.setData({
+                    emptyShow: false,
+                    unpaidList: res.data.data
+                })
+            }
+
         })
     },
     payment(e) { //获取code，订单号
@@ -74,6 +67,7 @@ Page({
 
     },
     toPay(code, goodsId) { //获取返回的信息，调取支付
+        let that = this
         let params = {
             "code": code,
             "goodsId": goodsId
@@ -94,6 +88,7 @@ Page({
                             title: "支付成功！",
                             duration: 2000,
                         });
+                        that.getOrderUnpaid() //支付成功后更新未支付列表
 
                     },
                     fail: function(res) {

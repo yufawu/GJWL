@@ -1,5 +1,5 @@
 <!--pages/orderUndeliver/orderUndeliver.wxml-->
-<view wx:for="{{undeliverList}}" wx:key="index">
+<view wx:for="{{undeliverList}}" wx:key="index" wx:if="{{!emptyShow}}">
     <view class="box-wrap">
 <van-cell title="{{item.hawbno}}" label="计费重：{{item.pcs}}KG"  data-id="{{item.id}}" catchtap="viewDetail">
 <view slot="" class="box">
@@ -10,5 +10,7 @@
 </view>
 </van-cell>
     </view>
-
+</view>
+<view class="wrap" wx:if="{{emptyShow}}">
+      <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="没有内容哦" />
 </view>

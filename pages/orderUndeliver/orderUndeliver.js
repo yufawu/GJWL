@@ -9,7 +9,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        undeliverList: null
+        undeliverList: null,
+        emptyShow: false, //是否显示空状态
     },
 
     /**
@@ -38,10 +39,17 @@ Page({
             "userId": wx.getStorageSync('userId')
         }
         http.get(api.OrderUndeliver, params).then((res) => {
-            console.log('待发货订单列表', res.data.data)
-            that.setData({
-                undeliverList: res.data.data
-            })
+            if (res.data.data.length == 0) { //空数组
+                that.setData({
+                    emptyShow: true
+                })
+            } else {
+                that.setData({
+                    emptyShow: false,
+                    undeliverList: res.data.data
+                })
+            }
+
         })
     },
     viewDetail(e) {

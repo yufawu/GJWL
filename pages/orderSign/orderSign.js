@@ -9,7 +9,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        orderSignList: null
+        orderSignList: null,
+        emptyShow: false, //是否显示空状态
     },
 
     /**
@@ -38,9 +39,16 @@ Page({
             "userId": wx.getStorageSync('userId')
         }
         http.get(api.OrderSign, params).then((res) => {
-            that.setData({
-                orderSignList: res.data.data
-            })
+            if (res.data.data.length == 0) { //空数组
+                that.setData({
+                    emptyShow: true
+                })
+            } else {
+                that.setData({
+                    emptyShow: false,
+                    orderSignList: res.data.data
+                })
+            }
         })
     },
     viewDetail(e) {
