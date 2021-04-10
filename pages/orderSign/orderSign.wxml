@@ -1,0 +1,11 @@
+<!--pages/orderSign/orderSign.wxml-->
+<view wx:for="{{orderSignList}}" wx:key="index">
+    <view class="box-wrap">
+<van-cell title="{{item.hawbno}}" label="计费重：{{item.pcs}}KG"  data-id="{{item.id}}" catchtap="viewDetail">
+<view slot="" class="box">
+ <view class="box-time">{{item.creatTime}}</view>
+</view>
+</van-cell>
+    </view>
+
+</view>

@@ -1,0 +1,9 @@
+/* pages/orderSign/orderSign.wxss */
+
+.box-wrap {
+    margin-bottom: 10px;
+}
+
+.box-time {
+    font-size: 14px;
+}
