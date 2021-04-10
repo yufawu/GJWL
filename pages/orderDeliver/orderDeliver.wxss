@@ -1,0 +1,16 @@
+/* pages/orderDeliver/orderDeliver.wxss */
+
+.box-wrap {
+    margin-bottom: 10px;
+}
+
+.box-time {
+    /* position: absolute; */
+    /* bottom: 8px; */
+    /* right: 8px; */
+    font-size: 14px;
+}
+
+.box-status {
+    color: #1989fa;
+}
