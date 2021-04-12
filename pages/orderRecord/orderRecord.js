@@ -1,0 +1,98 @@
+// pages/orderRecord/orderRecord.js
+const app = getApp()
+const api = require('../../network/api');
+const http = require('../../network/http.js');
+const utils = require('../../utils/util.js');
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        paymentList: null,
+        emptyShow: false, //是否显示空状态
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function() {
+        this.getOrderdeliver()
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function() {
+
+    },
+    getOrderdeliver() {
+        let that = this
+        let params = {
+            "userId": wx.getStorageSync('userId'),
+            "pageNum": 1,
+            "pageSize": 50,
+        }
+        http.get(api.OrderPayRecord, params).then((res) => {
+            if (res.data.rows.length == 0) { //空数组
+                that.setData({
+                    emptyShow: true
+                })
+            } else {
+                that.setData({
+                    emptyShow: false,
+                    paymentList: res.data.rows
+                })
+            }
+
+        })
+    },
+    viewDetail(e) {
+        app.globalData.orderId = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '../orderDetail/orderDetail'
+        })
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function() {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function() {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function() {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function() {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function() {
+
+    }
+})
