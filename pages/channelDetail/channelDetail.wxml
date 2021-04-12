@@ -1,0 +1,8 @@
+<!--pages/channelDetail/channelDetail.wxml-->
+  <van-cell-group>
+  <van-cell title="渠道名称" value="{{channelDetail.channelName}}" />
+   <van-cell title="价格" value="{{channelDetail.price}}" />
+    <van-cell title="国家二字代码" value="{{channelDetail.countryCode}}" />
+     <van-cell title="单位" value="{{channelDetail.unit}}" />
+      <van-cell title="币种" value="{{channelDetail.currency}}" />
+    </van-cell-group>
