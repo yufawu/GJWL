@@ -29,7 +29,8 @@
         <view class="panel-box message" wx:if="{{userInfo == null}}">
    <!-- <van-image fit="cover" round width="100" height="100" src="https://img01.yzcdn.cn/vant/cat.jpeg" /> -->
             <view class="text">
-                <view>未登录</view>
+                <!-- <view bindtap="toLogin">登录/注册</view> -->
+                <van-button  type="info" bindtap="toLogin"> 登录/注册</van-button>
                 <!-- <view>ID:144224</view> -->
             </view>
         </view>
@@ -65,7 +66,7 @@
                   <van-grid-item icon="question-o" bindtap="problemCommon" text="常见问题"></van-grid-item>
                   <van-grid-item icon="records" bindtap="suggestions" text="投诉建议"></van-grid-item>
                   <van-grid-item icon="other-pay" bindtap="informationNotice" text="通知公告"></van-grid-item>
-                <van-grid-item icon="question-o" bindtap="inDevelop" text="异常件"></van-grid-item>
+                <van-grid-item icon="question-o" bindtap="abnormalList" text="异常件"></van-grid-item>
                 <van-grid-item icon="after-sale" bindtap="orderRecord" text="交易记录"></van-grid-item>
                 <van-grid-item icon="scan" bindtap="packForecast" text="一键预报"></van-grid-item>
                 <van-grid-item bindtap='addressManage' icon="location-o" text="我的地址"></van-grid-item>

@@ -21,13 +21,6 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
         if (!wx.getStorageSync('openId')) { //判断用户是否登录
             console.log('用户没有登录--我的页面')
             wx.navigateTo({
@@ -38,53 +31,100 @@ Page({
         } else {
             console.log('用户已经登录--我的页面')
         }
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function() {
         if (wx.getStorageSync('userInfo')) {
             this.setData({
                 userInfo: wx.getStorageSync('userInfo')
             })
         }
     },
+    toLogin() { //点击登录
+        wx.navigateTo({
+            url: '../login/login'
+        })
+    },
     packNoInWare() { //未入库
         console.log('未入库')
-        wx.navigateTo({
-            url: '../packNoInWare/packNoInWare'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../packNoInWare/packNoInWare'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     packInWare() { //已入库
         console.log('已入库')
-        wx.navigateTo({
-            url: '../packInWare/packInWare'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../packInWare/packInWare'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     packAbnormal() { //异常-待处理
         console.log('异常-待处理')
-        wx.navigateTo({
-            url: '../packAbnormal/packAbnormal'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../packAbnormal/packAbnormal'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     orderUnpaid() { //未支付
         console.log('未支付')
-        wx.navigateTo({
-            url: '../orderUnpaid/orderUnpaid'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../orderUnpaid/orderUnpaid'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     orderUndeliver() { //待发货
         console.log('待发货')
-        wx.navigateTo({
-            url: '../orderUndeliver/orderUndeliver'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../orderUndeliver/orderUndeliver'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     orderDeliver() { //已发货
         console.log('已发货')
-        wx.navigateTo({
-            url: '../orderDeliver/orderDeliver'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../orderDeliver/orderDeliver'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     orderSign() { //已签收
         console.log('已签收')
-        wx.navigateTo({
-            url: '../orderSign/orderSign'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../orderSign/orderSign'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
 
 
@@ -98,80 +138,153 @@ Page({
 
     myCode() { //我的二维码
         console.log('我的二维码')
-        wx.navigateTo({
-            url: '../myCode/myCode'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../myCode/myCode'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     myShareList() { //我的分享列表
         console.log('我的分享列表')
-        wx.navigateTo({
-            url: '../myShareList/myShareList'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../myShareList/myShareList'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     packForecastManage() { //包裹预报管理列表
         console.log('包裹预报管理列表')
-        Toast("该功能正在开发中")
-            // wx.navigateTo({
-            //     url: '../packForecastManage/packForecastManage'
-            // })
+        if (wx.getStorageSync('openId')) {
+            Toast("该功能正在开发中")
+                // wx.navigateTo({
+                //     url: '../packForecastManage/packForecastManage'
+                // })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     problemCommon() { //常见问题
         console.log('常见问题')
             // Toast("该功能正在开发中")
-        wx.navigateTo({
-            url: '../problemCommon/problemCommon'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../problemCommon/problemCommon'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     suggestions() { //投诉建议
         console.log('投诉建议')
-            // Toast("该功能正在开发中")
-        wx.navigateTo({
-            url: '../suggestions/suggestions'
-        })
+        if (wx.getStorageSync('openId')) {
+            Toast("该功能正在开发中")
+                // wx.navigateTo({
+                //     url: '../suggestions/suggestions'
+                // })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     informationNotice() { //通知资讯
         console.log('通知资讯')
+        if (wx.getStorageSync('openId')) {
             // Toast("该功能正在开发中")
-        wx.navigateTo({
-            url: '../informationNotice/informationNotice'
-        })
+            wx.navigateTo({
+                url: '../informationNotice/informationNotice'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
+    },
+    abnormalList() { //异常件认领
+        console.log('异常件认领')
+        if (wx.getStorageSync('openId')) {
+            Toast("该功能正在开发中")
+            wx.navigateTo({
+                url: '../abnormalList/abnormalList'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     orderRecord() { //交易记录
         console.log('交易记录')
-        wx.navigateTo({
-            url: '../orderRecord/orderRecord'
-        })
+        Toast("该功能正在开发中")
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../orderRecord/orderRecord'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     packForecast() { //一键预报
         console.log('一键预报')
-        wx.navigateTo({
-            url: '../packForecast/packForecast'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../packForecast/packForecast'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     addressManage() { //地址管理
         console.log('地址管理')
-        wx.navigateTo({
-            url: '../addressManage/addressManage'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../addressManage/addressManage'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     bindPhone() { //更改手机
         console.log('更改手机')
-        wx.navigateTo({
-            url: '../bindPhone/bindPhone'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../bindPhone/bindPhone'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     bindMailbox() { //绑定邮箱
         console.log('绑定邮箱')
-        wx.navigateTo({
-            url: '../bindMailbox/bindMailbox'
-        })
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../bindMailbox/bindMailbox'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
     },
     about() { //关于我们
         console.log('关于我们')
-            // Toast("该功能正在开发中")
-        wx.navigateTo({
-            url: '../about/about'
-        })
+        if (wx.getStorageSync('openId')) {
+            Toast("该功能正在开发中")
+        } else {
+            Toast("请先登录/注册")
+        }
+
+        // wx.navigateTo({
+        //     url: '../about/about'
+        // })
     },
 
     /**
