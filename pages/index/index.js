@@ -29,7 +29,7 @@ Page({
             { fid: '3', configValue: 'https://api-sys.xfx361.com/img//static/login/images/2020070310422690166.png' }
         ],
         warehouseList: null,
-        waysList: null
+        channelList: null
     },
 
     /**
@@ -116,17 +116,21 @@ Page({
         let params = {
             "key": 'sysTestData2'
         }
-        console.log(params, '获取路线信息')
-        http.get(api.GetWarehouse, params).then((res) => {
-            console.log(res.data.data, 'res')
+        http.get(api.GetChannel).then((res) => {
+            console.log(res.data.data, '获取路线信息')
 
             this.setData({
-                waysList: res.data.data.datas
+                channelList: res.data.data
             })
-            console.log(that.data.waysList, '获取路线信息')
+            console.log(that.data.channelList, '获取路线信息')
         })
     },
-
+    viewChannelDetail(e) { //查看渠道详情
+        app.globalData.channelId = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '../channelDetail/channelDetail'
+        })
+    },
     needsAttention() {
         console.log('点击注意事项')
         wx.navigateTo({

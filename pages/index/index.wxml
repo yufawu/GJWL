@@ -32,7 +32,10 @@
 </view>
 
 <view class="way-wrap">超值路线</view>
-<view class="way" wx:for="{{waysList}}">
+<view class="way" wx:for="{{channelList}}" wx:key="index">
+<van-cell title="{{item.channelName}}" value="{{item.price}}" data-id="{{item.id}}" bindtap="viewChannelDetail"></van-cell>
+</view>
+<!-- <view class="way" wx:for="{{waysList}}">
     <view class="way-title">
        <van-cell border="{{false}}" title="{{item.cn_name}}" value="（{{item.reference_time}}）" />
        </view>
@@ -40,4 +43,4 @@
       <van-cell border="{{false}}" title="{{item.cn_name}}" value="¥{{item.money}}" /> 
     </view>
    
-</view>
+</view> -->
