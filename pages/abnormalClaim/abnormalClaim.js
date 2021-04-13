@@ -15,6 +15,8 @@ Page({
         addressList: null, //收货地址列表
         showAddress: false, //收货地址选择面板
         addressSelected: null, //已选择的收货地址信息
+        remarkClaim: null, //认领备注
+
     },
 
     /**
@@ -28,7 +30,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-
+        this.packAbnormalDetail()
     },
 
     /**
@@ -51,6 +53,9 @@ Page({
     //     })
 
     // },
+    remarkClaimChange(e) {
+        this.data.remarkClaim = e.detail
+    },
     getReceiver() {
         let that = this
         let params = {
@@ -121,7 +126,25 @@ Page({
     onSearchClick() { //点击搜索
         this.packAbnormalQuery()
     },
-    packAbnormalQuery() {
+    packAbnormalDetail() { //根据id查询模糊的信息
+        let that = this
+        let params = {
+            "id": app.globalData.abnormalId
+        }
+        http.get(api.PackAbnormalQuery, params).then((res) => {
+            if (res.data.msg == '操作成功') {
+                that.setData({
+                    packDetail: res.data.preAwb,
+                })
+            } else {
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'none'
+                })
+            }
+        })
+    },
+    packAbnormalQuery() { //根据订单号进行匹配
         let that = this
         let params = {
             "orderNo": this.data.searchValue
@@ -133,9 +156,13 @@ Page({
                     packDetail: res.data.preAwb,
                     showDetail: true
                 })
+                wx.showToast({
+                    title: '匹配成功',
+                    icon: 'none'
+                })
             } else {
                 wx.showToast({
-                    title: res.data.msg,
+                    title: '匹配失败',
                     icon: 'none'
                 })
             }
@@ -148,7 +175,7 @@ Page({
                 "orderNo": this.data.packDetail.hawbNo,
                 "userId": wx.getStorageSync('userId'),
                 "receiversendId": this.data.addressSelected.id,
-                "remark": this.data.packDetail.remark
+                "remark": this.data.remarkClaim
             }
             console.log('异常件参数', params)
             http.get(api.PackAbnormalClaim, params).then((res) => {
