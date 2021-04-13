@@ -8,3 +8,12 @@
 .address {
     margin: 30rpx 0;
 }
+
+.claim-detail {
+    background: #fff;
+}
+
+.err-tips {
+    color: red;
+    margin: 15px;
+}
