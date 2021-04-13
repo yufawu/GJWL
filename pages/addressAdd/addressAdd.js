@@ -66,7 +66,7 @@ Page({
         this.data.receive.cityName = e.detail
 
     },
-    countryeChange(e) { //国家地区
+    countryChange(e) { //国家地区
         this.data.countryName = e.detail
     },
     telChange(e) { //电话

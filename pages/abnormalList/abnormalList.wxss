@@ -1,17 +1,5 @@
 /* pages/abnormalList/abnormalList.wxss */
 
-.search {
-    position: fixed;
-    top: 0;
-    width: 96%;
-    margin: auto;
-    z-index: 10;
-}
-
-.search-content {
-    margin-top: 50px;
-}
-
 .van-cell__title {
     font-size: 18px;
 }

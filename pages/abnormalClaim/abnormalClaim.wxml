@@ -1,5 +1,5 @@
 <!--pages/abnormalClaim/abnormalClaim.wxml-->
-<view class="search">
+<view class="search-page">
   <van-search
   value="{{ searchValue }}"
   placeholder="请输入完整的运单号进行匹配"
@@ -10,7 +10,7 @@
  <view slot="action" bindtap="onSearchClick">匹配</view>
 </van-search>
 </view>
-<view class="search-content" >
+<view class="search-page-content" >
   <van-cell-group title="包裹详情">
  <van-cell title="快递" title-width="3em" value="{{claimDetail.expressCompany }}" />
   <van-cell title="单号" title-width="3em" value="{{claimDetail.hawbNo}}" />

@@ -24,7 +24,7 @@
     value="{{ packDetail.hawbNo }}"
     clearable
     required
-    title-width="7rem"
+    title-width="5rem"
     input-align="right"
     label="快递单号"
      icon="scan"
@@ -36,7 +36,7 @@
   />
     <van-field
     value="{{ packDetail.productName  }}"
-
+    required
     clearable
     title-width="6.2rem"
     input-align="right"
@@ -95,7 +95,7 @@
   </van-cell>
   <van-cell title='商品重量'>
       <view slot="">
-  <van-stepper  value="{{ packDetail.cwt }}" bind:change="pcsChange" data-index="{{index}}"/>
+  <van-stepper  value="{{ packDetail.cwt }}" bind:change="cwtChange" data-index="{{index}}"/>
       </view>
   </van-cell>
 </van-cell-group>
@@ -104,9 +104,11 @@
     value="{{ packDetail.remark }}"
  
     clearable
-     title-width="6.2rem"
+     title-width="5.2rem"
     input-align="right"
     label="商品备注"
+    type="textarea"
+    autosize
     placeholder="商品的颜色尺码等信息"
       bind:change="remarkChange"
      data-prop="remark"

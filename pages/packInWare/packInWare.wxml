@@ -1,7 +1,12 @@
 <!--pages/packInWare/packInWare.wxml-->
+<view class="list-page">
 <van-cell-group wx:if="{{!emptyShow}}">
       <view wx:for="{{packList}}" wx:key="index">
-<van-cell  title="{{item.hawbNo}}" value="{{item.createTime}}" label="{{item.goodsType}} " title-width="60%" data-id="{{item.id}}" bindtap="viewDetail"/>
+<van-cell  title="{{item.hawbNo}}" label="{{item.goodsType}} " title-width="60%" data-id="{{item.id}}" bindtap="viewDetail">
+  <view slot="">
+                                    <view class="box-time">{{item.createTime}}</view>
+                              </view>
+</van-cell>
       </view>
     </van-cell-group>
 
@@ -11,4 +16,5 @@
   image="https://img.yzcdn.cn/vant/custom-empty-image.png"
   description="没有内容哦"
 />
+</view>
 </view>

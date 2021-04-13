@@ -1,4 +1,8 @@
 {
     "navigationBarTitleText": "运费估算",
-    "usingComponents": {}
+    "usingComponents": {
+        "van-field": "@vant/weapp/field/index",
+        "van-button": "@vant/weapp/button/index",
+        "van-cell": "@vant/weapp/cell/index"
+    }
 }

@@ -26,7 +26,18 @@
     "pages/packForecastDetail/packForecastDetail",
     "pages/packForecastEdit/packForecastEdit",
     "pages/addressEdit/addressEdit",
-    "pages/addressDetail/addressDetail"
+    "pages/addressDetail/addressDetail",
+    "pages/orderUnpaid/orderUnpaid",
+    "pages/orderUndeliver/orderUndeliver",
+    "pages/orderDeliver/orderDeliver",
+    "pages/orderSign/orderSign",
+    "pages/orderRecord/orderRecord",
+    "pages/noticeDetail/noticeDetail",
+    "pages/problemDetail/problemDetail",
+    "pages/abnormalList/abnormalList",
+    "pages/abnormalClaim/abnormalClaim",
+    "pages/orderDetail/orderDetail",
+    "pages/channelDetail/channelDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

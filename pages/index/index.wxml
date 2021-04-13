@@ -1,4 +1,5 @@
 <!-- index.wxml -->
+<import src='../../wxParse/wxParse.wxml' />
    <swiper class="swiper" autoplay="true" interval="4000" circular='true' wx:if='{{bannerList.length > 0}}' catchtap="imagesMethod">
     <block wx:for="{{bannerList}}" wx:key="index">
       <swiper-item>
@@ -33,7 +34,7 @@
 
 <view class="way-wrap">超值路线</view>
 <view class="way" wx:for="{{channelList}}" wx:key="index">
-<van-cell title="{{item.channelName}}" value="{{item.price}}" data-id="{{item.id}}" bindtap="viewChannelDetail"></van-cell>
+<van-cell border="{{false}}" title="{{item.channelName}}" value="{{item.price}}" data-id="{{item.id}}" bindtap="viewChannelDetail"></van-cell>
 </view>
 <!-- <view class="way" wx:for="{{waysList}}">
     <view class="way-title">
@@ -44,3 +45,21 @@
     </view>
    
 </view> -->
+
+<van-popup  closeable safe-area-inset-top="100"  position="bottom" custom-class="popup-wrap" show="{{ showChannel }}" bind:close="onChannelClose">
+  <view class="popup">
+       <view class="popup-title">渠道详情</view>
+  <view class="popup-content">
+     <view class='detail' wx:if="{{channelDetail !==''}}">
+    <template is="wxParse" data="{{wxParseData:channelDetail.nodes}}" />
+  </view>
+                         
+  </view >
+  <!-- <view class="btn-close">
+      <van-button round type="info" block bindtap="submitChannel">关闭</van-button>
+  </view> -->
+
+  </view>
+  
+  
+</van-popup>

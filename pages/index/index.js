@@ -4,7 +4,7 @@ const app = getApp()
 const api = require('../../network/api');
 const http = require('../../network/http.js');
 const utils = require('../../utils/util.js');
-
+const wxParse = require('../../wxParse/wxParse.js')
 Page({
 
     /**
@@ -29,7 +29,9 @@ Page({
             { fid: '3', configValue: 'https://api-sys.xfx361.com/img//static/login/images/2020070310422690166.png' }
         ],
         warehouseList: null,
-        channelList: null
+        channelList: null,
+        showChannel: false, //是否显示渠道详情
+        channelDetail: null, //渠道详情
     },
 
     /**
@@ -127,9 +129,11 @@ Page({
     },
     viewChannelDetail(e) { //查看渠道详情
         app.globalData.channelId = e.currentTarget.dataset.id
-        wx.navigateTo({
-            url: '../channelDetail/channelDetail'
-        })
+        this.setData({ showChannel: true });
+        this.getChannelDetail(e.currentTarget.dataset.id)
+            // wx.navigateTo({
+            //     url: '../channelDetail/channelDetail'
+            // })
     },
     needsAttention() {
         console.log('点击注意事项')
@@ -141,6 +145,29 @@ Page({
         console.log('点击开始集运')
         wx.navigateTo({
             url: '../tipsTransport/tipsTransport'
+        })
+    },
+    showChannelPopup() { //显示渠道详情弹窗
+        this.setData({ showChannel: true });
+    },
+    onChannelClose() { //关闭渠道详情弹窗
+        this.setData({ showChannel: false });
+    },
+    submitChannel() { //渠道详情按钮
+        this.setData({ showChannel: false });
+    },
+    getChannelDetail(channelId) { //查看渠道详情
+        let that = this
+        let params = {
+            "id": channelId
+        }
+        http.get(api.ChannelDetail, params).then((res) => {
+            that.setData({
+                channelDetail: res.data.data
+            })
+            let newDetailContent = res.data.data.remark
+            wxParse.wxParse('channelDetail', 'html', newDetailContent, that) //解析HTML
+
         })
     },
     /**

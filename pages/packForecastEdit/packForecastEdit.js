@@ -131,6 +131,9 @@ Page({
     pcsChange(e) { //商品数量
         this.data.packDetail.pcs = e.detail
     },
+    cwtChange(e) { //商品重量
+        this.data.packDetail.cwt = e.detail
+    },
     remarkChange(e) { //商品备注
         this.data.packDetail.remark = e.detail
     },
@@ -236,7 +239,7 @@ Page({
         })
 
     },
-    getGoodsType() { //获取快递公司列表
+    getGoodsType() { //获取物品属性公司列表
         let that = this
         http.post(api.GetGoodsType).then((res) => {
             console.log(res.data.data, '物品属性列表', this.goodsList)
@@ -268,6 +271,7 @@ Page({
                 "id": this.data.packDetail.id,
                 "hawbNo": this.data.packDetail.hawbNo,
                 "pcs": this.data.packDetail.pcs,
+                "cwt": this.data.packDetail.cwt,
                 "expressCompany": this.data.packDetail.expressCompany,
                 "productName": this.data.packDetail.productName,
                 "svalue": this.data.packDetail.svalue,

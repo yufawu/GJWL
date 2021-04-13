@@ -72,7 +72,7 @@
     label="国家/地区"
     placeholder="请选择国家/地区"
     bind:click-input="onCountry"
-    bind:change="countryeChange"
+    bind:change="countryChange"
   />
      <van-field
     value="{{ receive.tel }}"

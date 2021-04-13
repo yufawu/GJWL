@@ -37,3 +37,35 @@ page {
     margin-top: 50rpx;
     padding: 0 30rpx;
 }
+
+
+/* 统一设置时间在右下角 */
+
+.box-time {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 12px;
+}
+
+
+/* list-page--列表页设置 */
+
+.list-page .van-cell {
+    margin-bottom: 10px;
+}
+
+
+/* 搜索页设置search-page */
+
+.search-page {
+    position: fixed;
+    top: 0;
+    width: 96%;
+    margin: auto;
+    z-index: 10;
+}
+
+.search-page-content {
+    margin-top: 55px;
+}

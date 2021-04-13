@@ -20,7 +20,10 @@ App({
         countryMsg: null, //选择的国家信息
         packageId: null, //预报包裹id,用于查询详情
         addressId: null, //地址id，用于查询某条地址详情
+        noticeId: null, //新闻详情id
+        orderId: null, //订单id
+        channelId: null, //渠道详情id
+        abnormalId: null, //异常件领取id
         promoterOpenId: null, //分享者的openId
-
     }
 })

@@ -1,8 +1,9 @@
 <!--pages/orderUnpaid/orderUnpaid.wxml-->
+<view class="list-page">
 <view wx:for="{{unpaidList}}" wx:key="index" wx:if="{{!emptyShow}}">
-<van-cell title="{{item.hawbno}}" label="计费重：{{item.pcs}}KG" data-id="{{item.id}}" catchtap="viewDetail">
+<van-cell title="{{item.hawbno}}" label="收费重：{{item.cwt}}KG" data-id="{{item.id}}" catchtap="viewDetail">
 <view slot="" class="box">
- <view class="box-price">{{item.payFee}}元</view>
+ <view class="box-price">{{item.payFee}}</view>
  <van-button data-id="{{item.id}}" type="primary" size="small" catchtap="payment">支付</van-button>
 </view>
 </van-cell>
@@ -10,3 +11,5 @@
 <view class="wrap" wx:if="{{emptyShow}}">
       <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="没有内容哦" />
 </view>
+</view>
+

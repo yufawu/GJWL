@@ -51,11 +51,3 @@
 .van-swipe-cell__right .van-button--danger {
     height: 100%;
 }
-
-.time {
-    font-size: 16px;
-    /* padding-top: 20px; */
-    position: absolute;
-    bottom: 8px;
-    right: 5px;
-}

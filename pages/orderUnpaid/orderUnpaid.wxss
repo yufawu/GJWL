@@ -9,4 +9,12 @@
 
 .box-price {
     margin-right: 10px;
+    color: red;
+    font-weight: bold;
+}
+
+.van-cell__title {
+    position: absolute;
+    top: 4px;
+    left: 8px;
 }

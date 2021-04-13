@@ -2,7 +2,7 @@
    <van-cell-group>
 
   <van-cell title="快递单号" value="{{orderDetail.hawbno}}" />
-   <van-cell title="计费重量" value="{{orderDetail.pcs}}KG" />
+   <van-cell title="收费重量" value="{{orderDetail.pcs}}KG" />
     <van-cell title="材重" value="{{orderDetail.cwt}}KG" />
      <van-cell title="实重" value="{{orderDetail.gwt}}KG" />
       <van-cell title="创建时间" value="{{orderDetail.creatTime}}" />

@@ -1,5 +1,5 @@
 <!--pages/informationNotice/informationNotice.wxml-->
-<view class="search">
+<view class="search-page">
   <van-search
   value="{{ searchValue }}"
   placeholder="请输入搜索关键词"
@@ -10,7 +10,7 @@
  <view slot="action" bind:tap="onSearchClick">搜索</view>
 </van-search>
 </view>
-<view class="search-content">
+<view class="search-page-content">
 <view  wx:for="{{noticeList}}" wx:key="index">
 <van-cell title="{{item.title}}" label="{{item.createTime}}" data-id="{{item.id}}" bindtap="viewDetail"/>
 </view>

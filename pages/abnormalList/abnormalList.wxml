@@ -1,21 +1,15 @@
-<!--pages/abnormalList/abnormalList.wxml-->
-<view class="search">
-  <van-search
-  value="{{ searchValue }}"
-  placeholder="请输入搜索关键词"
-  use-action-slot
-  bind:change="onValueChange"
-  bind:search="onSearch"
->
- <view slot="action" bind:tap="onSearchClick">搜索</view>
-</van-search>
+<!-- pages/abnormalList/abnormalList.wxml -->
+<view class="search-page">
+  <van-search value="{{ searchValue }}" placeholder="请输入搜索关键词" use-action-slot bind:change="onValueChange" bind:search="onSearch">
+    <view slot="action" bind:tap="onSearchClick">搜索</view>
+  </van-search>
 </view>
-<view class="search-content">
-<view  wx:for="{{noticeList}}" wx:key="index">
-<van-cell title="{{item.hawbNo}}" label="{{item.createTime}}" title-width="15em">
-    <view slot="">
-       <van-button data-id="{{item.id}}" type="danger"  bindtap="viewDetail">认领</van-button>
-    </view>
-</van-cell>
-</view>
+<view class="search-page-content list-page">
+  <view wx:for="{{noticeList}}" wx:key="index">
+    <van-cell title="{{item.hawbNo}}" label="{{item.createTime}}" title-width="15em">
+      <view slot="">
+        <van-button data-id="{{item.id}}" type="danger" bindtap="viewDetail">认领</van-button>
+      </view>
+    </van-cell>
+  </view>
 </view>
