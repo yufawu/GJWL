@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "异常件认领",
+    "usingComponents": {
+        "van-field": "@vant/weapp/field/index",
+        "van-stepper": "@vant/weapp/stepper/index",
+        "van-button": "@vant/weapp/button/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index"
+    }
+}
