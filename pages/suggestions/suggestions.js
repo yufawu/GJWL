@@ -29,27 +29,35 @@ Page({
 
     },
     afterRead(event) { //
+        let that = this
         console.log(event.detail)
         const { file } = event.detail;
         // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
         wx.uploadFile({
-            url: 'https://example.weixin.qq.com/upload', // 仅为示例，非真实的接口地址
+            url: 'https://zschinese.com/common/upload', // 接口地址
             filePath: file.url,
             name: 'file',
             formData: { user: 'test' },
             success(res) {
                 // 上传完成需要更新 fileList
                 console.log(res, '文件上传完成')
-                const { fileList = [] } = this.data;
+                const { fileList = [] } = that.data;
                 fileList.push({...file, url: res.data });
-                this.setData({ fileList });
+                that.setData({ fileList });
             },
         });
     },
+    clickPreview(event) {
+        // console.log('点击图片', event.detail)
+    },
+    delete(event) {
+        // console.log('删除图片', event.detail)
+    },
     submit() { // 提交
-        wx.reLaunch({
-            url: '../mine/mine'
-        })
+        console.log(this.data.fileList, '用户图片')
+            // wx.reLaunch({
+            //     url: '../mine/mine'
+            // })
     },
     /**
      * 生命周期函数--监听页面隐藏

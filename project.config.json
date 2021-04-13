@@ -135,6 +135,24 @@
         {
           "name": "pages/addressDetail/addressDetail",
           "pathName": "pages/addressDetail/addressDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/informationNotice/informationNotice",
+          "pathName": "pages/informationNotice/informationNotice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/abnormalClaim/abnormalClaim",
+          "pathName": "pages/abnormalClaim/abnormalClaim",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/abnormalClaim/abnormalClaim",
+          "pathName": "pages/abnormalClaim/abnormalClaim",
           "scene": null
         }
       ]

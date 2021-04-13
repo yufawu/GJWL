@@ -7,3 +7,7 @@
 .upload-img {
     margin: 20rpx;
 }
+
+.textarea {
+    height: 300px;
+}
