@@ -1,60 +1,60 @@
 <!--pages/abnormalClaim/abnormalClaim.wxml-->
-  <van-field
-    value="{{ item.hawbNo }}"
-    clearable
-    required
-    title-width="7rem"
-    input-align="right"
-    label="快递单号"
-     icon="scan"
-     bind:click-icon="saoma"
-    placeholder="请输入快递单号"
-      bind:change="hawbNoChange"
-     data-prop="hawbNo"
-      data-index="{{index}}"
-  />
- 
-  
-   <van-cell-group title="内容清单">
-          <van-field
-    value="{{ item.hawbNo }}"
-    clearable
-    required
-    title-width="7rem"
-    input-align="right"
-    label="品名"
-    placeholder="请输入物品名称"
-      bind:change="hawbNoChange"
-      data-index="{{index}}"
-  />
-  <van-cell title='商品数量'>
-      <view slot="">
-  <van-stepper  value="{{ item.pcs }}" bind:change="pcsChange" data-index="{{index}}"/>
-      </view>
-  </van-cell>
-</van-cell-group>
-     <van-field
-    value="{{ item.svalue }}"
-    required
-    clearable
-     title-width="8.2rem"
-    input-align="right"
-    type="number"
-    label="总价（¥）"
-    placeholder="请输入总价（数字）"
-      bind:change="svalueChange"
-     data-prop="svalue"
-      data-index="{{index}}"
-  />
+<view class="search">
+  <van-search
+  value="{{ searchValue }}"
+  placeholder="请输入完整的运单号"
+  use-action-slot
+  bind:change="onValueChange"
+  bind:search="onSearch"
+>
+ <view slot="action" bindtap="onSearchClick">搜索</view>
+</van-search>
+</view>
+<view class="search-content" wx:if="{{showDetail}}">
+  <van-cell-group title="包裹详情">
+ <van-cell title="快递" title-width="3em" value="{{packDetail.expressCompany }}" />
+  <van-cell title="单号" title-width="3em" value="{{packDetail.hawbNo}}" />
+   <van-cell title="物品" title-width="3em" value="{{packDetail.productName}}" />
+    <van-cell title="品牌" title-width="3em" value="{{packDetail.brand}}" />
+     <van-cell title="价值" title-width="3em" value="{{packDetail.svalue}}" />
+      <van-cell title="属性" title-width="3em" value="{{packDetail.goodsType}}" />
+       <van-cell title="数量" title-width="3em" value="{{packDetail.pcs}}" />
+         <van-cell title="重量" title-width="3em" value="{{packDetail.cwt}}" />
+        <van-cell title="备注" title-width="3em" value="{{packDetail.remark}}" />
+         <van-cell wx:if="{{packDetail.isUnpack == 0}}" title="是否拆包" value="是" />
+        <van-cell wx:if="{{packDetail.isUnpack == 1}}" title="是否拆包" value="否" />
+  </van-cell-group>
+
+  <view class="address">
+    <van-cell-group>
        <van-field
-    value="{{ item.remark }}"
- 
+    value="{{ addressSelected.name }}{{addressSelected.tel}}{{addressSelected.address}}"
+    required
     clearable
-     title-width="6.2rem"
+    disabled
+     is-link="true"
+    title-width="6.2rem"
     input-align="right"
-    label="备注"
-    placeholder="请输入备注"
-      bind:change="remarkChange"
-     data-prop="remark"
-      data-index="{{index}}"
+    label="收货地址"
+    placeholder="请选择收货地址"
+         bindtap="onAddressClick"
+    
+     
   />
+    </van-cell-group>
+</view>
+  <view class="box-button">
+  <van-button type="danger" bindtap="claim">认领</van-button>
+  </view>
+
+     <van-action-sheet
+  show="{{ showAddress }}"
+  title="请选择收货地址"
+  actions="{{ addressList }}"
+  bind:close="onAddressClose"
+  bind:select="onAddressSelect"
+  cancel-text="增加地址"
+  bind:cancel="onAddressCancel"
+/>
+
+</view>

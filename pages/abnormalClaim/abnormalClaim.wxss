@@ -1,1 +1,10 @@
 /* pages/abnormalClaim/abnormalClaim.wxss */
+
+.box-button {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.address {
+    margin: 30rpx 0;
+}
