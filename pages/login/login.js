@@ -11,7 +11,7 @@ Page({
     data: {
         //判断小程序的API，回调，参数，组件等是否在当前版本可用。
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
-        isHide: false
+        isHide: true
 
     },
 
@@ -19,6 +19,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        // this.getUserProfile()
         var that = this;
         wx.getSetting({
             success: function(res) {
@@ -28,8 +29,8 @@ Page({
                             // 用户已经授权过,不需要显示授权页面,所以不需要改变 isHide 的值
                             // 根据自己的需求有其他操作再补充
                             // 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
-                            console.log("用户已经授权过")
-                            that.weChatLogin()
+                            console.log("用户已经授权过", res.userInfo)
+                            that.getUserProfile()
 
                             // wx.reLaunch({
                             //     url: '../index/index'
@@ -60,6 +61,13 @@ Page({
                 console.log('用户信息getUserProfile', res)
                 wx.setStorageSync('userInfo', res.userInfo)
                 this.weChatLogin()
+            },
+            fail: (res) => {
+                if (res.errMsg == 'getUserProfile:fail auth deny') {
+                    wx.navigateBack() //返回上一页
+                }
+                console.log('用户拒绝授权', res)
+
             }
         })
 
