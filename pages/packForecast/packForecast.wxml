@@ -110,9 +110,7 @@
     placeholder="商品的颜色尺码等信息"
       bind:change="remarkChange"
      data-prop="remark"
-     autosize
       data-index="{{index}}"
-      type="textarea"
   />
   <van-radio-group  value="{{ item.isUnpack }}" bind:change="onChange" data-index="{{index}}"  direction="horizontal">
     <van-cell title="是否拆包" title-width="6em" border="{{false}}"></van-cell>
