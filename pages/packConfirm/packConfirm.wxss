@@ -1,0 +1,10 @@
+/* pages/packConfirm/packConfirm.wxss */
+.item-wrap{
+    margin-bottom:10px;
+    background:#fff;
+}
+.item-button{
+    display:flex;
+    justify-content: space-between;
+    padding:10px;
+}
