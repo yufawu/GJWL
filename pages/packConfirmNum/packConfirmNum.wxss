@@ -1,0 +1,4 @@
+/* pages/packConfirmNum/packConfirmNum.wxss */
+.van-collapse-item{
+    margin-bottom:10px;
+}

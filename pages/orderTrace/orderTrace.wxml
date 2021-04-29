@@ -1,0 +1,15 @@
+<!--pages/orderTrace/orderTrace.wxml-->
+
+<view wx:if="{{!emptyShow}}">
+<van-steps
+  steps="{{ traceList }}"
+  active="{{ active }}"
+  direction="vertical"
+  active-icon="success"
+  active-color="#38f"
+/>
+</view>
+
+<view class="wrap" wx:if="{{emptyShow}}">
+      <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="没有轨迹哦" />
+</view>

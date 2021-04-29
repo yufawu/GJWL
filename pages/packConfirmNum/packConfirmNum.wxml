@@ -1,0 +1,16 @@
+<!--pages/packConfirmNum/packConfirmNum.wxml-->
+<!-- <view wx:for="{{storeGoodsList}}" wx:key="{{index}}">
+<van-cell title="{{item.hawbNo}}">
+</van-cell>
+</view> -->
+
+<van-collapse accordion value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item data-index="{{index}}" name="{{index}}" wx:for="{{storeGoodsList}}" wx:key="{{index}}">
+   <view slot="title">
+   {{item.hawbNo}}
+   </view>
+   <view>
+   <van-cell title="{{item.expressCompany}}" value="{{item.name}}" label="{{item.remark}}"></van-cell>
+   </view>
+  </van-collapse-item>
+</van-collapse>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "轨迹状态",
+  "usingComponents": {
+    "van-steps":"@vant/weapp/steps/index",
+    "van-empty":"@vant/weapp/empty/index"
+  }
+}
