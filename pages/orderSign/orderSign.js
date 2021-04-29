@@ -57,6 +57,13 @@ Page({
             url: '../orderDetail/orderDetail'
         })
     },
+    viewTrace(e) {
+        app.globalData.packConfirmMoreId = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '../orderTrace/orderTrace'
+        })
+    },
+    
 
     /**
      * 生命周期函数--监听页面隐藏

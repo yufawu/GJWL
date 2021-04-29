@@ -348,12 +348,12 @@ Page({
                             .catch(() => {
                                 // on cancel
                                 console.log('取消删除')
-                                wx.relaunch({
+                                wx.switchTab({
                                     url: '../index/index'
                                 })
                             });
                     } else {
-                        Toast('信息不完整，带*的都是必填内容')
+                        Toast(res.data.msg)
                     }
 
                 })

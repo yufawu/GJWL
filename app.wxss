@@ -25,6 +25,10 @@ page {
     --grid-item-text-font-size: 16px;
     --tab-font-size: 18px;
     --field-label-color: #333;
+    --step-icon-size:14px;
+    --step-font-size:16px;
+    --step-circle-size:10px;
+    --step-circle-color:#1c71fb;
 }
 
 

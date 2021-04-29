@@ -1,8 +1,6 @@
 <!-- pages/packConfirm/packConfirm.wxml -->
 <view class="item-wrap" wx:for="{{unPackList}}"wx:key="{{index}}">
     <van-cell title="集货单号" value="{{item.hawbno}}" />
-    <van-cell title="计费重" value="{{item.cwt}}" />
-    <van-cell title="材积重" value="{{item.vwt}}" />
     <van-cell title="件数" value="{{item.pcs}}" />
     <van-cell title="收货地址" value="{{item.address}}" />
     <van-cell title="创建时间" value="{{item.creatTime}}" />

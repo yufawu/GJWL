@@ -2,7 +2,8 @@
     "navigationBarTitleText": "已发货",
     "usingComponents": {
         "van-cell": "@vant/weapp/cell/index",
-        "van-cell-group": "@vant/weapp/cell-group",
-        "van-empty": "@vant/weapp/empty"
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-empty": "@vant/weapp/empty/index",
+        "van-button":"@vant/weapp/button/index"
     }
 }

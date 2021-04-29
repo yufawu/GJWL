@@ -4,6 +4,7 @@
     <view class="box-wrap">
 <van-cell title="{{item.hawbno}}" label="收费重：{{item.cwt}}KG"  data-id="{{item.id}}" catchtap="viewDetail">
 <view slot="" class="box">
+        <van-button type="primary" size="small" data-id="{{item.id}}" catchtap="viewTrace">查看轨迹</van-button>
  <view class="box-time">{{item.creatTime}}</view>
 </view>
 </van-cell>

@@ -25,5 +25,6 @@ App({
         channelId: null, //渠道详情id
         abnormalId: null, //异常件领取id
         promoterOpenId: null, //分享者的openId
+        packConfirmMoreId:null,//确认打包时的集货id
     }
 })

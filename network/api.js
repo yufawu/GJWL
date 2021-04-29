@@ -42,7 +42,7 @@ module.exports = {
     OrderSign: ApiRootUrl + '/setgoods/getSignOrder', //获取已签收订单
     OrderDetail: ApiRootUrl + '/setgoods/getOrderInfo', //获取订单详情
     OrderPayment: ApiRootUrl + '/pay/payOrder', //订单支付
-    OrderPayRecord: ApiRootUrl + '/pay/payRecord', //查询支付记录
+    OrderPayRecord: ApiRootUrl + '/pay/payRecord', //查询支付记
     GetCompanyPreface: ApiRootUrl + '/getCompanyPreface', //查看公司介绍
     GetContactaddre: ApiRootUrl + '/getContactaddre', //查看公司联系地址
     GetMyShare: ApiRootUrl + '/getMyShareUser', //分享用户的列表
@@ -51,4 +51,8 @@ module.exports = {
     GetNewsData: ApiRootUrl + '/newsdata', // 获取新闻详情 
     GetPort: ApiRootUrl + '/port', // 包机运力 
     GetBlackList: ApiRootUrl + '/blackCompany', // 黑名单查询
+    PackConfirm:ApiRootUrl +'/setgoods/getNoPackSetgoods',//确认打包列表
+    PackConfirmId:ApiRootUrl +'/setgoods/confirmPackage',//确认打包id
+    GetPreAwbBySetgoodsId:ApiRootUrl +'/setgoods/getPreAwbBySetgoodsId',//根据集货id查询预报单
+    GetTrackBySetgoodsId:ApiRootUrl +'/setgoods/getTrackBySetgoodsId',//根据集货id查询轨迹
 }

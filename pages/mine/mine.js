@@ -79,6 +79,16 @@ Page({
         }
 
     },
+    packConfirm() { //确认打包
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../packConfirm/packConfirm'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+
+    },
     orderUnpaid() { //未支付
         if (wx.getStorageSync('openId')) {
             wx.navigateTo({
@@ -161,8 +171,10 @@ Page({
 
     },
     problemCommon() { //常见问题
+  
         if (wx.getStorageSync('openId')) {
-            wx.navigateTo({
+            console.log('常见问题')
+            wx.switchTab({
                 url: '../problemCommon/problemCommon'
             })
         } else {

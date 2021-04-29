@@ -40,7 +40,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.16.0",
+  "libVersion": "2.2.5",
   "appid": "wx4ff02dd6c584946e",
   "projectname": "GJWL",
   "debugOptions": {
@@ -153,6 +153,19 @@
         {
           "name": "pages/abnormalClaim/abnormalClaim",
           "pathName": "pages/abnormalClaim/abnormalClaim",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/packConfirmNum/packConfirmNum",
+          "pathName": "pages/packConfirmNum/packConfirmNum",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/orderTrace/orderTrace",
+          "pathName": "pages/orderTrace/orderTrace",
+          "query": "",
           "scene": null
         }
       ]

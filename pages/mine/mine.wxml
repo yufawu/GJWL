@@ -42,6 +42,7 @@
                 <van-grid-item icon="clear" bindtap="packNoInWare" text="未入库"></van-grid-item>
                 <van-grid-item icon="checked" bindtap="packInWare" text="已入库"></van-grid-item>
                 <van-grid-item icon="clock" bindtap="packAbnormal" text="待处理"></van-grid-item>
+                 <van-grid-item icon="gift-card" bindtap="packConfirm" text="确认打包"></van-grid-item>
             </van-grid>
         </view>
     </view>

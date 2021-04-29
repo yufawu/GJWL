@@ -1,10 +1,10 @@
 <!--pages/tipsTransport/tipsTransport.wxml-->
 <view class="pages">
     <view class="tips-wrap">
-        <view class="title">集运流程</view>
+        <!-- <view class="title">集运流程</view>
         <view class="content">
             共分为5步，如上图所示(建议寄送前做好国际运费的评估。全程免费合箱打包，我们会尽力帮您节省空间，减轻重量。)
-        </view>
+        </view> -->
         <view class="title">服务范围</view>
         <view class="content">
             一般情况下，我们只对集运订单做违禁品检查和包裹数目的核对，不提供具体盘点及专业质量检查服务
@@ -17,7 +17,7 @@
             我们作为服务平台，集成众多第三方国际物流商为您提供包裹合箱，转运服务，可能会遇到由于海关政策和跨境物流中不可控因素造成的风险，如罚没、丢件、高峰期寄送延迟等。
         </view>
         <view class="tips">
-            对于丢件我们会提供最高60元人民币/KG的赔偿；
+            对于丢件我们会提供最高40元人民币/KG的赔偿；
         </view>
         <view class="tips">
             对于海关罚没，我们不会赔偿，会提供相关证明

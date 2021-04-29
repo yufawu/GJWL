@@ -37,7 +37,11 @@
     "pages/abnormalList/abnormalList",
     "pages/abnormalClaim/abnormalClaim",
     "pages/orderDetail/orderDetail",
-    "pages/channelDetail/channelDetail"
+    "pages/channelDetail/channelDetail",
+    "pages/packConfirm/packConfirm",
+    "pages/packConfirmDetail/packConfirmDetail",
+    "pages/packConfirmNum/packConfirmNum",
+    "pages/orderTrace/orderTrace"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -53,6 +57,18 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
+        "iconPath": "res/image/ic_toolbar_search_n.png",
+        "selectedIconPath": "res/image/ic_toolbar_search_p.png"
+      },
+      {
+        "pagePath": "pages/tipsTransport/tipsTransport",
+        "text": "预报",
+        "iconPath": "res/image/ic_toolbar_search_n.png",
+        "selectedIconPath": "res/image/ic_toolbar_search_p.png"
+      },
+      {
+        "pagePath": "pages/problemCommon/problemCommon",
+        "text": "注意",
         "iconPath": "res/image/ic_toolbar_search_n.png",
         "selectedIconPath": "res/image/ic_toolbar_search_p.png"
       },

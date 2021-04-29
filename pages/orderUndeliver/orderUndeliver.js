@@ -58,6 +58,12 @@ Page({
             url: '../orderDetail/orderDetail'
         })
     },
+    viewPack(e){
+        app.globalData.packConfirmMoreId = e.currentTarget.dataset.id
+        wx.navigateTo({
+          url: '../packConfirmNum/packConfirmNum'
+      })
+    },
 
     /**
      * 生命周期函数--监听页面隐藏

@@ -8,3 +8,10 @@
     justify-content: space-between;
     padding:10px;
 }
+.van-cell__title{
+    width: 30% !important;
+}
+.van-cell__value{
+    width:70%!important;
+    text-align: right;
+}
