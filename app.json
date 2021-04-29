@@ -57,26 +57,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "res/image/ic_toolbar_search_n.png",
-        "selectedIconPath": "res/image/ic_toolbar_search_p.png"
+        "iconPath": "res/image/toolbar_home_n.png",
+        "selectedIconPath": "res/image/toolbar_home_p.png"
       },
       {
         "pagePath": "pages/tipsTransport/tipsTransport",
-        "text": "预报",
-        "iconPath": "res/image/ic_toolbar_search_n.png",
-        "selectedIconPath": "res/image/ic_toolbar_search_p.png"
+        "text": "集运",
+        "iconPath": "res/image/toolbar_forecast_n.png",
+        "selectedIconPath": "res/image/toolbar_forecast_p.png"
       },
       {
         "pagePath": "pages/problemCommon/problemCommon",
         "text": "注意",
-        "iconPath": "res/image/ic_toolbar_search_n.png",
-        "selectedIconPath": "res/image/ic_toolbar_search_p.png"
+        "iconPath": "res/image/toolbar_care_n.png",
+        "selectedIconPath": "res/image/toolbar_care_p.png"
       },
       {
         "pagePath": "pages/mine/mine",
         "text": "我的",
-        "iconPath": "res/image/ic_tooibar_account_n.png",
-        "selectedIconPath": "res/image/ic_tooibar_account_p.png"
+        "iconPath": "res/image/toolbar_mine_n.png",
+        "selectedIconPath": "res/image/toolbar_mine_p.png"
       }
     ]
   },

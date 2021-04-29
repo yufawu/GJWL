@@ -13,8 +13,9 @@
 }
 
 .item-time {
-    margin-left: 30rpx;
+    margin-left: 15rpx;
     margin-bottom: 10rpx;
+    font-size:16px;
 }
 
 

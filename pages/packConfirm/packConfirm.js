@@ -9,7 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    unPackList:null,
+    emptyShow:false
   },
 
   /**
@@ -38,9 +39,17 @@ Page({
       "userId": wx.getStorageSync('userId')
     }
     http.get(api.PackConfirm, params).then((res) => {
-      that.setData({
-        unPackList: res.data.data
+      if(res.data.data.length == 0){
+        that.setData({
+          emptyShow: true
       })
+      }else{
+        that.setData({
+          emptyShow: false,
+          unPackList: res.data.data
+        })
+      }
+    
     })
   },
   viewMore (e){

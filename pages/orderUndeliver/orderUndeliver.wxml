@@ -5,9 +5,10 @@
 <van-cell title="{{item.hawbno}}" label="收费重：{{item.cwt}}KG"  data-id="{{item.id}}" catchtap="viewDetail">
 <view slot="" class="box">
  <!-- <view class="box-price">{{item.payFee}}元</view> -->
-
- <!-- <view class="box-status" wx:if="{{item.payStatus == 'Y'}}">已支付</view>
- <view class="box-status" wx:if="{{item.payStatus == 'N'}}">未支付</view> -->
+ <view class="box-ispay">
+      <view class="box-status" wx:if="{{item.payStatus == 'Y'}}">已支付</view>
+ <view class="box-status" wx:if="{{item.payStatus == 'N'}}">未支付</view>
+ </view>
   <van-button data-id="{{item.id}}" type="info" size="small" catchtap="viewPack">查看包裹</van-button>
   <view class="box-time">{{item.creatTime}}</view>
 </view>

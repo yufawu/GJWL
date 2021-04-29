@@ -3,3 +3,11 @@
 .box-status {
     color: #1989fa;
 }
+/* .box{
+    position:relative;
+} */
+.box-ispay{
+    position:absolute;
+    bottom:8px;
+    font-size:14px;
+}

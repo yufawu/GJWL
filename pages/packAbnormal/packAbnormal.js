@@ -10,7 +10,7 @@ Page({
      */
     data: {
         packList: null,
-        emptyShow: false, //是否显示空状态
+        emptyShow: true, //是否显示空状态
 
     },
 

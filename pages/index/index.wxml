@@ -17,7 +17,10 @@
   开始集运
 </van-button>
   </view> -->
-
+<view class="page-title">超值路线</view>
+<view class="way" wx:for="{{channelList}}" wx:key="index">
+<van-cell border="{{false}}" title="{{item.channelName}}" value="{{item.price}}{{item.currency}}/{{item.unit}}" data-id="{{item.id}}" bindtap="viewChannelDetail"></van-cell>
+</view>
   <van-tabs ellipsis="{{false}}" >
  
     <van-tab title="欧洲仓"  wx:for="{{warehouseList}}" title="{{item.warehouse_name}}">
@@ -32,10 +35,7 @@
 
 </view>
 
-<view class="way-wrap">超值路线</view>
-<view class="way" wx:for="{{channelList}}" wx:key="index">
-<van-cell border="{{false}}" title="{{item.channelName}}" value="{{item.price}}{{item.currency}}/{{item.unit}}" data-id="{{item.id}}" bindtap="viewChannelDetail"></van-cell>
-</view>
+
 <!-- <view class="way" wx:for="{{waysList}}">
     <view class="way-title">
        <van-cell border="{{false}}" title="{{item.cn_name}}" value="（{{item.reference_time}}）" />
@@ -63,3 +63,54 @@
   
   
 </van-popup>
+
+<view class="page-title">简介</view>
+<view class="brief-wrap">
+  <view class="item-box">
+           <image class="item-image" src="../../res/image/brief_jy.png" alt=""></image>
+           <view class="item-text">货物集运</view>
+  </view>
+   <view class="item-box">
+           <image class="item-image" src="../../res/image/brief_ys.png" alt=""></image>
+           <view class="item-text">物流运输</view>
+  </view>
+   <view class="item-box">
+           <image class="item-image" src="../../res/image/brief_ds.png" alt=""></image>
+           <view class="item-text">快递递送</view>
+  </view>
+</view>
+<view class="page-title">我们的服务优势</view>
+<view class="service">
+  <view class="item-box">
+        
+            <view class="item-image"><image  src="../../res/image/service_xf.png" alt=""></image></view>
+           <view class="item-content">
+             <view class="item-title">价格透明，合理消费</view>
+             <view class="item-desc">渠道价格公开透明，没有任何隐形消费，最大化保障您的权益</view>
+           </view>
+  </view>
+    <view class="item-box">
+       
+            <view class="item-image"> <image  src="../../res/image/service_jy.png" alt=""></image></view>
+           <view class="item-content">
+             <view class="item-title">货物集运，节约费用</view>
+             <view class="item-desc">国内多处购买的货物，我们帮您集中打包运输，为你省心又省钱</view>
+           </view>
+  </view>
+    <view class="item-box">
+         <view class="item-image"> <image  src="../../res/image/service_gz.png" alt=""></image></view>
+       
+           <view class="item-content">
+             <view class="item-title">全程跟踪，了解放心</view>
+             <view class="item-desc">货物全程在线跟踪，让您随时随地查询到您的包裹所在</view>
+           </view>
+  </view>
+    <view class="item-box">
+      
+            <view class="item-image">  <image src="../../res/image/service_ds.png" alt=""></image></view>
+           <view class="item-content">
+             <view class="item-title">上门递送，省心省力</view>
+             <view class="item-desc">非偏远地区快递免费送货上门，让你省心又省力</view>
+           </view>
+  </view>
+</view>

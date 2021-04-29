@@ -1,13 +1,17 @@
 <!-- pages/packConfirm/packConfirm.wxml -->
-<view class="item-wrap" wx:for="{{unPackList}}"wx:key="{{index}}">
-    <van-cell title="集货单号" value="{{item.hawbno}}" />
-    <van-cell title="件数" value="{{item.pcs}}" />
-    <van-cell title="收货地址" value="{{item.address}}" />
-    <van-cell title="创建时间" value="{{item.creatTime}}" />
-    <view class="item-button">
-        <van-button type="info" data-id="{{item.id}}" bindtap="viewMore">查看更多</van-button> 
-        <van-button type="danger" data-id="{{item.id}}" bindtap="packConfirm">确认打包</van-button>
+<view wx:if="{{!emptyShow}}">
+    <view class="item-wrap" wx:for="{{unPackList}}" wx:key="{{index}}">
+        <van-cell title="集货单号" value="{{item.hawbno}}" />
+        <van-cell title="件数" value="{{item.pcs}}" />
+        <van-cell title="收货地址" value="{{item.address}}" />
+        <van-cell title="创建时间" value="{{item.creatTime}}" />
+        <view class="item-button">
+            <van-button type="info" data-id="{{item.id}}" bindtap="viewMore">查看更多</van-button>
+            <van-button type="danger" data-id="{{item.id}}" bindtap="packConfirm">确认打包</van-button>
+        </view>
     </view>
 </view>
-
+<view class="wrap" wx:if="{{emptyShow}}">
+    <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="没有内容哦" />
+</view>
 <van-dialog id="van-dialog" />
