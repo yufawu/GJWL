@@ -10,6 +10,9 @@
                     <view class="box-status" wx:if="{{item.payStatus == 'N'}}">未支付</view>
                 </view>
             </van-cell>
+            <view class="box-item-add">
+              {{item.channelNo }}
+            </view>
             <view class="item-button">
   <van-button type="info" size="small" data-id="{{item.id}}" bindtap="viewPack">查看包裹</van-button> 
         <van-button type="primary" size="small" data-id="{{item.id}}" bindtap="viewTrace">查看轨迹</van-button>

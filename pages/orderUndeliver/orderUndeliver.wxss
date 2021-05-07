@@ -1,7 +1,13 @@
 /* pages/orderUndeliver/orderUndeliver.wxss */
-
+/* .van-cell{
+    height:100px;
+} */
+.box-wrap .van-cell__label{
+    margin-top:10px;
+}
 .box-status {
     color: #1989fa;
+
 }
 /* .box{
     position:relative;
@@ -9,5 +15,6 @@
 .box-ispay{
     position:absolute;
     bottom:8px;
+    right:150px;
     font-size:14px;
 }

@@ -1,17 +1,24 @@
 /* pages/orderDeliver/orderDeliver.wxss */
-
+.box-wrap .van-cell__label{
+    margin-top:25px;
+}
 .box-status {
     color: #1989fa;
 }
 .box-wrap{
     background:#fff;
     margin-bottom: 10px;
+    position: relative;
 }
 .item-button{
     display:flex;
     justify-content: space-between;
     padding:0 10px 10px 10px;
 }
-.item-title{
-    width: 70%;
+
+.box-item-add{
+    position:absolute;
+    top:35px;
+    left:15px;
+    font-size:14px;
 }

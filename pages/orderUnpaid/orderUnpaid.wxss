@@ -13,8 +13,8 @@
     font-weight: bold;
 }
 
-.van-cell__title {
+/* .van-cell__title {
     position: absolute;
     top: 4px;
     left: 8px;
-}
+} */
