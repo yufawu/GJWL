@@ -41,7 +41,8 @@
     "pages/packConfirm/packConfirm",
     "pages/packConfirmDetail/packConfirmDetail",
     "pages/packConfirmNum/packConfirmNum",
-    "pages/orderTrace/orderTrace"
+    "pages/orderTrace/orderTrace",
+    "pages/packAbnormalDetail/packAbnormalDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

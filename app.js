@@ -26,5 +26,6 @@ App({
         abnormalId: null, //异常件领取id
         promoterOpenId: null, //分享者的openId
         packConfirmMoreId:null,//确认打包时的集货id
+        fastenerDetail:null,//扣件详情
     }
 })

@@ -1,0 +1,23 @@
+/* pages/packAbnormalDetail/packAbnormalDetail.wxss */
+.pages{
+    background:#fff;
+}
+.reason{
+    font-size:14px;
+    color:red;
+    padding:10px;
+}
+.reason-image{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width:100%;
+}
+.image-item{
+    width:32%;
+    height:100px;
+}
+.image-item image{
+    width:100%;
+    height:100%;
+}
