@@ -1,12 +1,15 @@
 <!-- pages/packAbnormal/packAbnormal.wxml -->
-<view class="list-page">
+<view class="">
 <van-cell-group wx:if="{{!emptyShow}}">
-      <view wx:for="{{packList}}" wx:key="index">
-            <van-cell title="{{item.hawbNo}}" label="{{item.goodsType}} " title-width="60%" data-id="{{item.id}}" bindtap="viewDetail">
+      <view wx:for="{{packList}}" wx:key="index" class="box-item">
+            <van-cell title="{{item.hawbNo}}" label="{{item.goodsType}} " border="{{false}}" title-width="60%" data-id="{{item.id}}" data-item="{{item}}" bindtap="viewDetail">
                   <view slot="">
+                        <van-button data-id="{{item.id}}" type="info" size="small" catchtap="viewPack">详情</van-button>
                        <view class="box-time">{{item.createTime}}</view>
                   </view>
             </van-cell>
+            <view class="box-reason">{{item.remark}}</view>
+            
       </view>
 </van-cell-group>
 <view class="wrap" wx:if="{{emptyShow}}">

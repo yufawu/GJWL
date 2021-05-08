@@ -2,21 +2,24 @@
 <view class="list-page">
     <view wx:for="{{deliverList}}" wx:key="index" wx:if="{{!emptyShow}}">
         <view class="box-wrap">
-            <van-cell title-class="item-title" title="{{item.hawbno}}" label="收费重：{{item.cwt}}KG" data-id="{{item.id}}" catchtap="viewDetail">
-                <view slot="" class="box">
-                    <!-- <view class="box-price">{{item.payFee}}元</view> -->
-                    <view class="box-time">{{item.creatTime}}</view>
-                    <view class="box-status" wx:if="{{item.payStatus == 'Y'}}">已支付</view>
-                    <view class="box-status" wx:if="{{item.payStatus == 'N'}}">未支付</view>
-                </view>
-            </van-cell>
-            <view class="box-item-add">
-              {{item.channelNo }}
+            <view class="box-top">
+                <view class="item-title">{{item.hawbno}}</view>
+                <view class="box-status" wx:if="{{item.payStatus == 'Y'}}">已支付</view>
+                <view class="box-status" wx:if="{{item.payStatus == 'N'}}">未支付</view>
+            </view>
+            <view class="box-center">{{item.channelNo || '' }}</view>
+            <view class="box-bottom">
+                <view class="box-label">收费重：{{item.cwt}}KG</view>
+                <view class="box-createtime">{{item.creatTime}}</view>
             </view>
             <view class="item-button">
-  <van-button type="info" size="small" data-id="{{item.id}}" bindtap="viewPack">查看包裹</van-button> 
-        <van-button type="primary" size="small" data-id="{{item.id}}" bindtap="viewTrace">查看轨迹</van-button>
-</view>
+                <van-button type="info" size="small" data-id="{{item.id}}" bindtap="viewPack">
+                    查看包裹
+                </van-button>
+                <van-button type="primary" size="small" data-id="{{item.id}}" bindtap="viewTrace">
+                    查看轨迹
+                </van-button>
+            </view>
         </view>
     </view>
     <view class="wrap" wx:if="{{emptyShow}}">

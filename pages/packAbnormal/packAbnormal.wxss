@@ -1,1 +1,13 @@
 /* pages/packAbnormal/packAbnormal.wxss */
+.box-item .van-cell__label{
+    margin-top:10px;
+}
+.box-item{
+    margin-bottom:10px;
+}
+.box-reason{
+    font-size:14px;
+    color:red;
+    background:#fff;
+    padding:0 15px;
+}

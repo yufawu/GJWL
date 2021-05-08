@@ -8,17 +8,35 @@
 .box-wrap{
     background:#fff;
     margin-bottom: 10px;
-    position: relative;
+   padding:15px 15px 0 15px;
+   font-size:18px;
+}
+.box-top{
+    display: flex;
+    justify-content: space-between;
+}
+.box-bottom{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color:#969799;
+    font-size:16px;
+    padding-bottom:10px;
+}
+.box-createtime{
+    font-size:12px;
 }
 .item-button{
     display:flex;
     justify-content: space-between;
-    padding:0 10px 10px 10px;
+    border-top:1px solid #ebedf0;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
-.box-item-add{
-    position:absolute;
+.box-center{
+    /* position:absolute;
     top:35px;
-    left:15px;
+    left:15px; */
     font-size:14px;
 }

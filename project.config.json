@@ -40,7 +40,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.2.5",
+  "libVersion": "2.12.3",
   "appid": "wx4ff02dd6c584946e",
   "projectname": "GJWL",
   "debugOptions": {
@@ -48,6 +48,8 @@
   },
   "scripts": {},
   "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "plugin": {
       "list": []
@@ -166,6 +168,17 @@
           "name": "pages/orderTrace/orderTrace",
           "pathName": "pages/orderTrace/orderTrace",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/packAbnormal/packAbnormal",
+          "pathName": "pages/packAbnormal/packAbnormal",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/packAbnormalDetail/packAbnormalDetail",
+          "pathName": "pages/packAbnormalDetail/packAbnormalDetail",
           "scene": null
         }
       ]

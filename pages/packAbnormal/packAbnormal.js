@@ -58,9 +58,14 @@ Page({
     viewDetail(e) { //查看详情
         console.log(e, '详细信息')
         app.globalData.packageId = e.currentTarget.dataset.id
-        wx.navigateTo({
-            url: '../packForecastDetail/packForecastDetail'
-        })
+        app.globalData.fastenerDetail = e.currentTarget.dataset.item
+        wx.setStorageSync('fastener',e.currentTarget.dataset.item)
+        setTimeout(function(){
+            wx.navigateTo({
+                url: '../packAbnormalDetail/packAbnormalDetail'
+            })
+        },200)
+     
     },
     /**
      * 生命周期函数--监听页面隐藏

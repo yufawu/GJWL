@@ -2,6 +2,9 @@
   "navigationBarTitleText": "扣件详情",
   "usingComponents": {
     "van-cell":"@vant/weapp/cell/index",
-    "van-cell-group":"@vant/weapp/cell-group/index"
+    "van-cell-group":"@vant/weapp/cell-group/index",
+    "van-button":"@vant/weapp/button/index",
+    "van-action-sheet":"@vant/weapp/action-sheet/index",
+    "van-field":"@vant/weapp/field/index"
   }
 }
