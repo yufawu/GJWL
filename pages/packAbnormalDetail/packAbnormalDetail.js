@@ -11,7 +11,7 @@ Page({
     packDetail: null,
     showReplay: false,//回复面板
     replay: null,//留言内容
-    quickReplayList
+    quickReplayList:null,//快速回复
   },
 
   /**
@@ -26,7 +26,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log('详情', app.globalData.fastenerDetail)
     this.setData({
       // packDetail:app.globalData.fastenerDetail
       packDetail: wx.getStorageSync('fastener')

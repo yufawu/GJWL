@@ -46,9 +46,17 @@ Page({
                     emptyShow: true
                 })
             } else {
+                let packListArr =res.data.data.map((item) =>{
+                    if(item.detainRemark.length>50){
+                        item.reasonCut = item.detainRemark.substring(0,50)+'......'
+                    }else{
+                        item.reasonCut = item.detainRemark
+                    }
+                    return item
+                })
                 that.setData({
                     emptyShow: false,
-                    packList: res.data.data
+                    packList: packListArr
                 })
             }
 
@@ -64,7 +72,7 @@ Page({
             wx.navigateTo({
                 url: '../packAbnormalDetail/packAbnormalDetail'
             })
-        },200)
+        },500)
      
     },
     /**

@@ -1,14 +1,32 @@
 <!-- pages/packAbnormal/packAbnormal.wxml -->
 <view class="">
 <van-cell-group wx:if="{{!emptyShow}}">
-      <view wx:for="{{packList}}" wx:key="index" class="box-item">
-            <van-cell title="{{item.hawbNo}}" label="{{item.goodsType}} " border="{{false}}" title-width="60%" data-id="{{item.id}}" data-item="{{item}}" bindtap="viewDetail">
+      <view wx:for="{{packList}}" wx:key="index" >
+            <!-- <van-cell title="{{item.hawbNo}}" label="{{item.goodsType}} " border="{{false}}" title-width="60%" data-id="{{item.id}}" data-item="{{item}}" bindtap="viewDetail">
                   <view slot="">
                         <van-button data-id="{{item.id}}" type="info" size="small" catchtap="viewPack">详情</van-button>
                        <view class="box-time">{{item.createTime}}</view>
                   </view>
             </van-cell>
-            <view class="box-reason">{{item.remark}}</view>
+            <view class="box-reason">{{item.remark}}</view> -->
+               <view class="box-wrap">
+            <view class="box-top">
+                <view class="item-title">{{item.hawbNo}}</view>
+              <van-button data-id="{{item.id}}" type="info" size="small" catchtap="viewDetail" data-id="{{item.id}}" data-item="{{item}}">详情</van-button>
+            </view>
+            <view class="box-center">{{item.reasonCut}}</view>
+            <view class="box-bottom">
+               <view class="box-time">{{item.createTime}}</view>
+            </view>
+            <!-- <view class="item-button">
+                <van-button type="info" size="small" data-id="{{item.id}}" bindtap="viewPack">
+                    查看包裹
+                </van-button>
+                <van-button type="primary" size="small" data-id="{{item.id}}" bindtap="viewTrace">
+                    查看轨迹
+                </van-button>
+            </view> -->
+        </view>
             
       </view>
 </van-cell-group>
