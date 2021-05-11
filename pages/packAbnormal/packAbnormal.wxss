@@ -16,6 +16,7 @@
 .box-top{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .box-center{
     font-size:14px;
@@ -39,4 +40,17 @@
     border-top:1px solid #ebedf0;
     padding-top:10px;
     padding-bottom:10px;
+}
+.item-right{
+    display:flex;
+    align-items: center;
+}
+.box-status{
+    margin-right: 5px;
+    font-size:14px;
+    color:red;
+   
+}
+.item-right .reply{
+    color:#1c71fb;
 }

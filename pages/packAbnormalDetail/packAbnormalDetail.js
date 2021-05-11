@@ -1,5 +1,6 @@
 // pages/packAbnormalDetail/packAbnormalDetail.js
 const app = getApp()
+const { default: toast } = require('../../miniprogram_npm/@vant/weapp/toast/toast');
 const api = require('../../network/api');
 const http = require('../../network/http.js');
 Page({
@@ -10,7 +11,7 @@ Page({
   data: {
     packDetail: null,
     showReplay: false,//回复面板
-    replay: null,//留言内容
+    replay: null,//回复内容
     quickReplayList:null,//快速回复
   },
 
@@ -27,8 +28,8 @@ Page({
    */
   onReady: function () {
     this.setData({
-      // packDetail:app.globalData.fastenerDetail
-      packDetail: wx.getStorageSync('fastener')
+      packDetail:app.globalData.fastenerDetail
+      // packDetail: wx.getStorageSync('fastener')
     })
   },
 
@@ -55,15 +56,33 @@ Page({
     this.setData({ showReplay: true });
   },
   onReplayConfirm() {//确定回复
+    let that = this
     this.setData({ showReplay: false });
     let params = {
       awbId: this.data.packDetail.id,
       content: this.data.replay
     }
     console.log('确认回复', params)
-    // wx.navigateTo({ //回复后返回列表页
-    //   url: '../packAbnormalDetail/packAbnormalDetail'
-    // })
+    http.get(api.FasternerReplay,params).then((res)=>{
+      if(res.data.msg == '操作成功'){
+        wx.showToast({
+          title:'回复成功',
+          icon:'none'
+        })
+        setTimeout(function(){
+          wx.navigateTo({ //回复后返回列表页
+            url: '../packAbnormal/packAbnormal'
+          })
+        },1000)
+         
+      }else{
+        wx.showToast({
+          title:res.data.msg,
+          icon:'none'
+        })
+      }
+    })
+  
   },
   onReplayCancel() {
     console.log('取消回复')

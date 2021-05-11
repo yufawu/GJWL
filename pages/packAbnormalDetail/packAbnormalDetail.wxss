@@ -50,11 +50,20 @@
     border-radius: 8px;
 }
 .content{
-    height:400px;
+    height:200px;
 }
 .content .van-field__page{
     width:90%;
 }
 .content .van-field__body{
     width:350px;
+}
+.reply-content-wrap{
+    margin-top:20px;
+    padding:10px;
+    /* backgrond:#fff; */
+}
+.reply-content{
+    background:#ddd;
+    padding:10px;
 }

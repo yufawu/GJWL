@@ -19,11 +19,15 @@
             <image mode="aspectFill" src="{{item.imageUrl}}" bindtap="viewImage" data-previewurl="{{packDetail.params.images}}" data-currenturl="{{item.imageUrl}}" data-index="{{index}}"></image>
         </view>
     </view>
-  
+    <view class="reply-content-wrap" wx:if="{{packDetail.reply !=''}}">
+       <view class="reply-content">已回复：{{packDetail.reply}}</view>
+  </view>
 </view>
-  <view class="click-button">
-       <van-button round type="info" block bindtap="clickReplay">回复</van-button>
+  <view class="click-button" >
+       <van-button round type="info" block bindtap="clickReplay" >回复</van-button>
     </view>
+
+    
 
 <van-action-sheet show="{{ showReplay }}" bind:close="onReplayClose">
   <view class="operate-wrap">
@@ -32,9 +36,9 @@
     <view class="operate-confirm" bindtap="onReplayConfirm">确定</view>
   </view>
   <view class="content">
-      <view class="quick_replay" bindtap="quickReplay">
+      <!-- <view class="quick_replay" bindtap="quickReplay">
       快捷回复
-      </view>
+      </view> -->
         <van-field
     value="{{ replay }}"
     type="textarea"
@@ -44,10 +48,4 @@
      bind:change="onReplayChange"
   />
   </view>
-    <!-- <van-field
-    value="{{ replay }}"
-    placeholder="回复"
-    border="{{ false }}"
-    bind:change="onReplayChange"
-  /> -->
 </van-action-sheet>

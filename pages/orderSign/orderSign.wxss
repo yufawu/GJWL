@@ -1,1 +1,4 @@
 /* pages/orderSign/orderSign.wxss */
+.box-wrap .van-cell__label{
+    margin-top:10px;
+}
