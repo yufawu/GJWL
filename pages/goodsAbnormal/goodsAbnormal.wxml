@@ -1,0 +1,28 @@
+<!--pages/goodsAbnormal/goodsAbnormal.wxml-->
+<view class="">
+    <van-cell-group wx:if="{{!emptyShow}}">
+        <view wx:for="{{packList}}" wx:key="index">
+            <view class="box-wrap">
+                <view class="box-top">
+                    <view class="item-title">{{item.hawbno}}</view>
+                    <view class="item-right">
+                        <view class="box-status reply" wx:if="{{item.params.isReply == 'Y'}}">
+                            已回复
+                        </view>
+                        <view class="box-status " wx:if="{{item.params.isReply  == 'N'}}">未回复</view>
+                        <van-button data-id="{{item.id}}" type="info" size="small" catchtap="viewDetail" data-id="{{item.id}}" data-item="{{item}}">
+                            详情
+                        </van-button>
+                    </view>
+                </view>
+                <view class="box-center">{{item.reasonCut || ''}}</view>
+                <view class="box-bottom">
+                    <view class="box-time">{{item.creatTime}}</view>
+                </view>
+            </view>
+        </view>
+    </van-cell-group>
+    <view class="wrap" wx:if="{{emptyShow}}">
+        <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="没有内容哦" />
+    </view>
+</view>
