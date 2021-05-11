@@ -42,7 +42,7 @@
                 <van-grid-item icon="clear" bindtap="packNoInWare" info="{{statistics.noInWare}}" text="未入库"></van-grid-item>
                 <van-grid-item icon="checked" bindtap="packInWare" info="{{statistics.inWare}}" text="已入库"></van-grid-item>
                 <van-grid-item icon="clock" bindtap="packAbnormal" info="{{statistics.pending}}" text="待处理"></van-grid-item>
-                 <van-grid-item icon="gift-card" bindtap="packConfirm" dot text="确认打包"></van-grid-item>
+                 <van-grid-item icon="gift-card" bindtap="packConfirm" info="{{statistics.nopack}}" text="确认打包"></van-grid-item>
             </van-grid>
         </view>
     </view>
@@ -67,7 +67,7 @@
                   <van-grid-item icon="question-o" bindtap="problemCommon" text="常见问题"></van-grid-item>
                   <!-- <van-grid-item icon="records" bindtap="suggestions" text="投诉建议"></van-grid-item> -->
                   <van-grid-item icon="other-pay" bindtap="informationNotice" text="通知公告"></van-grid-item>
-                  <van-grid-item icon="question-o" bindtap="abnormalList" color="red" info=""  text="问题件"></van-grid-item>
+                  <van-grid-item icon="question-o" bindtap="goodsAbnormal" color="red" info=""  text="问题件"></van-grid-item>
                 <van-grid-item icon="question-o" bindtap="abnormalList"info="" text="异常件"></van-grid-item>
                 <van-grid-item icon="after-sale" bindtap="orderRecord"  text="交易记录"></van-grid-item>
                 <van-grid-item icon="scan" bindtap="packForecast" text="一键预报"></van-grid-item>

@@ -47,7 +47,7 @@ Page({
                 })
             } else {
                 let packListArr =res.data.data.map((item) =>{
-                    if(item.detainRemark.length>50){
+                    if(item.detainRemark && item.detainRemark.length>50){
                         item.reasonCut = item.detainRemark.substring(0,50)+'......'
                     }else{
                         item.reasonCut = item.detainRemark
@@ -64,10 +64,7 @@ Page({
         })
     },
     viewDetail(e) { //查看详情
-        console.log(e, '详细信息')
-        app.globalData.packageId = e.currentTarget.dataset.id
         app.globalData.fastenerDetail = e.currentTarget.dataset.item
-        wx.setStorageSync('fastener',e.currentTarget.dataset.item)
         setTimeout(function(){
             wx.navigateTo({
                 url: '../packAbnormalDetail/packAbnormalDetail'

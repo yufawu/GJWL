@@ -42,7 +42,9 @@
     "pages/packConfirmDetail/packConfirmDetail",
     "pages/packConfirmNum/packConfirmNum",
     "pages/orderTrace/orderTrace",
-    "pages/packAbnormalDetail/packAbnormalDetail"
+    "pages/packAbnormalDetail/packAbnormalDetail",
+    "pages/goodsAbnormal/goodsAbnormal",
+    "pages/goodsAbnormalDetail/goodsAbnormalDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

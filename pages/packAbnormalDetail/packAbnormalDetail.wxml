@@ -1,34 +1,22 @@
 <!-- pages/packAbnormalDetail/packAbnormalDetail.wxml -->
 <view class="pages">
-    <van-cell-group>
-        <!-- <van-cell title="快递名称" value="{{packDetail.expressCompany }}" /> -->
-        <van-cell title="快递单号" value="{{packDetail.hawbNo}}" />
-        <van-cell title="物品名称" value="{{packDetail.productName}}" />
-        <!-- <van-cell title="物品品牌" value="{{packDetail.brand}}" /> -->
-        <!-- <van-cell title="物品价值" value="{{packDetail.svalue}}" /> -->
-        <!-- <van-cell title="物品属性" value="{{packDetail.goodsType}}" /> -->
-        <!-- <van-cell title="商品数量" value="{{packDetail.pcs}}" /> -->
-        <!-- <van-cell title="商品重量" value="{{packDetail.cwt}}" /> -->
-        <!-- <van-cell title="商品备注" value="{{packDetail.remark}}" /> -->
-        <!-- <van-cell wx:if="{{packDetail.isUnpack == 0}}" title="是否拆包" value="是" /> -->
-        <!-- <van-cell wx:if="{{packDetail.isUnpack == 1}}" title="是否拆包" value="否" /> -->
-    </van-cell-group>
-    <view class="reason">扣件原因：{{packDetail.detainRemark}}</view>
-    <view class="reason-image">
-        <view class="image-item" wx:for="{{packDetail.params.images}}">
-            <image mode="aspectFill" src="{{item.imageUrl}}" bindtap="viewImage" data-previewurl="{{packDetail.params.images}}" data-currenturl="{{item.imageUrl}}" data-index="{{index}}"></image>
-        </view>
+  <van-cell-group>
+    <van-cell title="快递单号" value="{{packDetail.hawbNo}}" />
+    <van-cell title="物品名称" value="{{packDetail.productName}}" />
+  </van-cell-group>
+  <view class="reason">扣件原因：{{packDetail.detainRemark || ''}}</view>
+  <view class="reason-image">
+    <view class="image-item" wx:for="{{packDetail.params.images}}">
+      <image mode="aspectFill" src="{{item.imageUrl}}" bindtap="viewImage" data-previewurl="{{packDetail.params.images}}" data-currenturl="{{item.imageUrl}}" data-index="{{index}}"></image>
     </view>
-    <view class="reply-content-wrap" wx:if="{{packDetail.reply !=''}}">
-       <view class="reply-content">已回复：{{packDetail.reply}}</view>
+  </view>
+  <view class="reply-content-wrap" wx:if="{{packDetail.reply !=''}}">
+    <view class="reply-content">已回复：{{packDetail.reply}}</view>
   </view>
 </view>
-  <view class="click-button" >
-       <van-button round type="info" block bindtap="clickReplay" >回复</van-button>
-    </view>
-
-    
-
+<view class="click-button">
+  <van-button round type="info" block bindtap="clickReplay">回复</van-button>
+</view>
 <van-action-sheet show="{{ showReplay }}" bind:close="onReplayClose">
   <view class="operate-wrap">
     <view class="operate-cancel" bindtap="onReplayCancel">取消</view>
@@ -36,16 +24,9 @@
     <view class="operate-confirm" bindtap="onReplayConfirm">确定</view>
   </view>
   <view class="content">
-      <!-- <view class="quick_replay" bindtap="quickReplay">
+    <!-- <view class="quick_replay" bindtap="quickReplay">
       快捷回复
       </view> -->
-        <van-field
-    value="{{ replay }}"
-    type="textarea"
-    placeholder="回复内容"
-    autosize
-    border="{{ false }}"
-     bind:change="onReplayChange"
-  />
+    <van-field value="{{ replay }}" type="textarea" placeholder="回复内容" autosize border="{{ false }}" bind:change="onReplayChange" />
   </view>
 </van-action-sheet>

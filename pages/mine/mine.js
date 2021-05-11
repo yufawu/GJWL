@@ -217,6 +217,15 @@ Page({
         }
 
     },
+    goodsAbnormal (){//问题件扣件
+        if (wx.getStorageSync('openId')) {
+            wx.navigateTo({
+                url: '../goodsAbnormal/goodsAbnormal'
+            })
+        } else {
+            Toast("请先登录/注册")
+        }
+    },
     abnormalList() { //异常件认领
         if (wx.getStorageSync('openId')) {
             wx.navigateTo({

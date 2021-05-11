@@ -27,5 +27,6 @@ App({
         promoterOpenId: null, //分享者的openId
         packConfirmMoreId:null,//确认打包时的集货id
         fastenerDetail:null,//扣件详情
+        goodsAbnormalDetail:null,//问题件详情
     }
 })

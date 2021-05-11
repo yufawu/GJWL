@@ -1,6 +1,5 @@
 // pages/packAbnormalDetail/packAbnormalDetail.js
 const app = getApp()
-const { default: toast } = require('../../miniprogram_npm/@vant/weapp/toast/toast');
 const api = require('../../network/api');
 const http = require('../../network/http.js');
 Page({

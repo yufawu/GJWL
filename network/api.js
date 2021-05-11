@@ -57,4 +57,6 @@ module.exports = {
     GetTrackBySetgoodsId:ApiRootUrl +'/setgoods/getTrackBySetgoodsId',//根据集货id查询轨迹
     FasternerReplay:ApiRootUrl +'/preAwb/reply',//回复扣件
     GetStatistics:ApiRootUrl +'/setgoods/statistics',//个人中心，数量统计
+    GoodsAbnormal:ApiRootUrl +'/setgoods/problemGoods',//问题件列表
+    GoodsAbnormalReply:ApiRootUrl +'/setgoods/reply',//问题件回复
 }
