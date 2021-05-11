@@ -23,7 +23,10 @@
                         </view>
                   </view>
                   <view class="box-right">
-                        <view class="box-price">{{item.params.payCost}}(总)</view>
+                        <view class="box-price">
+                              <view>{{item.params.payCost}}</view>
+                              <image class="box-image" src="/res/image/icon_total.png"></image>
+                        </view>
                         <van-button data-id="{{item.id}}" type="primary" size="small" catchtap="payment">
                               支付
                         </van-button>

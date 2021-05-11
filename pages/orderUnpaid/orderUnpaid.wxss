@@ -5,6 +5,8 @@
     margin-bottom:8px;
     color: red;
     font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 
 .item-bottom{
@@ -30,6 +32,11 @@
 .box-right .van-button--small{
     font-size:18px;
     line-height:30px;
+}
+.box-image{
+    width:20px;
+    height:20px;
+    margin-left:5px;
 }
 .box-extra{
     display: flex;
