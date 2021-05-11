@@ -55,4 +55,6 @@ module.exports = {
     PackConfirmId:ApiRootUrl +'/setgoods/confirmPackage',//确认打包id
     GetPreAwbBySetgoodsId:ApiRootUrl +'/setgoods/getPreAwbBySetgoodsId',//根据集货id查询预报单
     GetTrackBySetgoodsId:ApiRootUrl +'/setgoods/getTrackBySetgoodsId',//根据集货id查询轨迹
+    FasternerReplay:ApiRootUrl +'/preAwb/reply',//回复扣件
+    GetStatistics:ApiRootUrl +'/setgoods/statistics',//个人中心，数量统计
 }

@@ -39,9 +39,9 @@
         <view class="panel-title">我的包裹</view>
         <view class="panel-box">
             <van-grid square border="{{false}}">
-                <van-grid-item icon="clear" bindtap="packNoInWare" info="12" text="未入库"></van-grid-item>
-                <van-grid-item icon="checked" bindtap="packInWare" info="99+" text="已入库"></van-grid-item>
-                <van-grid-item icon="clock" bindtap="packAbnormal" info="12" text="待处理"></van-grid-item>
+                <van-grid-item icon="clear" bindtap="packNoInWare" info="{{statistics.noInWare}}" text="未入库"></van-grid-item>
+                <van-grid-item icon="checked" bindtap="packInWare" info="{{statistics.inWare}}" text="已入库"></van-grid-item>
+                <van-grid-item icon="clock" bindtap="packAbnormal" info="{{statistics.pending}}" text="待处理"></van-grid-item>
                  <van-grid-item icon="gift-card" bindtap="packConfirm" dot text="确认打包"></van-grid-item>
             </van-grid>
         </view>
@@ -50,10 +50,10 @@
         <view class="panel-title">我的订单</view>
         <view class="panel-box">
             <van-grid square border="{{false}}">
-                <van-grid-item icon="cash-back-record" text="待支付" info="12" bindtap="orderUnpaid"></van-grid-item>
-                <van-grid-item icon="close" text="待发货" info="99+" bindtap="orderUndeliver"></van-grid-item>
-                <van-grid-item icon="passed" text="已发货" info="30" bindtap="orderDeliver"></van-grid-item>
-                <van-grid-item icon="completed" text="已签收" info="55" bindtap="orderSign"></van-grid-item>
+                <van-grid-item icon="cash-back-record" text="待支付" info="{{statistics.noPay}}" bindtap="orderUnpaid"></van-grid-item>
+                <van-grid-item icon="close" text="待发货" info="{{statistics.toGoods}}" bindtap="orderUndeliver"></van-grid-item>
+                <van-grid-item icon="passed" text="已发货" info="{{statistics.shipped}}" bindtap="orderDeliver"></van-grid-item>
+                <van-grid-item icon="completed" text="已签收" info="{{statistics.signed}}" bindtap="orderSign"></van-grid-item>
             </van-grid>
         </view>
     </view>

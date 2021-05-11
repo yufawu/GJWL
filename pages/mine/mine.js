@@ -1,5 +1,7 @@
 // pages/mine/mine.js
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
+const api = require('../../network/api');
+const http = require('../../network/http.js');
 Page({
 
     /**
@@ -7,14 +9,13 @@ Page({
      */
     data: {
         userInfo: null, //个人信息
-
+        statistics:null,//统计
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
     },
 
     /**
@@ -42,11 +43,23 @@ Page({
             this.setData({
                 userInfo: wx.getStorageSync('userInfo')
             })
+            this.getStatistics();
         }
     },
     toLogin() { //点击登录
         wx.navigateTo({
             url: '../login/login'
+        })
+    },
+    getStatistics(){ //数量统计
+        let that = this
+        let params ={
+            "userId": wx.getStorageSync('userId')
+        }
+        http.get(api.GetStatistics,params).then((res)=>{
+            that.setData({
+                statistics:res.data.data
+            })
         })
     },
     packNoInWare() { //未入库
