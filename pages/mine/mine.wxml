@@ -67,8 +67,8 @@
                   <van-grid-item icon="question-o" bindtap="problemCommon" text="常见问题"></van-grid-item>
                   <!-- <van-grid-item icon="records" bindtap="suggestions" text="投诉建议"></van-grid-item> -->
                   <van-grid-item icon="other-pay" bindtap="informationNotice" text="通知公告"></van-grid-item>
-                  <van-grid-item icon="question-o" bindtap="goodsAbnormal" color="red" info=""  text="问题件"></van-grid-item>
-                <van-grid-item icon="question-o" bindtap="abnormalList"info="" text="异常件"></van-grid-item>
+                  <van-grid-item icon="question-o" bindtap="goodsAbnormal" color="red" info="{{statistics.problem}}" text="问题件"></van-grid-item>
+                <van-grid-item icon="question-o" bindtap="abnormalList" text="异常件"></van-grid-item>
                 <van-grid-item icon="after-sale" bindtap="orderRecord"  text="交易记录"></van-grid-item>
                 <van-grid-item icon="scan" bindtap="packForecast" text="一键预报"></van-grid-item>
                 <van-grid-item bindtap='addressManage' icon="location-o" text="我的地址"></van-grid-item>

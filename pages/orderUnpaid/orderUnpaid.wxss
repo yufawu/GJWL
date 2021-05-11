@@ -1,20 +1,56 @@
 /* pages/orderUnpaid/orderUnpaid.wxss */
 
-.box {
-    margin-top: 7px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
 .box-price {
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    margin-bottom:8px;
     color: red;
     font-weight: bold;
 }
 
-/* .van-cell__title {
-    position: absolute;
-    top: 4px;
-    left: 8px;
-} */
+.item-bottom{
+    display:flex;
+}
+.box-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size:16px;
+    color:#969799;
+    padding:10px;
+    background:#fff;
+    margin-bottom:10px;
+}
+.box-right{
+    text-align: right;
+}
+.box-title{
+    font-size:18px;
+    color:#333;
+}
+.box-right .van-button--small{
+    font-size:18px;
+    line-height:30px;
+}
+.box-extra{
+    display: flex;
+    /* justify-content: space-between; */
+    font-size:18px;
+}
+.box-extra-mixed{
+  margin-left:30px;
+  color:red;
+}
+.fee-wrap{
+    min-height:150px;
+    margin-bottom:50px;
+}
+.fee-item{
+    padding:5px 15px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom:20px; */
+}
+.fee-price{
+    color:red;
+}

@@ -1,15 +1,45 @@
-<!--pages/orderUnpaid/orderUnpaid.wxml-->
+<!-- pages/orderUnpaid/orderUnpaid.wxml -->
 <view class="list-page">
-<view wx:for="{{unpaidList}}" wx:key="index" wx:if="{{!emptyShow}}">
-<van-cell title="{{item.hawbno}}" label="收费重：{{item.cwt}}KG" data-id="{{item.id}}" catchtap="viewDetail">
-<view slot="" class="box">
- <view class="box-price">{{item.payFee}}</view>
- <van-button data-id="{{item.id}}" type="primary" size="small" catchtap="payment">支付</van-button>
+      <view wx:for="{{unpaidList}}" wx:key="{{index}}" wx:if="{{!emptyShow}}">
+            <!-- <van-cell title="{{item.hawbno}}" label="收费重：{{item.cwt}}KG" data-id="{{item.id}}" catchtap="viewDetail">
+                  <view slot="" class="box">
+                        <view class="box-price">{{item.payFee}}</view>
+                        <van-button data-id="{{item.id}}" type="primary" size="small" catchtap="payment">
+                              支付
+                        </van-button>
+                  </view>
+            </van-cell> -->
+            <view class="box-wrap">
+                  <view class="box-left">
+                        <view class="box-title" data-id="{{item.id}}" catchtap="viewDetail">
+                              {{item.hawbno}}
+                        </view>
+                        <view class="box-cwt">收费重:{{item.cwt}}KG</view>
+                        <view class="box-extra">
+                              <view class="box-extra-fare">运费:{{item.payFee}}</view>
+                              <view class="box-extra-mixed" wx:if="{{item.otherFee}}" bindtap="viewOtherFee" data-fees="{{item.params.otherFees}}">
+                                    杂费:{{item.otherFee}}
+                              </view>
+                        </view>
+                  </view>
+                  <view class="box-right">
+                        <view class="box-price">{{item.params.payCost}}(总)</view>
+                        <van-button data-id="{{item.id}}" type="primary" size="small" catchtap="payment">
+                              支付
+                        </van-button>
+                  </view>
+            </view>
+      </view>
+      <view class="wrap" wx:if="{{emptyShow}}">
+            <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="没有内容哦" />
+      </view>
 </view>
-</van-cell>
-</view>
-<view class="wrap" wx:if="{{emptyShow}}">
-      <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="没有内容哦" />
-</view>
-</view>
-
+<van-action-sheet show="{{ showOtherFee }}" bind:close="otherFeeClose" title="杂费项">
+      <view class="fee-wrap">
+<view class="fee-item" wx:for="{{otherFeeList}}" wx:key="{{index}}">
+            <view class="fee-name">{{item.otherFeeName}}</view>
+            <view class="fee-price">{{item.otherFee}}</view>
+      </view>
+      </view>
+      
+</van-action-sheet>

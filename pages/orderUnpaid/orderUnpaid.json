@@ -4,6 +4,7 @@
         "van-cell-group": "@vant/weapp/cell-group/index",
         "van-cell": "@vant/weapp/cell/index",
         "van-button": "@vant/weapp/button/index",
-        "van-empty": "@vant/weapp/empty/index"
+        "van-empty": "@vant/weapp/empty/index",
+        "van-action-sheet": "@vant/weapp/action-sheet/index"
     }
 }

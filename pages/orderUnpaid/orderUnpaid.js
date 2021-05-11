@@ -12,6 +12,8 @@ Page({
         unpaidList: null,
         goodsId: null, //支付订单的id
         emptyShow: false, //是否显示空状态
+        showOtherFee:false,//杂费项面板
+        otherFeeList:null,//杂费项列表
     },
 
     /**
@@ -106,6 +108,19 @@ Page({
         wx.navigateTo({
             url: '../orderDetail/orderDetail'
         })
+    },
+    viewOtherFee(e){//查看其它费用
+        // otherFeeList = e.currentTarget.dataset.otherFee
+        console.log('内容',e.currentTarget.dataset.fees)
+        this.setData({
+            showOtherFee:true,
+            otherFeeList:e.currentTarget.dataset.fees
+        })
+    },
+    otherFeeClose(){
+      this.setData({
+        showOtherFee:false,
+      })
     },
     /**
      * 生命周期函数--监听页面隐藏
