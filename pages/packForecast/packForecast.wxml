@@ -100,12 +100,15 @@
 </van-cell-group>
 
      <van-field
+     class="textarea"
     value="{{ item.remark }}"
  
     clearable
      title-width="6.2rem"
     input-align="right"
     label="商品备注"
+    type="textarea"
+    autosize
     placeholder="商品的颜色尺码等信息"
       bind:change="remarkChange"
      data-prop="remark"
@@ -133,20 +136,24 @@
 </view>
 <view class="address">
     <van-cell-group>
-       <van-field
-    value="{{ addressSelected.name }}{{addressSelected.tel}}{{addressSelected.address}}"
+       <van-field class="textarea"
+    value="{{ addressSelected.name }},{{addressSelected.tel}}"
     required
     clearable
     disabled
      is-link="true"
     title-width="6.2rem"
-    input-align="right"
+  
     label="收货地址"
+    type="textarea"
+    autosize
     placeholder="请选择收货地址"
          bindtap="onAddressClick"
-    
-     
-  />
+  >
+  </van-field>
+  <van-cell title="{{addressSelected.address}},{{addressSelected.cityName}},{{addressSelected.countryName}}">
+
+  </van-cell>
     </van-cell-group>
 </view>
  <view class="agreement"> 

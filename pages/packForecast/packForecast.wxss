@@ -28,7 +28,9 @@
 .tips {
     color: orange;
 }
-
+.textarea .van-field__body{
+    width:14rem;
+}
 
 /* 弹窗 */
 

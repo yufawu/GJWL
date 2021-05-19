@@ -71,7 +71,8 @@ Page({
             console.log("请求结果", res.data.data)
             if (res.data.data && res.data.data.length !== 0) { //数据不为空时保存
                 that.setData({
-                    addressList: res.data.data
+                    addressList: res.data.data,
+                    addressSelected:res.data.data[0]
                 })
                 wx.setStorageSync('addressList', res.data.data)
                 console.log('地址列表', that.data.addressList)

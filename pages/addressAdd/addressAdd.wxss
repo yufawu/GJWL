@@ -1,1 +1,8 @@
 /* pages/addressAdd/addressAdd.wxss */
+.textarea .van-field__page{
+    width:90%;
+}
+.textarea .van-field__body{
+    width:12.5rem;
+  
+}
